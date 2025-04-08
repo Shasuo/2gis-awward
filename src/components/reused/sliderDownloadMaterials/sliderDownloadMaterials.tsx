@@ -8,10 +8,10 @@ import React from "react";
 import "swiper/css";
 
 const images = [
-  "becomeMoreVisible-slider-img-1.webp",
-  "becomeMoreVisible-slider-img-2.webp",
-  "becomeMoreVisible-slider-img-3.webp",
-  "becomeMoreVisible-slider-img-4.webp",
+  "becomemorevisible-slider-img-1.webp",
+  "becomemorevisible-slider-img-2.webp",
+  "becomemorevisible-slider-img-3.webp",
+  "becomemorevisible-slider-img-4.webp",
 ];
 export const SliderDownloadMaterials = () => {
   return (
