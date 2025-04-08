@@ -16,6 +16,7 @@ export const TextModule = ({
   font_weight,
   text_color,
   opacity,
+  font_size__mobile,
 }: MainTextProps) => {
   return (
     <Tag

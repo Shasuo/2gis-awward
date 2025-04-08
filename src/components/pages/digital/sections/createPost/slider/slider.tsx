@@ -1,48 +1,24 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { TextContent } from "@/components/pages/personalized/sections/readyMadeTexts/texts/textContent/textContent";
 import Image from "next/image";
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 import React from "react";
-import { TextContentProps } from "@/components/pages/personalized/sections/readyMadeTexts/texts/texts";
+
 import "swiper/css";
 
-const texts: TextContentProps[] = [
-  {
-    title: "Нейтральный стиль:",
-    content: `Мы получили Премию 2ГИС!
-        
-Это значит, что наш бизнес вошёл в число лучших по мнению пользователей — и для нас это большая гордость.
-        
-Спасибо всем, кто делится отзывами, выбирает нас и возвращается.
-        
-📍 Найти нас в 2ГИС → [вставьте ссылку]`,
-  },
-  {
-    title: "Деловой стиль:",
-    content: `Наш сервис стал победителем Премии 2ГИС.
-        
-Это результат вашей поддержки, обратной связи и доверия.
-        
-Мы благодарим всех, кто помогает нам становиться лучше каждый день.
-        
-Увидеть нас в 2ГИС → [вставьте ссылку]`,
-  },
-  {
-    title: "Лёгкий, дружелюбный стиль:",
-    content: `Ого! Мы взяли Премию 2ГИС!
-Спасибо вам за тёплые отзывы, высокие оценки и добрые слова.
-Всё это — про вас и для вас 💛
-        
-Загляните к нам в 2ГИС → [вставьте ссылку]`,
-  },
+const images = [
+  "digital-perview-0.webp",
+  "digital-perview-1.webp",
+  "digital-perview-2.webp",
+  "digital-perview-3.webp",
+  "digital-perview-4.webp",
 ];
 
 export const Slider = () => {
   return (
-    <div className="relative mr-[62]">
+    <div className="max-tablet:mx-auto max-tablet:mt-[40px] relative mr-[62]">
       <Swiper
-        className="flex max-w-[359]"
+        className="max-tablet:max-w-[344] flex max-w-[359]"
         modules={[Navigation, Pagination]}
         slidesPerView={1}
         spaceBetween={30}
@@ -56,11 +32,11 @@ export const Slider = () => {
           clickable: true,
         }}
       >
-        {texts.map((el, index) => (
+        {images.map((el, index) => (
           <SwiperSlide key={index}>
             <Image
-              src={`${IMAGES_PATH}/digital-perview.webp`}
-              alt={""}
+              src={`${IMAGES_PATH}/${el}`}
+              alt={"Создайте пост"}
               width={359}
               height={568}
             />
@@ -68,7 +44,7 @@ export const Slider = () => {
         ))}
       </Swiper>
       <button
-        className="custom-prev custom-prev__Digital"
+        className="custom-prev custom-prev__Digital max-tablet:hidden"
         aria-label="Previous slide"
       >
         <Image
@@ -80,7 +56,7 @@ export const Slider = () => {
         />
       </button>
       <button
-        className="custom-next custom-next__Digital"
+        className="custom-next custom-next__Digital max-tablet:hidden"
         aria-label="Next slide"
       >
         <Image

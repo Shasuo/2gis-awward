@@ -44,7 +44,7 @@ const texts: TextContentProps[] = [
 
 export const Texts = () => {
   return (
-    <div className="relative">
+    <div className="max-tablet:mt-6 max-tablet:mx-auto max-tablet:max-w-[344px] relative">
       <Swiper
         className="flex max-w-[552]"
         modules={[Navigation, Pagination]}
@@ -66,7 +66,10 @@ export const Texts = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <button className="custom-prev" aria-label="Previous slide">
+      <button
+        className="custom-prev max-tablet:hidden"
+        aria-label="Previous slide"
+      >
         <Image
           src={`${ICONS_PATH}/arrow_left.svg`}
           alt={"Предыдущий слайд"}
@@ -75,7 +78,7 @@ export const Texts = () => {
           className={"w-fit mx-auto"}
         />
       </button>
-      <button className="custom-next" aria-label="Next slide">
+      <button className="custom-next max-tablet:hidden" aria-label="Next slide">
         <Image
           src={`${ICONS_PATH}/arrow_left.svg`}
           alt={"Следующий слайд"}

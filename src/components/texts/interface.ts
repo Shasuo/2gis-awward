@@ -6,6 +6,7 @@ export interface MainTextProps {
   letter_spacing?: number | string;
   as?: keyof JSX.IntrinsicElements;
   font_size?: number;
+  font_size__mobile?: number;
   max_width?: number | string;
   margin_left?: number;
   margin_right?: number;

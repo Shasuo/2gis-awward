@@ -10,7 +10,7 @@ import { WhatNext } from "@/components/pages/digital/sections/whatNext/whatNext"
 
 export const Digital = () => {
   return (
-    <main className={"mt-[84]"}>
+    <main className={"max-tablet:mt-[60] mt-[84]"}>
       <Breadcrumbs pageName={"Диджитал-макеты"} />
       <FirstScreen />
       <CreatePost />

@@ -6,65 +6,62 @@ import { IMAGES_PATH } from "@/components/paths/paths";
 export const ViewMaterials = () => {
   return (
     <section
-      className={
-        "mt-[140px] rounded-[16px] bg-[#AB844C] p-12 pb-[77] w-full box-border relative"
-      }
+      className={"max-tablet:overflow-hidden max-tablet:mt-[80px] mt-[140px]"}
     >
-      <div>
-        <div className={"bg-[#0C132D] px-[15] py-2 rounded-[12px] w-fit"}>
-          <TextModule
-            text={"Шаг 1"}
-            font_size={16}
-            line_height={"24px"}
-            letter_spacing={"-0.018em"}
-          />
+      <div
+        className={
+          "max-tablet:max-w-[375px] max-tablet:pb-[52] max-tablet:pt-[60] max-tablet:px-[39px] rounded-[16px] bg-[#AB844C] p-12 pb-[77] w-full box-border relative max-w-[1128px] mx-auto"
+        }
+      >
+        <div>
+          <div className={"bg-[#0C132D] px-[15] py-2 rounded-[12px] w-fit"}>
+            <span
+              className={
+                "max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] text-base leading-6 tracking-[-0.018em]"
+              }
+            >
+              Шаг 1
+            </span>
+          </div>
+          <div className={"font-display mt-8"}>
+            <h2
+              className={
+                "max-tablet:max-w-[282px] max-tablet:tracking-[0.01em] max-tablet:leading-[100%] max-tablet:text-[30px] text-[54px] leading-[92%] tracking-[-0.02em] max-w-[600px]"
+              }
+            >
+              Расскажите о своей победе прямо сейчас
+            </h2>
+            <p
+              className={
+                "max-tablet:max-w-[282px] max-tablet:tracking-[0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] text-[24px] leading-[130%] tracking-[-0.015em] max-w-[462px] font-display mt-6"
+              }
+            >
+              Мы подготовили для вас набор персонализированных визуалов
+              и&nbsp;текстов для Ваших социальных сетей
+            </p>
+          </div>
+          <Link
+            href={"/personalized"}
+            className={
+              "px-[38] py-[18] rounded-[8] box-border w-fit block mt-[46]"
+            }
+            style={{ border: "1px solid white" }}
+          >
+            <span className={"text-base leading-6 tracking-[-0.018em]"}>
+              Смотреть материалы
+            </span>
+          </Link>
         </div>
-
-        <TextModule
-          text={"Расскажите о своей победе прямо сейчас"}
-          font_size={54}
-          line_height={"92%"}
-          letter_spacing={"-0.02em"}
-          max_width={600}
-          display
-          margin_top={36}
-          as={"h2"}
-        />
-        <TextModule
-          text={
-            "Мы подготовили для вас набор персонализированных визуалов и&nbsp;текстов для Ваших социальных сетей"
-          }
-          font_size={24}
-          line_height={"130%"}
-          letter_spacing={"-0.015em"}
-          max_width={462}
-          display
-          margin_top={24}
-          as={"p"}
-        />
-        <Link
-          href={"/personalized"}
+        <Image
+          src={`${IMAGES_PATH}/awardWinner.webp`}
+          alt={"Победитель Премии"}
+          width={568}
+          height={537}
           className={
-            "px-[38] py-[18] rounded-[8] box-border w-fit block mt-[46]"
+            "max-tablet:left-[-90px] max-tablet:right-[unset] max-tablet:top-0 max-tablet:min-w-[489] max-tablet:min-h-[483] max-tablet:relative absolute right-[-56] top-[-31]"
           }
-          style={{ border: "1px solid white" }}
-        >
-          <TextModule
-            text={"Смотреть материалы"}
-            font_size={16}
-            line_height={"24px"}
-            letter_spacing={"-0.018em"}
-            as={"span"}
-          />
-        </Link>
+        />
       </div>
-      <Image
-        src={`${IMAGES_PATH}/awardWinner.webp`}
-        alt={"Победитель Премии"}
-        width={568}
-        height={537}
-        className={"absolute right-[-56] top-[-31]"}
-      />
     </section>
   );
 };

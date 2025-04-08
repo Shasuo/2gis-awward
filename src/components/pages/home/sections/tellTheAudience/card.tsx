@@ -4,11 +4,11 @@ import { TextModule } from "@/components/texts/textModule";
 import Link from "next/link";
 import { CardProps } from "@/components/pages/home/sections/tellTheAudience/cards";
 
-export const Card = ({ href, img, text }: CardProps) => {
+export const Card = ({ href, img, text, mobilePlusHeight }: CardProps) => {
   return (
     <Link
       href={href}
-      className={`p-[36] box-border w-[360] h-[408] bg-[#364463] rounded-[16] flex`}
+      className={`${mobilePlusHeight ? "max-tablet:h-[345]" : "max-tablet:h-[286]"} max-tablet:p-[24] max-tablet:w-full p-[36] box-border w-[360] h-[408] bg-[#364463] rounded-[16] flex`}
       style={{
         flexDirection: "column",
         backgroundImage: `url(${IMAGES_PATH}/${img})`,
@@ -22,29 +22,37 @@ export const Card = ({ href, img, text }: CardProps) => {
           alt={"перейти"}
           width={40}
           height={40}
+          className={"max-tablet:hidden"}
+        />
+        <Image
+          src={`${ICONS_PATH}/link_mobile.svg`}
+          alt={"перейти"}
+          width={25}
+          height={25}
+          className={"max-tablet:block hidden"}
         />
         <div
-          className={"rounded-[12] box-border h-10 px-[15] py-2 ml-[10]"}
+          className={
+            "max-tablet:rounded-[8] max-tablet:h-6 max-tablet:py-1 max-tablet:px-2 max-tablet:ml-1 rounded-[12] box-border h-10 px-[15] py-2 ml-[10]"
+          }
           style={{ border: "1px solid white" }}
         >
-          <TextModule
-            text={"Соц.сети"}
-            font_size={16}
-            line_height={"24px"}
-            letter_spacing={"-0.018em"}
-            margin_top={-1}
-          />
+          <div
+            className={
+              "max-tablet:mt-[.4px] max-tablet:leading-[110%] max-tablet:text-[12px] text-base leading-6 tracking-[-0.018em] mt-[-1]"
+            }
+          >
+            Соц.сети
+          </div>
         </div>
       </div>
-      <TextModule
-        text={text}
-        font_size={24}
-        line_height={"130%"}
-        letter_spacing={"-0.015em"}
-        display
-        as={"h4"}
-        margin_top={"auto"}
-      />
+      <h4
+        className={
+          "max-tablet:text-[18px] max-tablet:tracking-[-0.018em] max-tablet:leading-[24px] text-[24px] leading-[130%] tracking-[-0.015em] font-display mt-auto"
+        }
+      >
+        {text}
+      </h4>
     </Link>
   );
 };

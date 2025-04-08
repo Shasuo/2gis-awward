@@ -8,17 +8,22 @@ import { Footer } from "@/layout/footer/footer";
 
 export const HomePage = () => {
   return (
-    <main>
-      <FirstScreen />
+    <>
+      <main>
+        <FirstScreen />
+      </main>
       <ViewMaterials />
-      <TellTheAudience />
-      <BecomeMoreVisible />
+      <main>
+        <TellTheAudience />
+        <BecomeMoreVisible />
+      </main>
       <TagUs />
-      <div className={"mt-[688]"}>
-        <AnyQuestions />
-      </div>
-
-      <Footer />
-    </main>
+      <main>
+        <div className={"max-tablet:mt-[-80px] mt-[688]"}>
+          <AnyQuestions />
+        </div>
+        <Footer />
+      </main>
+    </>
   );
 };

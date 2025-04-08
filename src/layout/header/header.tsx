@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <header
       className={
-        "w-[1128px] mx-auto flex items-start justify-between mt-[37px]"
+        "max-tablet:p-4 max-tablet:mt-0 max-tablet:max-w-[375px] max-w-[1128px] mx-auto flex items-start justify-between mt-[37px]"
       }
     >
       <Link href={"/"}>
@@ -15,9 +15,14 @@ export const Header = () => {
           alt={"2GIS"}
           width={205}
           height={60}
+          className={
+            "max-tablet:w-[104px] max-tablet:h-[30] w-[205px] h-[60px]"
+          }
         />
       </Link>
-      <div className={"flex items-center mt-[17px] cursor-pointer"}>
+      <div
+        className={"max-tablet:mt-0 flex items-center mt-[17px] cursor-pointer"}
+      >
         <Image
           src={`${ICONS_PATH}/planet.svg`}
           alt={"language"}
@@ -26,7 +31,7 @@ export const Header = () => {
         />
         <div className={"SB-Sans-text text-base] ml-1"}>RU</div>
         <Image
-          className={"ml-[10px]"}
+          className={"max-tablet:ml-[4px] ml-[10px]"}
           src={`${ICONS_PATH}/arrow.svg`}
           alt={"open"}
           width={11}

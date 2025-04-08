@@ -9,7 +9,9 @@ export const LanguageControl = ({
 }) => {
   return (
     <section
-      className={"flex items-center gap-[10] text-base"}
+      className={
+        "max-table:text-[18px] max-tablet:ml-3 flex items-center gap-[10] text-base"
+      }
       style={{ lineHeight: "24px", letterSpacing: "-0.018em" }}
     >
       <div

@@ -16,22 +16,20 @@ export const TextContent = ({ text }: { text: TextContentProps }) => {
   return (
     <div
       className={
-        "pt-[32] pr-[63] pb-[104] pl-[28] rounded-[16] bg-[#354257] box-border relative"
+        "max-tablet:px-7 pt-[32] pr-[63] pb-[104] pl-[28] rounded-[16] bg-[#354257] box-border relative"
       }
     >
-      <TextModule
-        text={text.title}
-        as={"h4"}
-        text_color={"#C5A87E"}
-        font_size={13}
-        line_height={"19px"}
-        letter_spacing={"-0.018em"}
-      />
+      <h4
+        className={
+          "max-tablet:leading-[110%] max-tablet:text-[12px] text-[#C5A87E] text-[13px] leading-[19px] tracking-[-0.018em]"
+        }
+      >
+        {text.title}
+      </h4>
+
       <pre
-        className={`text-base mt-6 max-w-[461px] whitespace-pre-wrap break-words`}
+        className={`max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] max-tablet:text-[14px] max-tablet:max-w-[286px] text-base mt-6 max-w-[461px] whitespace-pre-wrap break-words leading-6 tracking-[-0.018em]`}
         style={{
-          lineHeight: "24px",
-          letterSpacing: "-0.018em",
           fontFamily: "SB-Sans-text",
         }}
       >
@@ -49,16 +47,16 @@ export const TextContent = ({ text }: { text: TextContentProps }) => {
           alt={"Копировать"}
           width={24}
           height={24}
-          className={"mr-2"}
+          className={"max-tablet:w-[18px] max-tablet:h-[18px] mr-2"}
         />
-        <TextModule
-          text={isCopied ? "Скопировано" : "Копировать"}
-          as={"span"}
-          font_size={16}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-          text_color={isCopied ? "#4CAF50" : "#D7D9DD"}
-        />
+        <span
+          className={
+            "max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] text-base leading-6 tracking-[-0.018em]"
+          }
+          style={{ color: isCopied ? "#4CAF50" : "#D7D9DD" }}
+        >
+          {isCopied ? "Скопировано" : "Копировать"}
+        </span>
       </div>
     </div>
   );

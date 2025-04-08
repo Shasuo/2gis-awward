@@ -5,32 +5,39 @@ import { TextModule } from "@/components/texts/textModule";
 /*"rgba(55, 68, 99, 0.7)"*/
 export const DownloadButtons = () => {
   return (
-    <div className={"flex mt-auto"}>
+    <div
+      className={
+        "max-tablet:mt-[132px] max-tablet:left-[unset] max-tablet:bottom-[unset] max-tablet:block max-tablet:relative flex absolute bottom-9 left-9"
+      }
+    >
       <Link
         href={"#"}
-        className={"flex items-center box-border py-3 px-6 rounded-[8]"}
-        style={{ background: "gray" }}
+        className={
+          "max-tablet:justify-center flex items-center box-border py-3 px-6 rounded-[8]"
+        }
+        style={{ background: "rgba(55, 68, 99, 0.7)" }}
       >
         <Image
           src={`${ICONS_PATH}/download.svg`}
-          alt={"Скачать RU"}
+          alt={"Скачать РУ"}
           width={24}
           height={24}
           className={"block"}
         />
-        <TextModule
-          text={"Скачать RU"}
-          font_size={16}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-          as={"div"}
-          margin_left={12}
-        />
+        <div
+          className={
+            "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] ml-3"
+          }
+        >
+          Скачать РУ
+        </div>
       </Link>
       <Link
         href={"#"}
-        className={"flex items-center box-border py-3 px-6 rounded-[8] ml-3"}
-        style={{ background: "gray" }}
+        className={
+          "max-tablet:justify-center max-tablet:mt-1 max-tablet:ml-0 flex items-center box-border py-3 px-6 rounded-[8] ml-3"
+        }
+        style={{ background: "rgba(55, 68, 99, 0.7)" }}
       >
         <Image
           src={`${ICONS_PATH}/download.svg`}
@@ -39,14 +46,13 @@ export const DownloadButtons = () => {
           height={24}
           className={"block"}
         />
-        <TextModule
-          text={"Скачать EN"}
-          font_size={16}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-          as={"div"}
-          margin_left={12}
-        />
+        <div
+          className={
+            "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] ml-3"
+          }
+        >
+          Скачать EN
+        </div>
       </Link>
     </div>
   );

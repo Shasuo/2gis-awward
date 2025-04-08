@@ -4,24 +4,29 @@ import { Slider } from "@/components/pages/digital/sections/createPost/slider/sl
 
 export const CreatePost = () => {
   return (
-    <section className={"mt-[192] flex items-start justify-between"}>
+    <section
+      className={
+        "max-tablet:block max-tablet:mt-[80] mt-[192] flex items-start justify-between"
+      }
+    >
       <div>
-        <TextModule
-          text={"Темы публикаций"}
-          font_size={16}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-          as={"h4"}
-        />
-        <TextModule
-          text={"Создайте пост"}
-          margin_top={15}
-          font_size={40}
-          line_height={"48px"}
-          letter_spacing={"-0.016em"}
-          as={"h2"}
-          font_weight={600}
-        />
+        <div className={"max-tablet:ml-9"}>
+          <h4
+            className={
+              "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
+            }
+          >
+            Темы публикаций
+          </h4>
+          <h2
+            className={
+              "max-tablet:mt-7 max-tablet:text-[24px] max-tablet:leading-[130%] max-tablet:tracking-[-0.016em] mt-[15px] text-[40px] leading-[48px] tracking-[-0.016em] font-semibold"
+            }
+          >
+            Создайте пост
+          </h2>
+        </div>
+
         <Drops />
       </div>
       <Slider />

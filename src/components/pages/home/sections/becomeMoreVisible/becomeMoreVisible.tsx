@@ -1,6 +1,4 @@
 import { TextModule } from "@/components/texts/textModule";
-import { Card } from "@/components/pages/home/sections/tellTheAudience/card";
-import { DownloadButtons } from "@/components/pages/home/sections/becomeMoreVisible/downloadButtons";
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,67 +6,76 @@ import { SliderDownloadMaterials } from "@/components/reused/sliderDownloadMater
 
 export const BecomeMoreVisible = () => {
   return (
-    <section className={"mt-[92]"}>
-      <div
-        className={"bg-white px-[15] py-2 rounded-[12px] w-fit text-[#0C132D]"}
-      >
-        <TextModule
-          text={"Шаг 3"}
-          font_size={16}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-        />
+    <section className={"max-tablet:mt-[80] mt-[92]"}>
+      <div className={"max-tablet:ml-[39px]"}>
+        <div
+          className={"px-[15] py-2 rounded-[12px] w-fit text-white]"}
+          style={{ border: "1px solid white" }}
+        >
+          <span
+            className={
+              "max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] text-base leading-6 tracking-[-0.018em]"
+            }
+          >
+            Шаг 3
+          </span>
+        </div>
+        <h2
+          className={
+            "max-tablet:max-w-[282px] max-tablet:tracking-[0.01em] max-tablet:leading-[100%] max-tablet:text-[30px] max-tablet:mt-8 text-[54px] leading-[92%] tracking-[-0.02em] font-display mt-9"
+          }
+        >
+          Станьте заметнее в городе
+        </h2>
+        <p
+          className={
+            "max-tablet:max-w-[283px] max-tablet:mt-6 max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] max-tablet:block hidden"
+          }
+        >
+          Продолжайте рассказывать аудитории  о своем успехе
+          самостоятельно.{" "}
+        </p>
       </div>
-      <TextModule
-        text={"Станьте заметнее в городе"}
-        font_size={54}
-        line_height={"92%"}
-        letter_spacing={"-0.02em"}
-        display
-        as={"h2"}
-        margin_top={36}
-      />
+
       <SliderDownloadMaterials />
 
       <Link
         href={"#"}
         className={
-          "mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block"
+          "max-tablet:h-[329px] max-tablet:bg-[#AB844C] max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-2 mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block"
         }
       >
-        <TextModule
-          text={"Чат-бот"}
-          font_size={54}
-          line_height={"92%"}
-          letter_spacing={"-0.02em"}
-          display
-          as={"h3"}
-        />
-        <TextModule
-          text={
-            "Скачивайте материалы в несколько кликов через бота в телеграмм"
+        <h3
+          className={
+            "max-tablet:tracking-[0.01em] max-tablet:leading-[100%] max-tablet:text-[30px] max-tablet:text-center text-[54px] leading-[92%] tracking-[-0.02em] font-display"
           }
-          max_width={492}
-          font_size={24}
-          line_height={"130%"}
-          letter_spacing={"-0.015em"}
-          display
-          as={"p"}
-          margin_top={24}
-        />
+        >
+          Чат-бот
+        </h3>
+        <p
+          className={
+            "max-tablet:text-[14px] max-tablet:max-w-[220px] max-tablet:mx-auto max-tablet:mt-3 max-tablet:text-center max-w-[452px] text-[24px] leading-[130%] tracking-[-0.015em] font-display mt-6 opacity-80"
+          }
+        >
+          Скачивайте материалы в&nbsp;несколько кликов через бота
+          в&nbsp;телеграмм
+        </p>
+
         <Image
           src={`${ICONS_PATH}/link.svg`}
           alt={"перейти"}
           width={40}
           height={40}
-          className={"absolute right-12 top-12"}
+          className={"max-tablet:hidden absolute right-12 top-12"}
         />
         <Image
-          src={`${IMAGES_PATH}/bigTG.png`}
-          alt={"перейти"}
-          width={360}
-          height={276}
-          className={"absolute right-[105] bottom-0"}
+          src={`${IMAGES_PATH}/bigTG.webp`}
+          alt={"Telegram"}
+          width={495}
+          height={237}
+          className={
+            "max-tablet:max-w-[344px] max-tablet:w-full max-tablet:left-0 max-tablet:right-[unset] absolute right-[90] bottom-0"
+          }
         />
       </Link>
     </section>

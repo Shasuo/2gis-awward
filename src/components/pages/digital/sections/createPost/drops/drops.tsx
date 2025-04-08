@@ -23,7 +23,11 @@ const dropsContent: DropDownProps[] = [
 
 export const Drops = () => {
   return (
-    <div className={"mt-[61] max-w-[553] w-[553]"}>
+    <div
+      className={
+        "max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-6 mt-[61] max-w-[553] w-[553]"
+      }
+    >
       {dropsContent.map((content: DropDownProps, index: number) => (
         <DownDrop key={index} content={content} />
       ))}

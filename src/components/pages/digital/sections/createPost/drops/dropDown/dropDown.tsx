@@ -24,26 +24,22 @@ export const DropDown = ({ content }: { content: DropDownProps }) => {
           className={"mt-[10] select-none h-auto"}
         />
       </div>
+      <h4
+        className={
+          "max-tablet:max-w-[247] max-tablet:text-[18px] max-tablet:leading-6 max-tablet:tracking-[-0.018em] font-semibold text-[24px] leading-[130%] tracking-[0.015em] max-w-[434]"
+        }
+      >
+        {content.title}
+      </h4>
 
-      <TextModule
-        text={content.title}
-        as={"h4"}
-        font_weight={600}
-        font_size={24}
-        line_height={"130%"}
-        letter_spacing={"0.015em"}
-        max_width={438}
-      />
       {active && (
-        <TextModule
-          text={content.text}
-          as={"p"}
-          font_size={15}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-          margin_top={16}
-          max_width={415}
-        />
+        <p
+          className={
+            "max-tablet:max-w-[291] max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-[15px] leading-6 tracking-[-0.018em] mt-4 max-w-[434] opacity-80"
+          }
+        >
+          {content.text}
+        </p>
       )}
     </div>
   );

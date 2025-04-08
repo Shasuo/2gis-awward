@@ -1,0 +1,14 @@
+.active div {
+  font-weight: 700 !important;
+  color: #d1ac77 !important;
+}
+
+@media (max-width: 1168px) {
+  .active div {
+    font-weight: normal !important;
+    color: white !important;
+  }
+  .active {
+    background: #ab844c;
+  }
+}

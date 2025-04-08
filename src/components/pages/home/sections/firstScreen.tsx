@@ -2,38 +2,35 @@ import { TextModule } from "@/components/texts/textModule";
 
 export const FirstScreen = () => {
   return (
-    <section className={"mt-[142px] flex items-start justify-between"}>
-      <TextModule
-        text={
-          "Ура! Вы — <span style='color: #C5A87E'>победитель</span> Премии 2ГИС 2025"
+    <section
+      className={
+        "max-tablet:mx-auto max-tablet:max-w-[321] max-tablet:block max-tablet:mt-[50px] mt-[142px] flex items-start justify-between"
+      }
+    >
+      <h1
+        className={
+          "max-tablet:max-w-[321] max-tablet:text-center max-tablet:text-[42px] max-tablet:leading-[92%] text-[65px] font-bold font-display leading-[110%] tracking-[-0.02em] max-w-[776px]"
         }
-        as={"h1"}
-        bold
-        line_height={"110%"}
-        font_size={65}
-        display
-        max_width={776}
-      />
-      <div className={"max-w-[350]"}>
-        <TextModule
-          text={
-            "В 2ГИС позаботились я о вас и подготовили набор материалов, чтобы Вы с легкостью заявляли о своей победе!"
-          }
-          as={"p"}
-          font_size={16}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-        />
-        <TextModule
-          text={
-            "Поделитесь радостной новостью со своими клиентами с готовыми материалами"
-          }
-          as={"p"}
-          font_size={16}
-          margin_top={25}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-        />
+      >
+        Ура! Вы —{" "}
+        <span className={"max-tablet:text-white text-[#C5A87E]"}>
+          победитель
+        </span>{" "}
+        Премии 2ГИС 2025
+      </h1>
+      <div
+        className={
+          "max-tablet:mt-8 max-tablet:max-w-[309px] max-tablet:text-center max-w-[372px]"
+        }
+      >
+        <p className={"text-base leading-[24px] tracking-[-0.018em]"}>
+          В 2ГИС позаботились я о вас и подготовили набор материалов, чтобы Вы с
+          легкостью заявляли о своей победе!
+        </p>
+        <p className={"text-base leading-[24px] tracking-[-0.018em] mt-[25px]"}>
+          Делитесь радостной новостью со своими клиентами, используя уже готовые
+          материалы!
+        </p>
       </div>
     </section>
   );

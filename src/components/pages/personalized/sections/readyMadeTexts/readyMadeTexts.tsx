@@ -3,27 +3,27 @@ import { Texts } from "@/components/pages/personalized/sections/readyMadeTexts/t
 
 export const ReadyMadeTexts = () => {
   return (
-    <section className={"mt-[130] flex items-start justify-between"}>
-      <div>
-        <TextModule
-          text={"Готовые тексты"}
-          font_size={16}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-          as={"h3"}
-        />
-        <TextModule
-          text={
-            "Используйте <span style='color: #C5A87E'>готовые тексты</span>, чтобы быстро оформить пост"
+    <section
+      className={
+        "max-tablet:block max-tablet:mt-[80px] mt-[130] flex items-start justify-between"
+      }
+    >
+      <div className={"max-tablet:ml-[36px]"}>
+        <h3
+          className={
+            "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
           }
-          max_width={468}
-          font_size={40}
-          font_weight={600}
-          line_height={"48px"}
-          letter_spacing={"-0.016em"}
-          as={"h2"}
-          margin_top={28}
-        />
+        >
+          Готовые тексты
+        </h3>
+        <h2
+          className={
+            "max-tablet:text-[24px] max-tablet:leading-[130%] max-w-[468px] text-[40px] font-semibold leading-[48px] tracking-[-0.016em] mt-7"
+          }
+        >
+          Используйте <span style={{ color: "#C5A87E" }}>готовые тексты</span>,
+          чтобы быстро оформить пост
+        </h2>
       </div>
       <Texts />
     </section>

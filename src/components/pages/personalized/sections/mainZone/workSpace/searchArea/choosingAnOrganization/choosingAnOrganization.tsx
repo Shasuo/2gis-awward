@@ -1,39 +1,99 @@
-import React, { useState } from "react";
-import Select, { components, StylesConfig } from "react-select";
-import { TextModule } from "@/components/texts/textModule";
+import React from "react";
+import Select, { ClearIndicatorProps, StylesConfig } from "react-select";
+import { ICONS_PATH } from "@/components/paths/paths";
+import { cityAtom, OptionType, organizationAtom } from "@/atoms/atoms";
+import { useAtom } from "jotai";
 
-type OptionType = {
+interface firmsListProps {
   value: string;
   label: string;
-};
+  id: number;
+  name: string;
+  guid: string;
+  addr: string;
+  nomination: string;
+  name_kz?: string;
+  nomination_kz?: string;
+}
 
-const DropdownIndicator = (props: any) => {
-  // @ts-ignore
+const ClearIndicator = (props: ClearIndicatorProps<OptionType, false>) => {
   return (
-    <components.DropdownIndicator {...props}>
+    <div
+      style={{
+        cursor: "pointer",
+        padding: "0 8px",
+      }}
+      onClick={() => {
+        console.log("Clearing value...");
+        props.clearValue();
+      }}
+    >
       <svg
-        width="20"
-        height="20"
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
         viewBox="0 0 24 24"
         fill="none"
-        style={{
-          transform: props.selectProps.menuIsOpen ? "rotate(180deg)" : "none",
-          transition: "transform 0.2s ease",
-        }}
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
-        <path
-          d="M7 10L12 15L17 10"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
-    </components.DropdownIndicator>
+    </div>
   );
 };
 
-// Стили
+const Search = (color = "red") => ({
+  alignItems: "center",
+  display: "flex",
+
+  ":before": {
+    content: '""',
+    opacity: 0.7,
+    display: "inline-block",
+    width: 24,
+    height: 24,
+    backgroundImage: `url(${ICONS_PATH}/search.svg)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    marginRight: 4,
+  },
+});
+
+const CustomOption = ({ innerProps, data, isFocused, isSelected }: any) => {
+  return (
+    <div
+      {...innerProps}
+      style={{
+        backgroundColor: isSelected
+          ? "rgba(57,69,91,0.26)"
+          : isFocused
+            ? "#39455B"
+            : undefined,
+        color: "white",
+        borderRadius: "12px",
+        fontSize: 13,
+        lineHeight: "19px",
+        letterSpacing: "-0.018em",
+        cursor: "pointer",
+        padding: "12px",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <h3 className="text-base leading-6 tracking-[-0.018em] opacity-80">
+        {data.label}
+      </h3>
+      <p className="mt-[2] text-[13px] leading-[19px] tracking-[-0.018em] opacity-60">
+        {data.addr}
+      </p>
+    </div>
+  );
+};
+
 const customStyles: StylesConfig<OptionType, false> = {
   control: (provided) => ({
     ...provided,
@@ -49,7 +109,7 @@ const customStyles: StylesConfig<OptionType, false> = {
     paddingTop: 0,
     paddingLeft: 8,
     paddingRight: 8,
-    width: 456,
+    width: "100%",
   }),
   indicatorSeparator: (provided) => ({
     ...provided,
@@ -60,8 +120,13 @@ const customStyles: StylesConfig<OptionType, false> = {
     color: "white",
     fontSize: 13,
   }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    display: "none",
+  }),
   singleValue: (provided) => ({
     ...provided,
+    ...Search(),
     color: "white",
   }),
   input: (provided) => ({
@@ -70,6 +135,7 @@ const customStyles: StylesConfig<OptionType, false> = {
   }),
   placeholder: (provided) => ({
     ...provided,
+    ...Search(),
     color: "rgba(255, 255, 255, 0.5)",
   }),
   menu: (provided) => ({
@@ -78,49 +144,54 @@ const customStyles: StylesConfig<OptionType, false> = {
     marginTop: "8px",
     background: "#233149",
     padding: 16,
-  }),
-  option: (provided, state) => ({
-    ...provided,
-    backgroundColor: state.isSelected
-      ? "#39455B"
-      : state.isFocused
-        ? "rgba(57,69,91,0.26)"
-        : undefined,
-    color: "white",
-    borderRadius: "12px",
-    fontSize: 13,
-    lineHeight: "19px",
-    letterSpacing: "-0.018em",
-    cursor: "pointer",
+    zIndex: 10,
   }),
 };
 
-const options: OptionType[] = [
-  { value: "option1", label: "Первый вариант" },
-  { value: "option2", label: "Второй вариант" },
-  { value: "option3", label: "Третий вариант" },
-];
+export const ChoosingAnOrganization = ({
+  isActive,
+  allWinners,
+}: {
+  isActive?: boolean;
+  allWinners: any[];
+}) => {
+  const [cityOption, setCityOption] = useAtom(cityAtom);
 
-export const ChoosingAnOrganization = () => {
-  const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
+  let options: firmsListProps[] = [];
+  let object;
+  if (cityOption) {
+    object = allWinners.find((item) => item.project === cityOption.label);
+    options = object.firms.map((item: any) => {
+      return { ...item, value: item.name, label: item.name };
+    });
+  }
+  const [selectedOption, setSelectedOption] = useAtom(organizationAtom);
 
   return (
-    <div className={"max-w-[456] ml-[24]"}>
-      <TextModule
-        text={"Введите название организации"}
-        font_size={20}
-        line_height={"28%"}
-        letter_spacing={-0.023}
-      />
+    <div
+      className={`${isActive ? "max-tablet:max-w-[unset]" : "max-tablet:max-w-[265]"} max-tablet:mt-6 max-tablet:ml-0 max-w-[456]`}
+    >
+      <span
+        className={
+          "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] block text-[20px] leading-[130%] tracking-[-0.023em]"
+        }
+      >
+        Введите название организации
+      </span>
+
       <Select
         value={selectedOption}
         onChange={(option) => setSelectedOption(option as OptionType)}
         options={options}
+        isClearable
         styles={customStyles}
         placeholder="Ромашка, кафе"
         isSearchable
-        className={"mt-8 w-full"}
-        components={{ DropdownIndicator }}
+        className={`${isActive ? "max-tablet:w-full max-tablet:max-w-[unset]" : "max-tablet:w-[258] max-tablet:max-w-[258]"} max-tablet:mt-2 mt-4 w-[456px]`}
+        components={{
+          ClearIndicator,
+          Option: CustomOption,
+        }}
         noOptionsMessage={() => "Ничего не найдено"}
       />
     </div>

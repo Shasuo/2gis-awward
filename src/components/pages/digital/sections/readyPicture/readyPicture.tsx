@@ -11,75 +11,75 @@ export const ReadyPicture = () => {
   return (
     <section
       className={
-        "mt-[170] rounded-[32] box-border p-12 bg-[#233149] flex items-start justify-between relative"
+        "max-tablet:block max-tablet:mt-[80] max-tablet:px-6 mt-[170] rounded-[32] box-border p-12 bg-[#233149] flex items-start justify-between relative"
       }
     >
       <div>
-        <TextModule
-          text={"Открытка победителя"}
-          font_size={16}
-          line_height={"24px"}
-          letter_spacing={"-0.018em"}
-          as={"h4"}
-        />
-        <TextModule
-          text={"Используйте готовую картинку"}
-          as={"h2"}
-          max_width={468}
-          margin_top={24}
-          font_weight={600}
-          font_size={40}
-          line_height={"48px"}
-          letter_spacing={"-0.016em"}
-        />
+        <h4 className={"text-base leading-6 tracking-[-0.018em]"}>
+          Открытка победителя
+        </h4>
+        <h2
+          className={
+            "max-tablet:mt-7 max-tablet:max-w-[315] max-tablet:text-[24px] max-tablet:leading-[130%] max-tablet:tracking-[-0.016em] max-w-[468] mt-6 font-semibold text-[40px] leading-[48px] tracking-[-0.016em]"
+          }
+        >
+          Используйте готовую картинку
+        </h2>
         <Control
           setActiveLanguage={setActiveLanguage}
           setSize={setSize}
           activeLanguage={activeLanguage}
           size={size}
         />
-        <div className={"flex gap-2 mt-[98] absolute bottom-12 left-12"}>
-          <Link
-            href={"#"}
-            className={
-              "flex items-center py-3 px-4 bg-[#AB844C] rounded-[8] box-border"
-            }
-          >
-            <TextModule
-              text={"Скачать картинку"}
-              font_size={16}
-              line_height={"24px"}
-              letter_spacing={"-0.018em"}
-              as={"span"}
-            />
-            <Image
-              src={`${ICONS_PATH}/download.svg`}
-              alt={"Скачать картинку"}
-              width={24}
-              height={24}
-              className={"ml-2"}
-            />
-          </Link>
-          <Link
-            href={"#"}
-            className={"block py-3 px-7 bg-[#384761] rounded-[8] box-border"}
-          >
-            <TextModule
-              text={"Больше макетов"}
-              font_size={16}
-              line_height={"24px"}
-              letter_spacing={"-0.018em"}
-              as={"span"}
-            />
-          </Link>
-        </div>
       </div>
       <Image
         src={`${IMAGES_PATH}/awardWinner_${activeLanguage}_${size}.webp`}
         alt={`Победитель премии! ${activeLanguage} ${size}`}
         width={size === "PICTURE" ? 374 : 319}
         height={size === "PICTURE" ? 468 : 569}
+        className={"max-tablet:mx-auto max-tablet:mt-8"}
       />
+      <div
+        className={
+          "max-tablet:block max-tablet:relative max-tablet:left-[unset] max-tablet:bottom-[unset] max-tablet:mt-8 flex gap-2 mt-[98] absolute bottom-12 left-12"
+        }
+      >
+        <Link
+          href={"#"}
+          className={
+            "max-tablet:justify-center max-tablet:h-[56] flex items-center py-3 px-4 bg-[#AB844C] rounded-[8] box-border"
+          }
+        >
+          <span
+            className={
+              "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
+            }
+          >
+            Скачать картинку
+          </span>
+          <Image
+            src={`${ICONS_PATH}/download.svg`}
+            alt={"Скачать картинку"}
+            width={24}
+            height={24}
+            className={"ml-2"}
+          />
+        </Link>
+        <Link
+          href={"#"}
+          className={
+            "max-tablet:mt-1 max-tablet:flex max-tablet:justify-center max-tablet:h-[56] block py-3 px-7 bg-[#384761] rounded-[8] box-border"
+          }
+        >
+          <span
+            className={
+              "max-tablet:mt-[3] max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
+            }
+          >
+            Больше макетов
+          </span>
+        </Link>
+      </div>
     </section>
   );
 };

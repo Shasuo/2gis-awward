@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Select, { components, StylesConfig } from "react-select";
-import { TextModule } from "@/components/texts/textModule";
-
-type OptionType = {
-  value: string;
-  label: string;
-};
+import { cityAtom, OptionType } from "@/atoms/atoms";
+import { useAtom } from "jotai";
 
 const DropdownIndicator = (props: any) => {
   // @ts-ignore
@@ -33,7 +29,6 @@ const DropdownIndicator = (props: any) => {
   );
 };
 
-// Стили
 const customStyles: StylesConfig<OptionType, false> = {
   control: (provided) => ({
     ...provided,
@@ -49,7 +44,7 @@ const customStyles: StylesConfig<OptionType, false> = {
     paddingTop: 0,
     paddingLeft: 8,
     paddingRight: 8,
-    width: 265,
+    width: "100%",
   }),
   indicatorSeparator: (provided) => ({
     ...provided,
@@ -78,13 +73,14 @@ const customStyles: StylesConfig<OptionType, false> = {
     marginTop: "8px",
     background: "#233149",
     padding: 16,
+    zIndex: 10,
   }),
   option: (provided, state) => ({
     ...provided,
     backgroundColor: state.isSelected
-      ? "#39455B"
+      ? "rgba(57,69,91,0.26)"
       : state.isFocused
-        ? "rgba(57,69,91,0.26)"
+        ? "#39455B"
         : undefined,
     color: "white",
     borderRadius: "12px",
@@ -95,31 +91,34 @@ const customStyles: StylesConfig<OptionType, false> = {
   }),
 };
 
-const options: OptionType[] = [
-  { value: "option1", label: "Первый вариант" },
-  { value: "option2", label: "Второй вариант" },
-  { value: "option3", label: "Третий вариант" },
-];
-
-export const CitySelection = () => {
-  const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
+export const CitySelection = ({
+  isActive,
+  cities,
+}: {
+  isActive?: boolean;
+  cities: OptionType[];
+}) => {
+  const [selectedOption, setSelectedOption] = useAtom(cityAtom);
 
   return (
-    <div className={"max-w-[265]"}>
-      <TextModule
-        text={"Выберите город"}
-        font_size={20}
-        line_height={"28%"}
-        letter_spacing={-0.023}
-      />
+    <div
+      className={`${isActive ? "max-tablet:max-w-[unset]" : "max-tablet:max-w-[265]"}`}
+    >
+      <span
+        className={
+          "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] block text-[20px] leading-[130%] tracking-[-0.023em]"
+        }
+      >
+        Выберите город
+      </span>
       <Select
         value={selectedOption}
         onChange={(option) => setSelectedOption(option as OptionType)}
-        options={options}
+        options={cities}
         styles={customStyles}
         placeholder="Москва"
         isSearchable
-        className={"mt-8 w-full"}
+        className={`${isActive ? "max-tablet:w-full max-tablet:max-w-[unset]" : "max-tablet:w-[258] max-tablet:max-w-[258]"} max-tablet:mt-2 mt-4 w-[265px]`}
         components={{ DropdownIndicator }}
         noOptionsMessage={() => "Ничего не найдено"}
       />

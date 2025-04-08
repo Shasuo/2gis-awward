@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@types/swiper": "^6.0.0",
+    "axios": "^1.8.4",
+    "jotai": "^2.12.2",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -17,7 +19,7 @@
     "swiper": "^11.2.6"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

@@ -8,28 +8,15 @@ export const Breadcrumbs = ({
   pageName: string;
 }) => {
   return (
-    <div className={"flex"} style={{ marginTop: mt }}>
-      <TextModule
-        text={"Главная"}
-        font_size={16}
-        line_height={"24px"}
-        letter_spacing={"-0.018em"}
-        opacity={0.6}
-      />
-      <TextModule
-        text={"/"}
-        font_size={16}
-        line_height={"24px"}
-        letter_spacing={"-0.018em"}
-        margin_right={15}
-        margin_left={15}
-      />
-      <TextModule
-        text={pageName}
-        font_size={16}
-        line_height={"24px"}
-        letter_spacing={"-0.018em"}
-      />
+    <div
+      className={
+        "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] flex max-tablet:ml-9 text-base leading-6 tracking-[-0.018em]"
+      }
+      style={{ marginTop: mt }}
+    >
+      <div className={"opacity-60"}>Главная</div>
+      <div className={"max-tablet:mx-2 mx-[15px]"}>/</div>
+      <div>{pageName}</div>
     </div>
   );
 };

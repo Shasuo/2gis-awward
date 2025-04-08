@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-tablet: 1168px;
+
+  --font-display: "SB-Sans-display";
+}
+
 @font-face {
   font-family: "SB-Sans-display";
   src:
@@ -63,6 +69,29 @@ main {
   margin-right: auto;
 }
 
+@media (max-width: 1168px) {
+  main {
+    max-width: 375px;
+  }
+
+  .tabletContainer {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+}
+
+@media (hover: hover) {
+  .invertImgHover:hover img {
+    filter: invert(1);
+  }
+}
+
+@media (hover: none) {
+  .invertImgHover:active img {
+    filter: invert(1);
+  }
+}
+
 /***********************/
 /* Стили для Swiper.js - НАЧАЛО */
 /***********************/
@@ -76,6 +105,11 @@ main {
   border-radius: 50%;
   transition: background-color 0.3s ease;
   cursor: pointer;
+}
+
+.custom-pagination__AwardStickers .swiper-pagination-bullet {
+  width: 16px !important;
+  height: 16px !important;
 }
 
 .custom-pagination .swiper-pagination-bullet-active {
@@ -120,12 +154,25 @@ main {
   top: 280px;
 }
 
+.custom-prev__NoBorder,
+.custom-next__NoBorder {
+  opacity: 0.7;
+}
+
 @media (hover: hover) {
   .custom-prev:hover {
     background: white;
   }
   .custom-next:hover {
     background: white;
+  }
+
+  .custom-prev__NoBorder:hover {
+    opacity: 1;
+  }
+
+  .custom-next__NoBorder:hover {
+    opacity: 1;
   }
 
   .custom-prev:hover img {
@@ -143,6 +190,14 @@ main {
   }
   .custom-next:active {
     background: white;
+  }
+
+  .custom-prev__NoBorder:active {
+    opacity: 1;
+  }
+
+  .custom-next__NoBorder:active {
+    opacity: 1;
   }
 
   .custom-prev:active img {

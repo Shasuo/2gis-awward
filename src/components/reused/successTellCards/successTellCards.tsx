@@ -6,7 +6,12 @@ export const SuccessTellCards = () => {
       cards={[
         { href: "/digital", text: "Темы публикаций", img: "" },
         { href: "/digital", text: "Диджитал-стикеры", img: "digstickers.webp" },
-        { href: "/digital", text: "Открытка победителя", img: "" },
+        {
+          href: "/digital",
+          text: "Открытка победителя",
+          img: "",
+          mobilePlusHeight: true,
+        },
       ]}
     />
   );
