@@ -8,6 +8,7 @@ export const CreatePost = () => {
       className={
         "max-tablet:block max-tablet:mt-[80] mt-[192] flex items-start justify-between"
       }
+      id={"publication-topics"}
     >
       <div>
         <div className={"max-tablet:ml-9"}>

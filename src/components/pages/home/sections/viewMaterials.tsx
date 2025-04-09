@@ -41,7 +41,7 @@ export const ViewMaterials = () => {
             </p>
           </div>
           <Link
-            href={"/personalized"}
+            href={"/materials"}
             className={
               "hover:bg-white active:bg-white hover:text-[#354257] active:text-[#354257] px-[38] py-[18] rounded-[8] box-border w-fit block mt-[46]"
             }

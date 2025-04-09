@@ -5,6 +5,7 @@ export interface CardProps {
   img: string;
   text: string;
   mobilePlusHeight?: boolean;
+  blank?: boolean;
 }
 export const Cards = ({ cards }: { cards: CardProps[] }) => {
   return (

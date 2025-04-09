@@ -73,7 +73,7 @@ const customStyles: StylesConfig<OptionType, false> = {
     marginTop: "8px",
     background: "#233149",
     padding: 16,
-    zIndex: 10,
+    zIndex: 13,
   }),
   option: (provided, state) => ({
     ...provided,

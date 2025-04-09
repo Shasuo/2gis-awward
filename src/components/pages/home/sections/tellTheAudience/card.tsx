@@ -4,7 +4,13 @@ import { TextModule } from "@/components/texts/textModule";
 import Link from "next/link";
 import { CardProps } from "@/components/pages/home/sections/tellTheAudience/cards";
 
-export const Card = ({ href, img, text, mobilePlusHeight }: CardProps) => {
+export const Card = ({
+  href,
+  img,
+  text,
+  mobilePlusHeight,
+  blank,
+}: CardProps) => {
   return (
     <Link
       href={href}
@@ -15,6 +21,7 @@ export const Card = ({ href, img, text, mobilePlusHeight }: CardProps) => {
         backgroundPosition: "center center",
         backgroundSize: "cover",
       }}
+      target={blank ? "_blank" : undefined}
     >
       <div className={"flex"}>
         <div

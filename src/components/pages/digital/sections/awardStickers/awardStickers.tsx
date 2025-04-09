@@ -20,6 +20,7 @@ export const AwardStickers = () => {
       className={
         "max-tablet:max-w-[344] max-tablet:block max-tablet:mt-[80] max-tablet:max-h-[unset] max-tablet:mx-auto mt-[141] rounded-[32] bg-[#0C132D] flex max-h-[540]"
       }
+      id={"digital-stickers"}
     >
       <div className={"max-tablet:block hidden ml-6 pt-12"}>
         <h4 className={"text-base leading-6 tracking-[-0.018em]"}>
@@ -129,10 +130,11 @@ export const AwardStickers = () => {
         <div className={"max-tablet:mt-0 mt-12 max-w-[355]"}>
           <div className={"flex gap-3"}>
             <Link
-              href={"#"}
+              href={"/download/RU_stikers.zip"}
               className={
-                "max-tablet:h-[56] max-tablet:flex max-tablet:justify-center max-tablet:px-[unset] max-tablet:w-[146px] bg-[#AB844C] flex items-center box-border py-3 px-6 rounded-[8]"
+                "hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:h-[56] max-tablet:flex max-tablet:justify-center max-tablet:px-[unset] max-tablet:w-[146px] bg-[#AB844C] flex items-center box-border py-3 px-6 rounded-[8]"
               }
+              download
             >
               <Image
                 src={`${ICONS_PATH}/download.svg`}
@@ -149,10 +151,11 @@ export const AwardStickers = () => {
               </span>
             </Link>
             <Link
-              href={"#"}
+              href={"/download/EN__stikers.zip"}
               className={
-                "max-tablet:h-[56] max-tablet:flex max-tablet:justify-center max-tablet:px-[unset] max-tablet:w-[146px] bg-[#AB844C] flex items-center box-border py-3 px-6 rounded-[8]"
+                "hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:h-[56] max-tablet:flex max-tablet:justify-center max-tablet:px-[unset] max-tablet:w-[146px] bg-[#AB844C] flex items-center box-border py-3 px-6 rounded-[8]"
               }
+              download
             >
               <Image
                 src={`${ICONS_PATH}/download.svg`}
@@ -172,7 +175,7 @@ export const AwardStickers = () => {
           <Link
             href={"#"}
             className={
-              "max-tablet:h-[56] mt-3 w-full py-3 box-border bg-[#2A3653] rounded-[8] flex justify-center items-center"
+              "hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:h-[56] mt-3 w-full py-3 box-border bg-[#2A3653] rounded-[8] flex justify-center items-center"
             }
           >
             <span className={"text-base leading-6 tracking-[-0.018em] mt-[-2]"}>

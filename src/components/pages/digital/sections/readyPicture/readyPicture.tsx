@@ -13,6 +13,7 @@ export const ReadyPicture = () => {
       className={
         "max-tablet:block max-tablet:mt-[80] max-tablet:px-6 mt-[170] rounded-[32] box-border p-12 bg-[#233149] flex items-start justify-between relative"
       }
+      id={"winner-card"}
     >
       <div>
         <h4 className={"text-base leading-6 tracking-[-0.018em]"}>
@@ -55,7 +56,7 @@ export const ReadyPicture = () => {
               "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
             }
           >
-            Скачать картинку
+            Скачать {size === "PICTURE" ? "картинку" : "видео"}
           </span>
           <Image
             src={`${ICONS_PATH}/download.svg`}
@@ -66,10 +67,11 @@ export const ReadyPicture = () => {
           />
         </Link>
         <Link
-          href={"#"}
+          href={"https://awards-winners.2gis.ru"}
           className={
             "max-tablet:mt-1 max-tablet:flex max-tablet:justify-center max-tablet:h-[56] block py-3 px-7 bg-[#384761] rounded-[8] box-border"
           }
+          target={"_blank"}
         >
           <span
             className={

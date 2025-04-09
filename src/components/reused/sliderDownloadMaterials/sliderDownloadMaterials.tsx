@@ -120,7 +120,12 @@ export const SliderDownloadMaterials = () => {
         <DownloadButtons />
       </div>
       <div className={"max-tablet:mt-2"}>
-        <Card img={"check.webp"} text={"Текст на чеке"} href={"#"} />
+        <Card
+          img={"check.webp"}
+          text={"Текст на чеке"}
+          href={"https://award-2023.2gis.ru/cheque/"}
+          blank
+        />
       </div>
     </div>
   );

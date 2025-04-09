@@ -8,7 +8,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     const externalApiResponse = await axios.get(
-      `https://api.cdn-2gis.ru/api/winitems/${id}`,
+      `${process.env.API_URL}/api/winitems/${id}`,
     );
     res.status(200).json(externalApiResponse.data);
   } catch (error: any) {

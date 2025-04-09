@@ -44,7 +44,6 @@ export const MainZone = ({
     "initial",
   );
   useEffect(() => {
-    console.log(OrganizationAtom);
     if (CityAtom && OrganizationAtom) {
       const fetchData = async () => {
         try {

@@ -30,7 +30,6 @@ export const Materials = () => {
       })?.link;
 
       if (filePath) {
-        console.log(filePath);
         setActiveImage(filePath);
       }
     }
