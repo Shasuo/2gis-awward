@@ -1,7 +1,10 @@
 import { TextModule } from "@/components/texts/textModule";
 import Link from "next/link";
+import { mainModalAtom } from "@/atoms/atoms";
+import { useAtom } from "jotai";
 
 export const AnyQuestions = () => {
+  const setMainModal = useAtom(mainModalAtom)[1];
   return (
     <section
       className={
@@ -16,21 +19,21 @@ export const AnyQuestions = () => {
       >
         Если остались вопросы или хотите что-то обсудить
       </h2>
-      <Link
-        href={"#"}
+      <div
         className={
-          "hover:bg-transparent active::bg-transparent hover:text-white active:text-white max-tablet:mx-auto max-tablet:max-w-[249px] max-tablet:flex max-tablet:justify-center box-border max-tablet:mt-[38px] bg-white text-[#0C132D] box-border block py-[18] px-[64] rounded-[8]"
+          "cursor-pointer hover:bg-transparent active::bg-transparent hover:text-white active:text-white max-tablet:mx-auto max-tablet:max-w-[249px] max-tablet:flex max-tablet:justify-center box-border max-tablet:mt-[38px] bg-white text-[#0C132D] box-border block py-[18] px-[64] rounded-[8]"
         }
         style={{ border: "1px solid white" }}
+        onClick={() => setMainModal("AnyQuestions")}
       >
         <span
           className={
-            "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] "
+            "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
           }
         >
           Задать вопрос
         </span>
-      </Link>
+      </div>
     </section>
   );
 };

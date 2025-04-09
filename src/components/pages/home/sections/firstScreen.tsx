@@ -1,5 +1,3 @@
-import { TextModule } from "@/components/texts/textModule";
-
 export const FirstScreen = () => {
   return (
     <section

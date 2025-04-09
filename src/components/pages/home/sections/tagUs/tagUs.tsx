@@ -1,13 +1,10 @@
-import { TextModule } from "@/components/texts/textModule";
 import Image from "next/image";
-import { IMAGES_PATH } from "@/components/paths/paths";
+import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 
 export const TagUs = () => {
   return (
     <section
-      className={
-        "max-tablet:h-[900px] max-tablet:overflow-hidden max-tablet:mt-[80] mt-[186] relative"
-      }
+      className={`max-tablet:h-[900px] max-tablet:overflow-hidden max-tablet:mt-[80] mt-[186] relative `}
     >
       <div
         className={"max-tablet:max-w-[350] mx-auto block w-fit relative z-[3]"}
@@ -75,6 +72,7 @@ export const TagUs = () => {
         className={
           "max-tablet:translate-x-[-58%] max-tablet:left-[42%] transform translate-x-[-50%] left-[50%] max-tablet:top-[190px] absolute top-18 min-w-[1234] h-auto z-[1]"
         }
+        style={{ cursor: `url("${ICONS_PATH}/cursor.svg"), auto` }}
       />
       <Image
         src={`${IMAGES_PATH}/sublight.webp`}

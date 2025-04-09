@@ -37,3 +37,8 @@ export const materialSizesAtom = atom<mainMaterialInterface>({
 
 export const materialsDataAtom = atom<MaterialsData[]>([]);
 /******* Данные материалов с сервера ___ END _____ *******/
+
+/******* Глобальное модальное состояние ___ START ___ *******/
+
+export const mainModalAtom = atom<string | null>(null);
+/******* Глобальное модальное состояние ___ END _____ *******/

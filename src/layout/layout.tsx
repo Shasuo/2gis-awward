@@ -1,6 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes, JSX } from "react";
 import { Header } from "@/layout/header/header";
 import { TopPageMobileTgLink } from "@/layout/topPageMobileTgLink/topPageMobileTgLink";
+import { AnyQuestionsModal } from "@/layout/modals/anyQuestionsModal";
 
 export const Layout = ({
   children,
@@ -15,8 +16,11 @@ export const Layout = ({
         }}
         className={"absolute w-full top-0 h-[540px] z-[-1]"}
       />
+      <AnyQuestionsModal />
+
       <Header />
       <TopPageMobileTgLink />
+
       {children}
 
       <div
