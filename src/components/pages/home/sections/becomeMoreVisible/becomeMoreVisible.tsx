@@ -42,7 +42,7 @@ export const BecomeMoreVisible = () => {
       <Link
         href={"#"}
         className={
-          "max-tablet:h-[329px] max-tablet:bg-[#AB844C] max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-2 mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block"
+          "arrowImageBlock_HOVER max-tablet:h-[329px] max-tablet:bg-[#AB844C] max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-2 mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block"
         }
       >
         <h3
@@ -61,13 +61,18 @@ export const BecomeMoreVisible = () => {
           в&nbsp;телеграмм
         </p>
 
-        <Image
-          src={`${ICONS_PATH}/link.svg`}
-          alt={"перейти"}
-          width={40}
-          height={40}
-          className={"max-tablet:hidden absolute right-12 top-12"}
-        />
+        <div
+          className={
+            "max-tablet:rounded-[8] max-tablet:w-[24] max-tablet:h-[24] w-10 h-10 flex items-center justify-center rounded-[12px] box-border arrowImageBlock max-tablet:hidden absolute right-12 top-12"
+          }
+          style={{ border: "1px solid white" }}
+        >
+          <img
+            src={`${ICONS_PATH}/link_arrow.svg`}
+            alt={"Перейти"}
+            className={"max-tablet:w-2 max-tablet:h-2"}
+          />
+        </div>
         <Image
           src={`${IMAGES_PATH}/bigTG.webp`}
           alt={"Telegram"}

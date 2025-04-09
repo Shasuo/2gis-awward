@@ -1,5 +1,3 @@
-import { TextModule } from "@/components/texts/textModule";
-import { Cards } from "./cards";
 import { SuccessTellCards } from "@/components/reused/successTellCards/successTellCards";
 
 export const TellTheAudience = () => {

@@ -29,7 +29,7 @@ export const ViewMaterials = () => {
                 "max-tablet:max-w-[282px] max-tablet:tracking-[0.01em] max-tablet:leading-[100%] max-tablet:text-[30px] text-[54px] leading-[92%] tracking-[-0.02em] max-w-[600px]"
               }
             >
-              Расскажите о своей победе прямо сейчас
+              Расскажите о&nbsp;своей победе прямо сейчас
             </h2>
             <p
               className={
@@ -43,7 +43,7 @@ export const ViewMaterials = () => {
           <Link
             href={"/personalized"}
             className={
-              "px-[38] py-[18] rounded-[8] box-border w-fit block mt-[46]"
+              "hover:bg-white active:bg-white hover:text-[#354257] active:text-[#354257] px-[38] py-[18] rounded-[8] box-border w-fit block mt-[46]"
             }
             style={{ border: "1px solid white" }}
           >

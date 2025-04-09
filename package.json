@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/axios": "^0.14.4",
     "@types/swiper": "^6.0.0",
     "axios": "^1.8.4",
     "jotai": "^2.12.2",

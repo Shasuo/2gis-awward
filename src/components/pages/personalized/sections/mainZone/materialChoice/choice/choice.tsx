@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChoiceSection } from "@/components/pages/personalized/sections/mainZone/materialChoice/choice/choiceSection/choiceSection";
 import { mainMaterialTypeInterface } from "@/components/pages/personalized/sections/mainZone/materialChoice/materialChoice";
+import { DownloadAll } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/downloadButton/downloadAll";
 
 export interface MaterialChoiceButtonsProps__options {
   width: number;
@@ -43,14 +44,7 @@ export const Choice = () => {
           <ChoiceSection block={block} key={index} />
         ),
       )}
-      <Link
-        href={"#"}
-        className={
-          "rounded-[8px] bg-[#AB844C] px-10 flex items-center h-12 text-base leading-6 tracking-[-0.018em] absolute bottom-12 left-12"
-        }
-      >
-        Скачать все материалы
-      </Link>
+      <DownloadAll />
     </div>
   );
 };

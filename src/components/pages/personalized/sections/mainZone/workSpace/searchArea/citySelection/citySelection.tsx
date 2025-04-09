@@ -1,6 +1,6 @@
 import React from "react";
 import Select, { components, StylesConfig } from "react-select";
-import { cityAtom, OptionType } from "@/atoms/atoms";
+import { cityAtom, OptionType, organizationAtom } from "@/atoms/atoms";
 import { useAtom } from "jotai";
 
 const DropdownIndicator = (props: any) => {
@@ -99,6 +99,7 @@ export const CitySelection = ({
   cities: OptionType[];
 }) => {
   const [selectedOption, setSelectedOption] = useAtom(cityAtom);
+  const setOrganization = useAtom(organizationAtom)[1];
 
   return (
     <div
@@ -113,7 +114,10 @@ export const CitySelection = ({
       </span>
       <Select
         value={selectedOption}
-        onChange={(option) => setSelectedOption(option as OptionType)}
+        onChange={(option) => {
+          setSelectedOption(option as OptionType);
+          setOrganization(null);
+        }}
         options={cities}
         styles={customStyles}
         placeholder="Москва"

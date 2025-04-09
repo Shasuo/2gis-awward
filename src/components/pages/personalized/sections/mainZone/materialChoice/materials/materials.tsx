@@ -3,11 +3,39 @@ import { ControlButton } from "@/components/pages/personalized/sections/mainZone
 import Image from "next/image";
 import Link from "next/link";
 import { useAtom } from "jotai/index";
-import { materialSizesAtom } from "@/atoms/atoms";
+import { materialsDataAtom, materialSizesAtom } from "@/atoms/atoms";
 import { MobileChoice } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/mobileChoice/mobileChoice";
+import { useEffect, useState } from "react";
+import { DownloadButton } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/downloadButton/downloadButton";
+import { DownloadAll } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/downloadButton/downloadAll";
 
 export const Materials = () => {
   const [activeMaterial, setActiveMaterial] = useAtom(materialSizesAtom);
+  const [activeImage, setActiveImage] = useState(
+    `${IMAGES_PATH}/${activeMaterial.sizes.width}x${activeMaterial.sizes.height}.png`,
+  );
+  const materialsData = useAtom(materialsDataAtom)[0];
+
+  useEffect(() => {
+    if (materialsData) {
+      const filePath = materialsData.find((item) => {
+        const sizeMatch =
+          item.width === activeMaterial.sizes.width &&
+          item.height === activeMaterial.sizes.height;
+
+        const typeMatch =
+          activeMaterial.type === "IMAGE" ? !item.video : item.video;
+
+        return sizeMatch && typeMatch;
+      })?.link;
+
+      if (filePath) {
+        console.log(filePath);
+        setActiveImage(filePath);
+      }
+    }
+  }, [materialsData, activeMaterial]);
+
   return (
     <div
       className={
@@ -31,23 +59,13 @@ export const Materials = () => {
           большинства социальных сетей
         </p>
         <div className={"max-tablet:mt-6 mt-9 flex gap-2"}>
-          <Link
-            href={"#"}
-            className={
-              "max-tablet:w-full max-tablet:max-w-[257] max-tablet:text-[14px] max-tablet:h-[56] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] h-12 flex items-center justify-center px-4 gap-2 text-base leading-6 tracking-[-0.018em] rounded-[8px] bg-[#313F5B]"
-            }
-          >
-            Скачать картинку{" "}
-            <Image
-              src={`${ICONS_PATH}/download.svg`}
-              alt={"Скачать картинку"}
-              width={20}
-              height={20}
-            />
-          </Link>
+          <DownloadButton
+            activeMaterial={activeMaterial}
+            activeImage={activeImage}
+          />
           <div
             className={
-              "max-tablet:w-[56] max-tablet:h-[56] w-12 h-12 bg-[#AB844C] rounded-[8px] flex items-center justify-center"
+              "cursor-pointer hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:w-[56] max-tablet:h-[56] w-12 h-12 bg-[#AB844C] rounded-[8px] flex items-center justify-center"
             }
           >
             <Image
@@ -64,11 +82,21 @@ export const Materials = () => {
           "max-tablet:mt-8 max-tablet:w-full max-tablet:max-w-[323] w-[264px] order-0"
         }
       >
-        <img
-          src={`${IMAGES_PATH}/${activeMaterial.sizes.width}x${activeMaterial.sizes.height}.png`}
-          alt={activeMaterial.sizes.width + "x" + activeMaterial.sizes.height}
-          className={"max-tablet:w-full"}
-        />
+        {activeMaterial.type === "IMAGE" ? (
+          <img
+            src={activeImage}
+            alt={activeMaterial.sizes.width + "x" + activeMaterial.sizes.height}
+            className={"max-tablet:w-full"}
+          />
+        ) : (
+          <video
+            src={activeImage}
+            className={"max-tablet:w-full"}
+            autoPlay
+            muted
+          />
+        )}
+
         <div
           className={
             "max-tablet:mt-3 max-tablet:ml-auto max-tablet:mr-0 flex mt-6 w-fit mx-auto gap-3"
@@ -84,14 +112,7 @@ export const Materials = () => {
             setActiveMaterial={setActiveMaterial}
           />
         </div>
-        <Link
-          href={"#"}
-          className={
-            "max-tablet:flex rounded-[8px] bg-[#AB844C] px-10 items-center h-[56] mt-12 text-[14px] leading-[150%] tracking-[-0.01em] w-full hidden justify-center"
-          }
-        >
-          Скачать все материалы
-        </Link>
+        <DownloadAll mobile />
       </div>
     </div>
   );

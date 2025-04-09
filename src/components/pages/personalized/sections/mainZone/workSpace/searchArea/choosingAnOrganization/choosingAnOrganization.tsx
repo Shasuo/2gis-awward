@@ -3,6 +3,7 @@ import Select, { ClearIndicatorProps, StylesConfig } from "react-select";
 import { ICONS_PATH } from "@/components/paths/paths";
 import { cityAtom, OptionType, organizationAtom } from "@/atoms/atoms";
 import { useAtom } from "jotai";
+import Image from "next/image";
 
 interface firmsListProps {
   value: string;
@@ -23,8 +24,13 @@ const ClearIndicator = (props: ClearIndicatorProps<OptionType, false>) => {
         cursor: "pointer",
         padding: "0 8px",
       }}
-      onClick={() => {
-        console.log("Clearing value...");
+      onClick={(e) => {
+        e.stopPropagation();
+        props.clearValue();
+      }}
+      onTouchEnd={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
         props.clearValue();
       }}
     >
@@ -46,7 +52,7 @@ const ClearIndicator = (props: ClearIndicatorProps<OptionType, false>) => {
   );
 };
 
-const Search = (color = "red") => ({
+const Search = () => ({
   alignItems: "center",
   display: "flex",
 
@@ -126,17 +132,18 @@ const customStyles: StylesConfig<OptionType, false> = {
   }),
   singleValue: (provided) => ({
     ...provided,
-    ...Search(),
     color: "white",
+    paddingLeft: 24,
   }),
   input: (provided) => ({
     ...provided,
     color: "white",
+    paddingLeft: 24,
   }),
   placeholder: (provided) => ({
     ...provided,
-    ...Search(),
     color: "rgba(255, 255, 255, 0.5)",
+    paddingLeft: 24,
   }),
   menu: (provided) => ({
     ...provided,
@@ -155,14 +162,14 @@ export const ChoosingAnOrganization = ({
   isActive?: boolean;
   allWinners: any[];
 }) => {
-  const [cityOption, setCityOption] = useAtom(cityAtom);
+  const cityOption = useAtom(cityAtom)[0];
 
   let options: firmsListProps[] = [];
   let object;
   if (cityOption) {
     object = allWinners.find((item) => item.project === cityOption.label);
     options = object.firms.map((item: any) => {
-      return { ...item, value: item.name, label: item.name };
+      return { ...item, value: item.name, label: item.name, guid: item.guid };
     });
   }
   const [selectedOption, setSelectedOption] = useAtom(organizationAtom);
@@ -179,21 +186,30 @@ export const ChoosingAnOrganization = ({
         Введите название организации
       </span>
 
-      <Select
-        value={selectedOption}
-        onChange={(option) => setSelectedOption(option as OptionType)}
-        options={options}
-        isClearable
-        styles={customStyles}
-        placeholder="Ромашка, кафе"
-        isSearchable
-        className={`${isActive ? "max-tablet:w-full max-tablet:max-w-[unset]" : "max-tablet:w-[258] max-tablet:max-w-[258]"} max-tablet:mt-2 mt-4 w-[456px]`}
-        components={{
-          ClearIndicator,
-          Option: CustomOption,
-        }}
-        noOptionsMessage={() => "Ничего не найдено"}
-      />
+      <div className={"relative"}>
+        <Image
+          src={`${ICONS_PATH}/search.svg`}
+          alt={"Искать"}
+          width={24}
+          height={24}
+          className={"absolute left-[16] top-[12] z-10"}
+        />
+        <Select
+          value={selectedOption}
+          onChange={(option) => setSelectedOption(option as OptionType)}
+          options={options}
+          isClearable
+          styles={customStyles}
+          placeholder="Ромашка, кафе"
+          isSearchable
+          className={`${isActive ? "max-tablet:w-full max-tablet:max-w-[unset]" : "max-tablet:w-[258] max-tablet:max-w-[258]"} max-tablet:mt-2 mt-4 w-[456px]`}
+          components={{
+            ClearIndicator,
+            Option: CustomOption,
+          }}
+          noOptionsMessage={() => "Ничего не найдено"}
+        />
+      </div>
     </div>
   );
 };

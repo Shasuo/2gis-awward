@@ -3,8 +3,32 @@ import { IMAGES_PATH } from "@/components/paths/paths";
 import { SearchArea } from "@/components/pages/personalized/sections/mainZone/workSpace/searchArea/searchArea";
 import { MaterialChoice } from "@/components/pages/personalized/sections/mainZone/materialChoice/materialChoice";
 import { useAtom } from "jotai";
-import { cityAtom, OptionType, organizationAtom } from "@/atoms/atoms";
+import {
+  cityAtom,
+  materialsDataAtom,
+  OptionType,
+  organizationAtom,
+} from "@/atoms/atoms";
 import { MobileTypeChoice } from "@/components/pages/personalized/sections/mainZone/materialChoice/mobileTypeChoice/mobileTypeChoice";
+import { useEffect, useState } from "react";
+
+const fetchWinItems = async (userId: string): Promise<any> => {
+  try {
+    const response = await fetch(`/api/getWinner?id=${userId}`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return new Promise((resolve) => {
+      resolve(data);
+    });
+  } catch (error) {
+    console.error("Error fetching win items:", error);
+  }
+};
 
 export const MainZone = ({
   cities,
@@ -15,13 +39,64 @@ export const MainZone = ({
 }) => {
   const CityAtom = useAtom(cityAtom)[0];
   const OrganizationAtom = useAtom(organizationAtom)[0];
+  const setMaterialsData = useAtom(materialsDataAtom)[1];
+  const [loading, setLoading] = useState<"success" | "error" | "initial">(
+    "initial",
+  );
+  useEffect(() => {
+    console.log(OrganizationAtom);
+    if (CityAtom && OrganizationAtom) {
+      const fetchData = async () => {
+        try {
+          setLoading("initial");
+          if (OrganizationAtom.guid) {
+            const materialsData = await fetchWinItems(OrganizationAtom.guid);
+            if (materialsData) {
+              setMaterialsData(materialsData.files);
+              setLoading("success");
+            } else {
+              setLoading("error");
+            }
+          } else {
+            setLoading("error");
+          }
+        } catch (error) {
+          console.error("Ошибка запроса", error);
+          setLoading("error");
+        }
+      };
+
+      fetchData();
+    }
+  }, [CityAtom, OrganizationAtom]);
 
   if (CityAtom && OrganizationAtom) {
     return (
       <div className={"max-tablet:mt-[80] mt-[105]"}>
         <SearchArea isActive cities={cities} allWinners={allWinners} />
-        <MobileTypeChoice />
-        <MaterialChoice />
+
+        {loading === "initial" ? (
+          <div
+            className={
+              "bg-[#233149] flex items-center h-[400] rounded-[32] mt-[30]"
+            }
+          >
+            <div className={"preloader w-fit mx-auto mt-6"}></div>
+          </div>
+        ) : loading === "success" ? (
+          <>
+            <MobileTypeChoice />
+            <MaterialChoice />
+          </>
+        ) : (
+          <div
+            className={
+              "bg-[#233149] flex items-center justify-center h-[400] rounded-[32] mt-[30]"
+            }
+          >
+            Ошибка, попробуйте снова
+          </div>
+        )}
       </div>
     );
   } else {

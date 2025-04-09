@@ -4,12 +4,12 @@ export const SuccessTellCards = () => {
   return (
     <Cards
       cards={[
-        { href: "/digital", text: "Темы публикаций", img: "" },
+        { href: "/digital", text: "Темы публикаций", img: "digstickers-0.png" },
         { href: "/digital", text: "Диджитал-стикеры", img: "digstickers.webp" },
         {
           href: "/digital",
           text: "Открытка победителя",
-          img: "",
+          img: "digstickers-2.png",
           mobilePlusHeight: true,
         },
       ]}

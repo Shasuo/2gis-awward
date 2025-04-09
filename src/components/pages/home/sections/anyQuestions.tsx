@@ -5,7 +5,7 @@ export const AnyQuestions = () => {
   return (
     <section
       className={
-        "max-tablet:block box-border py-11 px-12 flex items-center justify-between rounded-[16] relative z-10 max-w-[936] mx-auto"
+        "max-tablet:max-w-[344] max-tablet:block box-border py-11 px-12 flex items-center justify-between rounded-[16] relative z-10 max-w-[936] mx-auto"
       }
       style={{ border: "1px solid #8A9FC4" }}
     >
@@ -19,12 +19,13 @@ export const AnyQuestions = () => {
       <Link
         href={"#"}
         className={
-          "max-tablet:mx-auto max-tablet:max-w-[249px] max-tablet:flex max-tablet:justify-center max-tablet:mt-[38px] bg-white text-[#0C132D] box-border block py-[18] px-[64] rounded-[8]"
+          "hover:bg-transparent active::bg-transparent hover:text-white active:text-white max-tablet:mx-auto max-tablet:max-w-[249px] max-tablet:flex max-tablet:justify-center box-border max-tablet:mt-[38px] bg-white text-[#0C132D] box-border block py-[18] px-[64] rounded-[8]"
         }
+        style={{ border: "1px solid white" }}
       >
         <span
           className={
-            "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
+            "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] "
           }
         >
           Задать вопрос

@@ -1,4 +1,5 @@
 import { TextModule } from "@/components/texts/textModule";
+import Link from "next/link";
 
 export const Breadcrumbs = ({
   mt,
@@ -14,7 +15,9 @@ export const Breadcrumbs = ({
       }
       style={{ marginTop: mt }}
     >
-      <div className={"opacity-60"}>Главная</div>
+      <Link href={"/"} className={"opacity-60"}>
+        Главная
+      </Link>
       <div className={"max-tablet:mx-2 mx-[15px]"}>/</div>
       <div>{pageName}</div>
     </div>

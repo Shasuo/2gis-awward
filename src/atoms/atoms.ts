@@ -4,7 +4,19 @@ import { mainMaterialInterface } from "@/components/pages/personalized/sections/
 export type OptionType = {
   value: string;
   label: string;
+  guid?: string;
 };
+
+interface MaterialsData {
+  id: number;
+  title: string;
+  platform: string;
+  width: number;
+  height: number;
+  video: boolean;
+  archive: boolean;
+  link: string;
+}
 
 /******* Глобальные состояния городов и списков победителей ___ START ___ *******/
 
@@ -20,3 +32,8 @@ export const materialSizesAtom = atom<mainMaterialInterface>({
   sizes: { width: 1080, height: 1080 },
 });
 /******* Глобальное состояние выбранного размера персонализированных материалов ___ END _____ *******/
+
+/******* Данные материалов с сервера ___ START ___ *******/
+
+export const materialsDataAtom = atom<MaterialsData[]>([]);
+/******* Данные материалов с сервера ___ END _____ *******/

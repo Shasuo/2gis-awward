@@ -1,15 +1,18 @@
 import axios from "axios";
 
 export default async function handler(req: any, res: any) {
-  const { q } = req.query;
+  const { id } = req.query;
+  if (!id) {
+    return res.status(400).json({ error: "User ID is required" });
+  }
 
   try {
-    const response = await axios.get(
-      `http://localhost:3101/products/search?q=${q}`,
+    const externalApiResponse = await axios.get(
+      `https://api.cdn-2gis.ru/api/winitems/${id}`,
     );
-    res.status(200).json(response.data.hits.hits);
-  } catch (error) {
-    console.error("Ошибка при запросе к внешнему серверу:", error);
-    res.status(500).json({ error: "Ошибка сервера" });
+    res.status(200).json(externalApiResponse.data);
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 }

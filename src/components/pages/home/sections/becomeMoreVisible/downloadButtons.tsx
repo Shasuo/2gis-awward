@@ -13,9 +13,8 @@ export const DownloadButtons = () => {
       <Link
         href={"#"}
         className={
-          "max-tablet:justify-center flex items-center box-border py-3 px-6 rounded-[8]"
+          "bg-[#374463B2] hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:justify-center flex items-center box-border py-3 px-6 rounded-[8]"
         }
-        style={{ background: "rgba(55, 68, 99, 0.7)" }}
       >
         <Image
           src={`${ICONS_PATH}/download.svg`}
@@ -35,9 +34,8 @@ export const DownloadButtons = () => {
       <Link
         href={"#"}
         className={
-          "max-tablet:justify-center max-tablet:mt-1 max-tablet:ml-0 flex items-center box-border py-3 px-6 rounded-[8] ml-3"
+          "bg-[#374463B2] hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:justify-center max-tablet:mt-1 max-tablet:ml-0 flex items-center box-border py-3 px-6 rounded-[8] ml-3"
         }
-        style={{ background: "rgba(55, 68, 99, 0.7)" }}
       >
         <Image
           src={`${ICONS_PATH}/download.svg`}

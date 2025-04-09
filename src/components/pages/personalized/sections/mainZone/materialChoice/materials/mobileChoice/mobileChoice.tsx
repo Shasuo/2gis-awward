@@ -11,7 +11,7 @@ import { materialSizesAtom } from "@/atoms/atoms";
 export const MobileChoice = () => {
   const [activeMaterial, setActiveMaterial] = useAtom(materialSizesAtom);
   return (
-    <>
+    <div className={"max-tablet:block hidden"}>
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={4}
@@ -32,6 +32,6 @@ export const MobileChoice = () => {
         ))}
         <SwiperSlide style={{ width: 20 }}></SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
