@@ -2,7 +2,7 @@ import { Button } from "@/components/pages/digital/sections/morePublications/but
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
 
-const buttons = ["#премия2ГИС", "2GISAwards"];
+const buttons = ["#премия2ГИС", "#2GISAwards"];
 export const MorePublications = () => {
   const language = useAtom(languageRuAtom)[0];
 

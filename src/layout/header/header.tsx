@@ -65,9 +65,9 @@ export const Header = () => {
           />
         </div>
         <div
-          style={{ display: active ? "block" : "none" }}
+          style={{ display: active ? "flex" : "none" }}
           className={
-            "hover:bg-[#121C39] active:bg-[#121C39] hover:text-white active:text-white cursor-pointer max-tablet:left-[16px] max-tablet:p-1 max-tablet:top-[25px] absolute bg-white p-2 left-[13px] top-[45px] text-black text-base rounded-[8px] z-10"
+            "hover:bg-[#121C39] active:bg-[#121C39] hover:text-white active:text-white cursor-pointer max-tablet:w-[55] max-tablet:h-[55] max-tablet:left-[0] max-tablet:top-[25px] absolute bg-white left-[-7] top-[45px] text-black text-base rounded-[8px] z-10 w-[75] h-[75] flex items-center justify-center box-border"
           }
           onClick={setLanguageHandle}
         >

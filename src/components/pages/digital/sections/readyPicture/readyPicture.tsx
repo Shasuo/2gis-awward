@@ -31,7 +31,7 @@ export const ReadyPicture = () => {
         >
           {language
             ? "Используйте готовую картинку или видео"
-            : "Используйте готовые картинку или бейне"}
+            : "Дайын суретті немесе видеоны пайдаланыңыз"}
         </h2>
         <Control
           setActiveLanguage={setActiveLanguage}

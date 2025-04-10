@@ -12,7 +12,9 @@ export const PictureResolutionControl = ({
 }) => {
   const language = useAtom(languageRuAtom)[0];
   return (
-    <div className={"max-tablet:flex max-tablet:gap-1 mt-6"}>
+    <div
+      className={`max-tablet:flex max-tablet:gap-1 ${language ? "mt-6" : "mt-1"}`}
+    >
       <div
         className={`max-tablet:px-4 max-tablet:py-[9.5px] max-tablet:rounded-[12px] max-tablet:border max-tablet:border-[#AB844C] cursor-pointer box-border ${size === "PICTURE" ? styles.active : ""}`}
         onClick={() => setSize("PICTURE")}
