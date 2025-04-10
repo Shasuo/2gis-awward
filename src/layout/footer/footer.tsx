@@ -99,12 +99,11 @@ export const Footer = () => {
         >
           {language ? "Наверх ↑" : "Жоғарыға ↑"}
         </div>
-        <div
-          className={
-            "max-tablet:block hidden mt-12 hover:text-[#C5A87E] active:text-[#C5A87E]"
-          }
-        >
-          <a className={"mt-6"} href="mailto:awards@2gis.ru">
+        <div className={"max-tablet:block hidden mt-12"}>
+          <a
+            className={"mt-6 hover:text-[#C5A87E] active:text-[#C5A87E]"}
+            href="mailto:awards@2gis.ru"
+          >
             awards@2gis.ru
           </a>
           <div className={"mt-6 opacity-70"}>
