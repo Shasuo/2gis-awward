@@ -43,7 +43,7 @@ export const WhatNext = () => {
             "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] text-center"
           }
         >
-          {language ? "На главную" : "На Басты бетке"}
+          {language ? "На главную" : "Басты бетке"}
         </div>
       </Link>
     </section>

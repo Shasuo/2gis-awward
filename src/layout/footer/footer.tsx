@@ -50,10 +50,21 @@ export const Footer = () => {
             </>
           )}
         </div>
-        <div className={"max-tablet:hidden"}>awards@2gis.ru</div>
+        <a
+          className={
+            "max-tablet:hidden hover:text-[#C5A87E] active:text-[#C5A87E]"
+          }
+          href="mailto:awards@2gis.ru"
+        >
+          awards@2gis.ru
+        </a>
         <div className={"max-tablet:block flex gap-[28]"}>
           <Link
-            href={"https://law.2gis.ru/2025-awards-rules"}
+            href={
+              language
+                ? "https://law.2gis.ru/2025-awards-rules"
+                : "https://law.2gis.kz"
+            }
             className={"block hover:text-[#C5A87E] active:text-[#C5A87E]"}
             target={"_blank"}
             onClick={() => metrika("bonus_rules")}
@@ -61,7 +72,11 @@ export const Footer = () => {
             {language ? "Правила Премии" : "Awards ережелері"}
           </Link>
           <Link
-            href={"https://awards.2gis.ru/business"}
+            href={
+              language
+                ? "https://awards.2gis.ru/business"
+                : "https://awards.2gis.ru/business/kz "
+            }
             className={
               "block max-tablet:mt-6 hover:text-[#C5A87E] active:text-[#C5A87E]"
             }
@@ -84,8 +99,14 @@ export const Footer = () => {
         >
           {language ? "Наверх ↑" : "Жоғарыға ↑"}
         </div>
-        <div className={"max-tablet:block hidden mt-12"}>
-          <div className={"mt-6"}>awards@2gis.ru</div>
+        <div
+          className={
+            "max-tablet:block hidden mt-12 hover:text-[#C5A87E] active:text-[#C5A87E]"
+          }
+        >
+          <a className={"mt-6"} href="mailto:awards@2gis.ru">
+            awards@2gis.ru
+          </a>
           <div className={"mt-6 opacity-70"}>
             {language ? (
               <>

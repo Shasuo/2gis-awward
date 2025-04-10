@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ICONS_PATH } from "@/components/paths/paths";
 import { Dispatch, useState } from "react";
 import { metrika } from "@/components/scripts/metrika";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const useHandleCopy = (text: string, setState: Dispatch<any>) => {
   navigator.clipboard.writeText(text.trim()).then(() => {
@@ -13,7 +15,7 @@ export const useHandleCopy = (text: string, setState: Dispatch<any>) => {
 };
 export const TextContent = ({ text }: { text: TextContentProps }) => {
   const [isCopied, setIsCopied] = useState(false);
-
+  const language = useAtom(languageRuAtom)[0];
   return (
     <div
       className={
@@ -59,7 +61,13 @@ export const TextContent = ({ text }: { text: TextContentProps }) => {
           }
           style={{ color: isCopied ? "#4CAF50" : "#D7D9DD" }}
         >
-          {isCopied ? "Скопировано" : "Копировать"}
+          {isCopied
+            ? language
+              ? "Скопировано"
+              : "Көшірілді"
+            : language
+              ? "Копировать"
+              : "Көшіру"}
         </span>
       </div>
     </div>

@@ -10,19 +10,17 @@ export const AnyQuestions = () => {
   return (
     <section
       className={
-        "max-tablet:max-w-[344] max-tablet:block box-border py-11 px-12 flex items-center justify-between rounded-[16] relative z-10 max-w-[936] mx-auto"
+        "max-tablet:max-w-[344] max-tablet:px-7 max-tablet:block box-border py-11 px-12 flex items-center justify-between rounded-[16] relative z-10 max-w-[936] mx-auto"
       }
       style={{ border: "1px solid #8A9FC4" }}
     >
       <h2
-        className={
-          "max-tablet:mx-auto max-tablet:max-w-[236px] max-tablet:text-[24px] max-tablet:leading-[130%] text-[32px] leading-10 tracking-[-0.016em] max-w-[490px]"
-        }
+        className={`${language ? "" : "max-tablet:max-w-[unset]"} max-tablet:mx-auto max-tablet:max-w-[236px] max-tablet:text-[24px] max-tablet:leading-[130%] text-[32px] leading-10 tracking-[-0.016em] max-w-[490px]`}
       >
         {language ? (
           <>Если остались вопросы или хотите что-то обсудить</>
         ) : (
-          <>Егер сұрақтар қалса  немесе талқылайтын тақырыптарыңыз болса</>
+          <>Егер сұрақтар қалса немесе талқылайтын тақырыптарыңыз болса</>
         )}
       </h2>
       <div

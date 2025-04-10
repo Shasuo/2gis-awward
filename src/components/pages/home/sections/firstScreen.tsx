@@ -24,7 +24,7 @@ export const FirstScreen = () => {
           </>
         ) : (
           <>
-            Алақай! Сіз — 2GIS Awards 2025{" "}
+            Алақай! Сіз — 2GIS&nbsp;Awards 2025{" "}
             <span className={"max-tablet:text-white text-[#C5A87E]"}>
               жеңімпазысыз
             </span>{" "}

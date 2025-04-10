@@ -21,6 +21,27 @@ export const Materials = () => {
   );
   const materialsData = useAtom(materialsDataAtom)[0];
 
+  const handleShare = async (imageUrl: string) => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Поделиться изображением",
+          text: "Посмотрите это изображение!",
+          url: imageUrl,
+        });
+      } else {
+        const link = document.createElement("a");
+        link.href = imageUrl;
+        link.download = imageUrl.split("/").pop() || "image.jpg";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    } catch (err) {
+      console.error("Ошибка при попытке поделиться:", err);
+    }
+  };
+
   useEffect(() => {
     if (materialsData) {
       const filePath = materialsData.find((item) => {
@@ -83,6 +104,7 @@ export const Materials = () => {
             className={
               "cursor-pointer hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:w-[56] max-tablet:h-[56] w-12 h-12 bg-[#AB844C] rounded-[8px] flex items-center justify-center"
             }
+            onClick={() => handleShare(activeImage)}
           >
             <Image
               src={`${ICONS_PATH}/share.svg`}

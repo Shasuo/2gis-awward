@@ -28,7 +28,7 @@ export const Header = () => {
     >
       <Link href={"/"}>
         <Image
-          src={`${ICONS_PATH}/2gis-header.png`}
+          src={`${ICONS_PATH}/${language ? "2gis-header.png" : "2gis-header_KZ.png"}`}
           alt={"2GIS"}
           width={205}
           height={60}
@@ -43,7 +43,7 @@ export const Header = () => {
             "max-tablet:mt-0 flex items-center mt-[17px] cursor-pointer"
           }
           onClick={() => {
-            /*setActive(!active)*/
+            setActive(!active);
           }}
         >
           <Image

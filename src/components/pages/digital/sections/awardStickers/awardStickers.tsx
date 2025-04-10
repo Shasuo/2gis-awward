@@ -133,12 +133,14 @@ export const AwardStickers = () => {
             line_height={"48px"}
             letter_spacing={"-0.016em"}
             max_width={468}
-            margin_top={132}
+            margin_top={language ? 132 : 44}
             as={"h2"}
           />
         </div>
 
-        <div className={"max-tablet:mt-0 mt-12 max-w-[355]"}>
+        <div
+          className={`max-tablet:mt-0 mt-12 ${language ? "max-w-[355]" : "max-w-[408]"}`}
+        >
           <div className={"flex gap-3"}>
             <Link
               href={"/download/RU_stikers.zip"}

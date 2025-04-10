@@ -11,13 +11,12 @@ export const DropDown = ({ content }: { content: DropDownProps }) => {
     <div
       className={`mt-[12] rounded-[16] p-6 box-border relative bg-[#233149] ${active ? "" : "cursor-pointer"}`}
       onClick={() => {
-        !active ? setActive(true) : undefined;
+        setActive(!active);
         metrika("create_post");
       }}
     >
       <div
         className={"absolute right-6 h-[23] cursor-pointer"}
-        onClick={() => setActive(!active)}
         style={{ top: active ? 31 : 21 }}
       >
         <Image

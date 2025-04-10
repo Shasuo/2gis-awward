@@ -165,7 +165,7 @@ export const AnyQuestionsModal = () => {
               <>
                 «Сұрақты жіберу» батырмасын басу арқылы сіз{" "}
                 <Link
-                  href={"https://law.2gis.ru/licensing-agreement/"}
+                  href={"https://law.2gis.kz/licensing-agreement/"}
                   className={"underline"}
                   target={"_blank"}
                 >
@@ -173,7 +173,7 @@ export const AnyQuestionsModal = () => {
                 </Link>{" "}
                 шарттарын қабылдайсыз және 2GIS-ке Жеке деректерді өңдеуге{" "}
                 <Link
-                  href={"https://law.2gis.ru/privacy/"}
+                  href={"https://law.2gis.kz/privacy/"}
                   className={"underline"}
                   target={"_blank"}
                 >
