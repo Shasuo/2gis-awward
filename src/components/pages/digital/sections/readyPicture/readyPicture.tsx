@@ -25,9 +25,7 @@ export const ReadyPicture = () => {
           {language ? "Открытка победителя" : "Жеңімпаздың ашықхаты"}
         </h4>
         <h2
-          className={
-            "max-tablet:mt-7 max-tablet:max-w-[315] max-tablet:text-[24px] max-tablet:leading-[130%] max-tablet:tracking-[-0.016em] max-w-[468] mt-6 font-semibold text-[40px] leading-[48px] tracking-[-0.016em]"
-          }
+          className={`max-tablet:mt-7 max-tablet:max-w-[315] max-tablet:text-[24px] max-tablet:leading-[130%] max-tablet:tracking-[-0.016em] max-w-[468] mt-6 font-semibold ${language ? "text-[40px]" : "text-[37px]"} leading-[48px] tracking-[-0.016em]`}
         >
           {language
             ? "Используйте готовую картинку или видео"

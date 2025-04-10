@@ -45,7 +45,7 @@ export const Footer = () => {
                 href={"https://law.2gis.kz"}
                 className={"hover:text-[#C5A87E] active:text-[#C5A87E]"}
               >
-                Awards ережелері
+                Құқықтық ақпарат
               </Link>
             </>
           )}
@@ -123,7 +123,7 @@ export const Footer = () => {
               <>
                 ©2025, 2ГИС.{" "}
                 <Link
-                  href={"https://law.2gis.ru"}
+                  href={"https://law.2gis.kz"}
                   className={"hover:text-[#C5A87E] active:text-[#C5A87E]"}
                   target={"_blank"}
                 >
