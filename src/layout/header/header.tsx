@@ -41,7 +41,9 @@ export const Header = () => {
           className={
             "max-tablet:mt-0 flex items-center mt-[17px] cursor-pointer"
           }
-          onClick={() => setActive(!active)}
+          onClick={() => {
+            /*setActive(!active)*/
+          }}
         >
           <Image
             src={`${ICONS_PATH}/planet.svg`}

@@ -52,10 +52,12 @@ export const ReadyPicture = () => {
         }
       >
         <Link
-          href={"#"}
+          href={`/download/${size}_${activeLanguage}.${size === "VIDEO" ? "mov" : "png"}`}
           className={
             "max-tablet:justify-center max-tablet:h-[56] flex items-center py-3 px-4 bg-[#AB844C] rounded-[8] box-border"
           }
+          download={true}
+          target={"_blank"}
           onClick={() => metrika("download_picture")}
         >
           <span

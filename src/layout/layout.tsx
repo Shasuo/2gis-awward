@@ -2,6 +2,7 @@ import { DetailedHTMLProps, HTMLAttributes, JSX } from "react";
 import { Header } from "@/layout/header/header";
 import { TopPageMobileTgLink } from "@/layout/topPageMobileTgLink/topPageMobileTgLink";
 import { AnyQuestionsModal } from "@/layout/modals/anyQuestionsModal";
+import { MetaHead } from "@/components/reused/metaHead/metaHead";
 
 export const Layout = ({
   children,
@@ -9,6 +10,12 @@ export const Layout = ({
 }: MainLayoutProps): JSX.Element => {
   return (
     <div {...props}>
+      <MetaHead
+        title={"Премия 2ГИС 2025"}
+        description={
+          "Премия 2ГИС  – награда, которую мы вручаем популярным компаниям, получившим по итогам года самые высокие оценки и внимание пользователей 2ГИС."
+        }
+      />
       <div
         style={{
           background:
