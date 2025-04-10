@@ -1,8 +1,11 @@
 import { TextModule } from "@/components/texts/textModule";
 import { useState } from "react";
 import { useHandleCopy } from "@/components/pages/personalized/sections/readyMadeTexts/texts/textContent/textContent";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const Button = ({ buttonText }: { buttonText: string }) => {
+  const language = useAtom(languageRuAtom)[0];
   const [isCopied, setIsCopied] = useState(false);
 
   return (
@@ -19,7 +22,7 @@ export const Button = ({ buttonText }: { buttonText: string }) => {
         }
         style={{ color: isCopied ? "#4CAF50" : "white" }}
       >
-        {isCopied ? "Скопировано" : buttonText}
+        {isCopied ? (language ? "Скопировано" : "Көшірілді") : buttonText}
       </div>
     </div>
   );
