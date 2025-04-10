@@ -1,7 +1,12 @@
 import React from "react";
 import Select, { ClearIndicatorProps, StylesConfig } from "react-select";
 import { ICONS_PATH } from "@/components/paths/paths";
-import { cityAtom, OptionType, organizationAtom } from "@/atoms/atoms";
+import {
+  cityAtom,
+  languageRuAtom,
+  OptionType,
+  organizationAtom,
+} from "@/atoms/atoms";
 import { useAtom } from "jotai";
 import Image from "next/image";
 
@@ -162,6 +167,7 @@ export const ChoosingAnOrganization = ({
   isActive?: boolean;
   allWinners: any[];
 }) => {
+  const language = useAtom(languageRuAtom)[0];
   const cityOption = useAtom(cityAtom)[0];
 
   let options: firmsListProps[] = [];
@@ -183,7 +189,7 @@ export const ChoosingAnOrganization = ({
           "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] block text-[20px] leading-[130%] tracking-[-0.023em]"
         }
       >
-        Введите название организации
+        {language ? "Введите название организации" : "Ұйым атауын енгізіңіз"}
       </span>
 
       <div className={"relative"}>

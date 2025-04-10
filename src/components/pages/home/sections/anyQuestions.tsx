@@ -1,10 +1,11 @@
 import { TextModule } from "@/components/texts/textModule";
 import Link from "next/link";
-import { mainModalAtom } from "@/atoms/atoms";
+import { languageRuAtom, mainModalAtom } from "@/atoms/atoms";
 import { useAtom } from "jotai";
 
 export const AnyQuestions = () => {
   const setMainModal = useAtom(mainModalAtom)[1];
+  const language = useAtom(languageRuAtom)[0];
   return (
     <section
       className={
@@ -17,7 +18,11 @@ export const AnyQuestions = () => {
           "max-tablet:mx-auto max-tablet:max-w-[236px] max-tablet:text-[24px] max-tablet:leading-[130%] text-[32px] leading-10 tracking-[-0.016em] max-w-[490px]"
         }
       >
-        Если остались вопросы или хотите что-то обсудить
+        {language ? (
+          <>Если остались вопросы или хотите что-то обсудить</>
+        ) : (
+          <>Егер сұрақтар қалса  немесе талқылайтын тақырыптарыңыз болса</>
+        )}
       </h2>
       <div
         className={
@@ -31,7 +36,7 @@ export const AnyQuestions = () => {
             "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
           }
         >
-          Задать вопрос
+          {language ? <>Задать вопрос</> : <>Сұрақ қою</>}
         </span>
       </div>
     </section>

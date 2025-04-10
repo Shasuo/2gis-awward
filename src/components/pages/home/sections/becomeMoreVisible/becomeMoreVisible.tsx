@@ -3,8 +3,11 @@ import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 import Image from "next/image";
 import Link from "next/link";
 import { SliderDownloadMaterials } from "@/components/reused/sliderDownloadMaterials/sliderDownloadMaterials";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const BecomeMoreVisible = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <section className={"max-tablet:mt-[80] mt-[92]"}>
       <div className={"max-tablet:ml-[39px]"}>
@@ -17,7 +20,7 @@ export const BecomeMoreVisible = () => {
               "max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] text-base leading-6 tracking-[-0.018em]"
             }
           >
-            Шаг 3
+            {language ? <>Шаг 3</> : <>3-қадам</>}
           </span>
         </div>
         <h2
@@ -25,16 +28,12 @@ export const BecomeMoreVisible = () => {
             "max-tablet:max-w-[282px] max-tablet:tracking-[0.01em] max-tablet:leading-[100%] max-tablet:text-[30px] max-tablet:mt-8 text-[54px] leading-[92%] tracking-[-0.02em] font-display mt-9"
           }
         >
-          Станьте заметнее в городе
+          {language ? (
+            <>Станьте заметнее в городе</>
+          ) : (
+            <>Қалада ерекшеленіңіз</>
+          )}
         </h2>
-        <p
-          className={
-            "max-tablet:max-w-[283px] max-tablet:mt-6 max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] max-tablet:block hidden"
-          }
-        >
-          Продолжайте рассказывать аудитории  о своем успехе
-          самостоятельно.{" "}
-        </p>
       </div>
 
       <SliderDownloadMaterials />
@@ -58,8 +57,14 @@ export const BecomeMoreVisible = () => {
             "max-tablet:text-[14px] max-tablet:max-w-[220px] max-tablet:mx-auto max-tablet:mt-3 max-tablet:text-center max-w-[452px] text-[24px] leading-[130%] tracking-[-0.015em] font-display mt-6 opacity-80"
           }
         >
-          Скачивайте материалы в&nbsp;несколько кликов через бота
-          в&nbsp;телеграмм
+          {language ? (
+            <>
+              Скачивайте материалы в&nbsp;несколько кликов через бота
+              в&nbsp;телеграмм
+            </>
+          ) : (
+            <>Материалдарды Телеграмдағы бот арқылы тез жүктеп алыңыз</>
+          )}
         </p>
 
         <div

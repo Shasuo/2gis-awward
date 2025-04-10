@@ -1,8 +1,10 @@
-import { TextModule } from "@/components/texts/textModule";
 import { Drops } from "@/components/pages/digital/sections/createPost/drops/drops";
 import { Slider } from "@/components/pages/digital/sections/createPost/slider/slider";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const CreatePost = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <section
       className={
@@ -17,14 +19,14 @@ export const CreatePost = () => {
               "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
             }
           >
-            Темы публикаций
+            {language ? "Темы публикаций" : "Жарияланымдар тақырыптары"}
           </h4>
           <h2
             className={
               "max-tablet:mt-7 max-tablet:text-[24px] max-tablet:leading-[130%] max-tablet:tracking-[-0.016em] mt-[15px] text-[40px] leading-[48px] tracking-[-0.016em] font-semibold"
             }
           >
-            Создайте пост
+            {language ? "Создайте пост" : "Пост жасаңыз"}
           </h2>
         </div>
 

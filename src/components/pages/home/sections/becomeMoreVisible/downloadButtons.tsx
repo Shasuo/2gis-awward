@@ -2,8 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { ICONS_PATH } from "@/components/paths/paths";
 import { TextModule } from "@/components/texts/textModule";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 /*"rgba(55, 68, 99, 0.7)"*/
 export const DownloadButtons = () => {
+  const language = useAtom(languageRuAtom)[0];
+
   return (
     <div
       className={
@@ -29,7 +33,7 @@ export const DownloadButtons = () => {
             "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] ml-3"
           }
         >
-          Скачать РУ
+          {language ? <>Скачать РУ</> : <>Жүктеп алу RU</>}
         </div>
       </Link>
       <Link
@@ -51,7 +55,7 @@ export const DownloadButtons = () => {
             "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] ml-3"
           }
         >
-          Скачать EN
+          {language ? <>Скачать EN</> : <>Жүктеп алу EN</>}
         </div>
       </Link>
     </div>

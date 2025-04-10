@@ -1,4 +1,8 @@
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
+
 export const FirstScreen = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <section
       className={
@@ -10,11 +14,22 @@ export const FirstScreen = () => {
           "max-tablet:max-w-[321] max-tablet:text-center max-tablet:text-[42px] max-tablet:leading-[92%] text-[65px] font-bold font-display leading-[110%] tracking-[-0.02em] max-w-[776px]"
         }
       >
-        Ура! Вы —{" "}
-        <span className={"max-tablet:text-white text-[#C5A87E]"}>
-          победитель
-        </span>{" "}
-        Премии 2ГИС 2025
+        {language ? (
+          <>
+            Ура! Вы —{" "}
+            <span className={"max-tablet:text-white text-[#C5A87E]"}>
+              победитель
+            </span>{" "}
+            Премии 2ГИС 2025
+          </>
+        ) : (
+          <>
+            Алақай! Сіз — 2GIS Awards 2025{" "}
+            <span className={"max-tablet:text-white text-[#C5A87E]"}>
+              жеңімпазысыз
+            </span>{" "}
+          </>
+        )}
       </h1>
       <div
         className={
@@ -22,8 +37,17 @@ export const FirstScreen = () => {
         }
       >
         <p className={"text-base leading-[24px] tracking-[-0.018em]"}>
-          В 2ГИС позаботились о вас и подготовили набор материалов, чтобы вы с
-          легкостью заявляли о своей победе!
+          {language ? (
+            <>
+              В 2ГИС позаботились о вас и подготовили набор материалов, чтобы вы
+              с легкостью заявляли о своей победе!
+            </>
+          ) : (
+            <>
+              2GIS сіз туралы ойлап, сіздің өз жеңісіңіз туралы оңай
+              жариялауыңыз үшін материалдар жинағын дайындады!
+            </>
+          )}
         </p>
         {/*
         <p className={"text-base leading-[24px] tracking-[-0.018em] mt-[25px]"}>

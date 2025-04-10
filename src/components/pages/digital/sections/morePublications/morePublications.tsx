@@ -1,8 +1,11 @@
-import { TextModule } from "@/components/texts/textModule";
 import { Button } from "@/components/pages/digital/sections/morePublications/button/button";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 const buttons = ["#премия2ГИС", "#2GISawards"];
 export const MorePublications = () => {
+  const language = useAtom(languageRuAtom)[0];
+
   return (
     <section
       className={
@@ -15,7 +18,11 @@ export const MorePublications = () => {
           "max-tablet:max-w-[271px] max-tablet:mx-auto max-tablet:text-center max-tablet:text-[18px] max-tablet:leading-[24px] max-tablet:tracking-[-0.018em] text-[24px] font-display leading-[130%] tracking-[0.015em] max-w-[390px]"
         }
       >
-        Еще больше публикаций ищите в соц-сетях по&nbsp;хештегам
+        {language ? (
+          <>Еще больше публикаций ищите в соц-сетях по&nbsp;хештегам</>
+        ) : (
+          "Бұдан басқа жарияланымдарды әлеуметтік желілерден мына хэштегтер бойынша іздеңіз:  "
+        )}
       </div>
       <div
         className={

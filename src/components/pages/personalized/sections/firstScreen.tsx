@@ -1,6 +1,8 @@
-import { TextModule } from "@/components/texts/textModule";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const FirstScreen = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <div
       className={
@@ -12,15 +14,24 @@ export const FirstScreen = () => {
           "max-tablet:max-w-[313px] max-tablet:text-[30px] max-tablet:leading-[100%] max-tablet:tracking-[0.01em] max-w-[612px] text-[54px] leading-[92%] tracking-[-0.02em]"
         }
       >
-        Расскажите о своей победе прямо сейчас
+        {language
+          ? "Расскажите о своей победе прямо сейчас"
+          : "Жеңісіңіз туралы ақпаратпен дәл қазір бөлісіңіз"}
       </h1>
       <p
         className={
           "max-tablet:ml-0 max-tablet:mt-8 max-tablet:max-w-[309px] max-w-[324px] text-base leading-6 tracking-[-0.018em] ml-[155px]"
         }
       >
-        Мы подготовили набор текстовых и&nbsp;визуально инструментов, чтобы вы
-        без&nbsp;дополнительных затрат рассказали клиентам о вашей победе.
+        {language ? (
+          <>
+            Мы подготовили набор текстовых и&nbsp;визуально инструментов, чтобы
+            вы без&nbsp;дополнительных затрат рассказали клиентам о вашей
+            победе.
+          </>
+        ) : (
+          "Клиенттеріңізге жеңісіңіз туралы қосымша шығынсыз айтуыңыз үшін біз мәтіндік және визуалды құралдар жинағын дайындадық."
+        )}
       </p>
     </div>
   );

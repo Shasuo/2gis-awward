@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { ICONS_PATH } from "@/components/paths/paths";
 import Link from "next/link";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const Footer = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <footer className={"max-tablet:pt-[80] pt-[108]"}>
       <Link href={"/"} className={"block w-fit mx-auto"}>
@@ -20,15 +23,35 @@ export const Footer = () => {
         }
       >
         <div className={"max-tablet:hidden"}>
-          ©2025, 2ГИС.
-          <br />{" "}
-          <Link
-            target={"_blank"}
-            href={"https://law.2gis.ru"}
-            className={"underline hover:text-[#C5A87E] active:text-[#C5A87E]"}
-          >
-            Правовая информация
-          </Link>
+          {language ? (
+            <>
+              ©2025, 2ГИС.
+              <br />{" "}
+              <Link
+                target={"_blank"}
+                href={"https://law.2gis.ru"}
+                className={
+                  "underline hover:text-[#C5A87E] active:text-[#C5A87E]"
+                }
+              >
+                Правовая информация
+              </Link>
+            </>
+          ) : (
+            <>
+              ©2025, 2ГИС.
+              <br />{" "}
+              <Link
+                target={"_blank"}
+                href={"https://law.2gis.ru"}
+                className={
+                  "underline hover:text-[#C5A87E] active:text-[#C5A87E]"
+                }
+              >
+                Awards ережелері
+              </Link>
+            </>
+          )}
         </div>
         <div className={"max-tablet:hidden"}>awards@2gis.ru</div>
         <div className={"max-tablet:block flex gap-[28]"}>
@@ -37,7 +60,7 @@ export const Footer = () => {
             className={"block hover:text-[#C5A87E] active:text-[#C5A87E]"}
             target={"_blank"}
           >
-            Правила Премии
+            {language ? "Правила Премии" : "Awards ережелері"}
           </Link>
           <Link
             href={"https://awards.2gis.ru/business"}
@@ -46,7 +69,7 @@ export const Footer = () => {
             }
             target={"_blank"}
           >
-            Для бизнеса
+            {language ? "Для бизнеса" : "Бизнес үшін"}
           </Link>
         </div>
         <div
@@ -60,19 +83,38 @@ export const Footer = () => {
             });
           }}
         >
-          Наверх ↑
+          {language ? "Наверх ↑" : "Жоғарыға ↑"}
         </div>
         <div className={"max-tablet:block hidden mt-12"}>
           <div className={"mt-6"}>awards@2gis.ru</div>
           <div className={"mt-6 opacity-70"}>
-            ©2025, 2ГИС.{" "}
-            <Link
-              href={"https://law.2gis.ru"}
-              className={"underline hover:text-[#C5A87E] active:text-[#C5A87E]"}
-              target={"_blank"}
-            >
-              Правовая информация
-            </Link>
+            {language ? (
+              <>
+                ©2025, 2ГИС.{" "}
+                <Link
+                  href={"https://law.2gis.ru"}
+                  className={
+                    "underline hover:text-[#C5A87E] active:text-[#C5A87E]"
+                  }
+                  target={"_blank"}
+                >
+                  Правовая информация
+                </Link>
+              </>
+            ) : (
+              <>
+                ©2025, 2ГИС.{" "}
+                <Link
+                  href={"https://law.2gis.ru"}
+                  className={
+                    "underline hover:text-[#C5A87E] active:text-[#C5A87E]"
+                  }
+                  target={"_blank"}
+                >
+                  Құқықтық ақпарат
+                </Link>
+              </>
+            )}
           </div>
           <div className={"mt-6 flex gap-3 mx-auto w-fit"}>
             <div

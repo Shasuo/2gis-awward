@@ -6,6 +6,8 @@ import Image from "next/image";
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 import React from "react";
 import "swiper/css";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 const images = [
   "becomemorevisible-slider-img-1.webp",
@@ -14,6 +16,7 @@ const images = [
   "becomemorevisible-slider-img-4.webp",
 ];
 export const SliderDownloadMaterials = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <div
       className={
@@ -105,7 +108,7 @@ export const SliderDownloadMaterials = () => {
                 "max-tablet:mt-0 max-tablet:leading-[110%] max-tablet:text-[12px] text-base leading-6 tracking-[-0.018em] mt-[-1]"
               }
             >
-              Печать
+              {language ? <>Печать</> : <>Басып шығару</>}
             </div>
           </div>
           <h4
@@ -113,7 +116,7 @@ export const SliderDownloadMaterials = () => {
               "max-tablet:tracking-[-0.018em] max-tablet:leading-[24px] max-tablet:text-[18px] max-tablet:mt-[15px] text-[24px] leading-[130%] tracking-[-0.015em] font-display mt-6"
             }
           >
-            Офлайн-стикеры
+            {language ? <>Офлайн-стикеры</> : <>Офлайн-стикерлер</>}
           </h4>
         </div>
 
@@ -122,7 +125,7 @@ export const SliderDownloadMaterials = () => {
       <div className={"max-tablet:mt-2"}>
         <Card
           img={"check.webp"}
-          text={"Текст на чеке"}
+          text={language ? "Текст на чеке" : "Чектегі мәтін"}
           href={"https://award-2023.2gis.ru/cheque/"}
           blank
         />

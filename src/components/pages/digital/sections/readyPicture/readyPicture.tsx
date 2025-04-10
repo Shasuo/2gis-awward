@@ -4,10 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 import { useState } from "react";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const ReadyPicture = () => {
   const [activeLanguage, setActiveLanguage] = useState<"RU" | "EN">("RU");
   const [size, setSize] = useState<"PICTURE" | "VIDEO">("PICTURE");
+  const language = useAtom(languageRuAtom)[0];
   return (
     <section
       className={
@@ -17,14 +20,16 @@ export const ReadyPicture = () => {
     >
       <div>
         <h4 className={"text-base leading-6 tracking-[-0.018em]"}>
-          Открытка победителя
+          {language ? "Открытка победителя" : "Жеңімпаздың ашықхаты"}
         </h4>
         <h2
           className={
             "max-tablet:mt-7 max-tablet:max-w-[315] max-tablet:text-[24px] max-tablet:leading-[130%] max-tablet:tracking-[-0.016em] max-w-[468] mt-6 font-semibold text-[40px] leading-[48px] tracking-[-0.016em]"
           }
         >
-          Используйте готовую картинку
+          {language
+            ? "Используйте готовую картинку"
+            : "Используйте готовые картинку или бейне"}
         </h2>
         <Control
           setActiveLanguage={setActiveLanguage}
@@ -56,7 +61,9 @@ export const ReadyPicture = () => {
               "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
             }
           >
-            Скачать {size === "PICTURE" ? "картинку" : "видео"}
+            {language
+              ? `Скачать ${size === "PICTURE" ? "картинку" : "видео"}`
+              : "Бейне жүктеу"}
           </span>
           <Image
             src={`${ICONS_PATH}/download.svg`}
@@ -78,7 +85,7 @@ export const ReadyPicture = () => {
               "max-tablet:mt-[3] max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em]"
             }
           >
-            Больше макетов
+            {language ? "Больше макетов" : "Қосымша макеттер"}
           </span>
         </Link>
       </div>

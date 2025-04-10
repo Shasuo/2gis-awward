@@ -5,7 +5,8 @@ import { ReadyMadeTexts } from "@/components/pages/personalized/sections/readyMa
 import { WhatNext } from "@/components/pages/personalized/sections/whatNext/whatNext";
 import { Footer } from "@/layout/footer/footer";
 import { AnyQuestions } from "@/components/pages/home/sections/anyQuestions";
-import { OptionType } from "@/atoms/atoms";
+import { languageRuAtom, OptionType } from "@/atoms/atoms";
+import { useAtom } from "jotai/index";
 
 export const Personalized = ({
   cities,
@@ -14,10 +15,18 @@ export const Personalized = ({
   cities: OptionType[];
   allWinners: any[];
 }) => {
+  const language = useAtom(languageRuAtom)[0];
+
   return (
     <>
       <main className={"max-tablet:mt-[60] mt-[84]"}>
-        <Breadcrumbs pageName={"Персонализированные материалы"} />
+        <Breadcrumbs
+          pageName={
+            language
+              ? "Персонализированные материалы"
+              : "Жекелендірілген материалдар"
+          }
+        />
         <FirstScreen />
         <MainZone cities={cities} allWinners={allWinners} />
         <ReadyMadeTexts />

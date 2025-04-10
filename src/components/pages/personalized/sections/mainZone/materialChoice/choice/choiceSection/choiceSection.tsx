@@ -6,7 +6,7 @@ import {
 } from "@/components/pages/personalized/sections/mainZone/materialChoice/choice/choice";
 import { useState } from "react";
 
-import { materialSizesAtom } from "@/atoms/atoms";
+import { languageRuAtom, materialSizesAtom } from "@/atoms/atoms";
 import { useAtom } from "jotai";
 
 export const ChoiceSection = ({

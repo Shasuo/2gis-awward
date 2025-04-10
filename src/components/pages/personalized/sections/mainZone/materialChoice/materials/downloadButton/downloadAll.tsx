@@ -1,9 +1,10 @@
 import { useAtom } from "jotai/index";
-import { materialsDataAtom } from "@/atoms/atoms";
+import { languageRuAtom, materialsDataAtom } from "@/atoms/atoms";
 import { useState } from "react";
 import { handleDownload } from "@/components/scripts/handleDownload";
 
 export const DownloadAll = ({ mobile }: { mobile?: boolean }) => {
+  const language = useAtom(languageRuAtom)[0];
   const materialsData = useAtom(materialsDataAtom)[0];
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,7 +16,7 @@ export const DownloadAll = ({ mobile }: { mobile?: boolean }) => {
     return (
       <div
         className={
-          "hover:bg-[#C5A87E] active:bg-[#C5A87E] cursor-pointer max-tablet:flex rounded-[8px] bg-[#AB844C] px-10 items-center h-[56] mt-12 text-[14px] leading-[150%] tracking-[-0.01em] w-full hidden justify-center"
+          "text-center hover:bg-[#C5A87E] active:bg-[#C5A87E] cursor-pointer max-tablet:flex rounded-[8px] bg-[#AB844C] px-10 items-center h-[56] mt-12 text-[14px] leading-[150%] tracking-[-0.01em] w-full hidden justify-center"
         }
         onClick={downloadArchive}
       >
@@ -26,8 +27,10 @@ export const DownloadAll = ({ mobile }: { mobile?: boolean }) => {
               style={{ width: 20, height: 20 }}
             ></div>
           </div>
-        ) : (
+        ) : language ? (
           "Скачать все материалы"
+        ) : (
+          "Жүктеп алу все материалы"
         )}
       </div>
     );
@@ -35,7 +38,7 @@ export const DownloadAll = ({ mobile }: { mobile?: boolean }) => {
     return (
       <div
         className={
-          "hover:bg-[#C5A87E] active:bg-[#C5A87E] cursor-pointer rounded-[8px] bg-[#AB844C] px-10 flex items-center h-12 text-base leading-6 tracking-[-0.018em] absolute bottom-12 left-12"
+          "text-center hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:max-w-[unset] cursor-pointer rounded-[8px] bg-[#AB844C] px-10 flex items-center py-3 text-base leading-6 tracking-[-0.018em] absolute bottom-12 left-12 max-w-[300]"
         }
         onClick={downloadArchive}
       >
@@ -46,8 +49,10 @@ export const DownloadAll = ({ mobile }: { mobile?: boolean }) => {
               style={{ width: 20, height: 20 }}
             ></div>
           </div>
-        ) : (
+        ) : language ? (
           "Скачать все материалы"
+        ) : (
+          "Барлық материалдарды  жүктеп алу"
         )}
       </div>
     );

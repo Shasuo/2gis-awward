@@ -5,6 +5,7 @@ import { MaterialChoice } from "@/components/pages/personalized/sections/mainZon
 import { useAtom } from "jotai";
 import {
   cityAtom,
+  languageRuAtom,
   materialsDataAtom,
   OptionType,
   organizationAtom,
@@ -37,6 +38,7 @@ export const MainZone = ({
   cities: OptionType[];
   allWinners: any[];
 }) => {
+  const language = useAtom(languageRuAtom)[0];
   const CityAtom = useAtom(cityAtom)[0];
   const OrganizationAtom = useAtom(organizationAtom)[0];
   const setMaterialsData = useAtom(materialsDataAtom)[1];
@@ -139,9 +141,17 @@ export const MainZone = ({
                 "max-tablet:text-left max-tablet:text-[18px] max-tablet:leading-6 max-tablet:tracking-[-0.018em] font-bold text-[32px] leading-10 tracking-[-0.016em] text-center max-w-[792px]"
               }
             >
-              Чтобы получить персонализированные открытки,{" "}
-              <span style={{ color: "#C5A87E" }}>выберите свою компанию</span>{" "}
-              <br />в 2ГИС из списка
+              {language ? (
+                <>
+                  Чтобы получить персонализированные открытки,{" "}
+                  <span style={{ color: "#C5A87E" }}>
+                    выберите свою компанию
+                  </span>{" "}
+                  <br />в 2ГИС из списка
+                </>
+              ) : (
+                "Жекелендірілген ашықхаттарды алу үшін компанияңызды 2GIS-тегі тізімнен таңдаңыз"
+              )}
             </h3>
 
             <SearchArea cities={cities} allWinners={allWinners} />

@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const TagUs = () => {
+  const language = useAtom(languageRuAtom)[0];
+
   return (
     <section
       className={`max-tablet:h-[900px] max-tablet:overflow-hidden max-tablet:mt-[80] mt-[186] relative `}
@@ -14,9 +18,18 @@ export const TagUs = () => {
             "max-tablet:font-normal max-tablet:tracking-[0.01em] max-tablet:leading-[100%] max-tablet:text-[30px] text-center max-w-[704px] text-[40px] leading-[48px] tracking-[-0.016em] font-semibold"
           }
         >
-          Делитесь радостной новостью <br />с клиентами и{" "}
-          <span style={{ color: "#C5A87E" }}>отмечайте нас</span> <br />в
-          социальных сетях
+          {language ? (
+            <>
+              Делитесь радостной новостью <br />с клиентами и{" "}
+              <span style={{ color: "#C5A87E" }}>отмечайте нас</span> <br />в
+              социальных сетях
+            </>
+          ) : (
+            <>
+              Клиенттермен қуанышты жаңалықпен бөлісіп, бізді әлеуметтік
+              желілерде белгілеңіз
+            </>
+          )}
         </h3>
         <div
           className={
@@ -51,17 +64,6 @@ export const TagUs = () => {
               #award2GIS
             </span>
           </div>
-        </div>
-        <div
-          className={
-            "max-tablet:flex items-center bg-[#AB844C] mt-[385px] rounded-[8px] justify-center hidden w-full max-w-[285px] h-[56px] mx-auto"
-          }
-        >
-          <span
-            className={"block text-[14px] leading-[150%] tracking-[-0.01em]"}
-          >
-            Больше победителей
-          </span>
         </div>
       </div>
       <Image

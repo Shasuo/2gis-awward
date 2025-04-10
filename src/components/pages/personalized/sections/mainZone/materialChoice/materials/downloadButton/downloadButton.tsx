@@ -3,6 +3,8 @@ import { ICONS_PATH } from "@/components/paths/paths";
 import { mainMaterialInterface } from "@/components/pages/personalized/sections/mainZone/materialChoice/materialChoice";
 import { useState } from "react";
 import { handleDownload } from "@/components/scripts/handleDownload";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const DownloadButton = ({
   activeMaterial,
@@ -11,6 +13,7 @@ export const DownloadButton = ({
   activeMaterial: mainMaterialInterface;
   activeImage: string;
 }) => {
+  const language = useAtom(languageRuAtom)[0];
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div
@@ -28,7 +31,9 @@ export const DownloadButton = ({
         </div>
       ) : (
         <>
-          Скачать {activeMaterial.type === "IMAGE" ? "картинку" : "видео"}{" "}
+          {language
+            ? `Скачать ${activeMaterial.type === "IMAGE" ? "картинку" : "видео"}`
+            : "Жүктеп алу бейне"}
           <Image
             src={`${ICONS_PATH}/download.svg`}
             alt={"Скачать картинку"}

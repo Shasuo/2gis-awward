@@ -1,5 +1,7 @@
 import { Dispatch } from "react";
 import styles from "./pictureResolutionControl.module.css";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const PictureResolutionControl = ({
   setSize,
@@ -8,6 +10,7 @@ export const PictureResolutionControl = ({
   setSize: Dispatch<any>;
   size: string;
 }) => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <div className={"max-tablet:flex max-tablet:gap-1 mt-6"}>
       <div
@@ -17,7 +20,7 @@ export const PictureResolutionControl = ({
         <div
           className={`max-tablet:text-[#AB844C] max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] max-tablet:mt-[2] font-display leading-[130%] tracking-[-0.015em] text-[24px] text-[#B7BBC3]`}
         >
-          Картинка 1080х1080
+          {language ? "Картинка" : "Сурет"} 1080х1080
         </div>
       </div>
       <div
@@ -27,7 +30,7 @@ export const PictureResolutionControl = ({
         <div
           className={`max-tablet:text-[#AB844C] max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] max-tablet:mt-[2] font-display leading-[130%] tracking-[-0.015em] text-[24px] mt-3 text-[#B7BBC3]`}
         >
-          Видео 1920х1080
+          {language ? "Видео" : "Бейне"} 1920х1080
         </div>
       </div>
     </div>

@@ -3,13 +3,18 @@ import { ControlButton } from "@/components/pages/personalized/sections/mainZone
 import Image from "next/image";
 import Link from "next/link";
 import { useAtom } from "jotai/index";
-import { materialsDataAtom, materialSizesAtom } from "@/atoms/atoms";
+import {
+  languageRuAtom,
+  materialsDataAtom,
+  materialSizesAtom,
+} from "@/atoms/atoms";
 import { MobileChoice } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/mobileChoice/mobileChoice";
 import { useEffect, useState } from "react";
 import { DownloadButton } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/downloadButton/downloadButton";
 import { DownloadAll } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/downloadButton/downloadAll";
 
 export const Materials = () => {
+  const language = useAtom(languageRuAtom)[0];
   const [activeMaterial, setActiveMaterial] = useAtom(materialSizesAtom);
   const [activeImage, setActiveImage] = useState(
     `${IMAGES_PATH}/${activeMaterial.sizes.width}x${activeMaterial.sizes.height}.png`,
@@ -48,14 +53,26 @@ export const Materials = () => {
             "max-tablet:text-[24px] max-tablet:leading-[130%] text-white font-bold text-[32px] leading-10 tracking-[-0.016em]"
           }
         >
-          {activeMaterial.type === "IMAGE" ? "Картинка" : "Видео-открытка"}
+          {activeMaterial.type === "IMAGE"
+            ? language
+              ? "Картинка"
+              : "Сурет"
+            : language
+              ? "Видео-открытка"
+              : "Бейне ашықхат "}
           <br /> {activeMaterial.sizes.width}х{activeMaterial.sizes.height}
         </h3>
         <p
           className={"mt-4 max-w-[288] text-base leading-6 tracking-[-0.018em]"}
         >
-          {activeMaterial.type === "IMAGE" ? "Картинка" : "Видео"} подходит для
-          большинства социальных сетей
+          {language ? (
+            <>
+              {activeMaterial.type === "IMAGE" ? "Картинка" : "Видео"} подходит
+              для большинства социальных сетей
+            </>
+          ) : (
+            "Бейне көптеген әлеуметтік желілерде жариялауға қолайлы"
+          )}
         </p>
         <div className={"max-tablet:mt-6 mt-9 flex gap-2"}>
           <DownloadButton

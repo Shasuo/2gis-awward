@@ -2,8 +2,11 @@ import { TextModule } from "@/components/texts/textModule";
 import Link from "next/link";
 import Image from "next/image";
 import { IMAGES_PATH } from "@/components/paths/paths";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const ViewMaterials = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <section
       className={"max-tablet:overflow-hidden max-tablet:mt-[80px] mt-[140px]"}
@@ -20,7 +23,7 @@ export const ViewMaterials = () => {
                 "max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] text-base leading-6 tracking-[-0.018em]"
               }
             >
-              Шаг 1
+              {language ? <>Шаг 1</> : <>1-қадам</>}
             </span>
           </div>
           <div className={"font-display mt-8"}>
@@ -29,15 +32,27 @@ export const ViewMaterials = () => {
                 "max-tablet:max-w-[282px] max-tablet:tracking-[0.01em] max-tablet:leading-[100%] max-tablet:text-[30px] text-[54px] leading-[92%] tracking-[-0.02em] max-w-[600px]"
               }
             >
-              Расскажите о&nbsp;своей победе прямо сейчас
+              {language ? (
+                <>Расскажите о&nbsp;своей победе прямо сейчас</>
+              ) : (
+                <>Жеңісіңіз туралы ақпаратпен дәл қазір бөлісіңіз </>
+              )}
             </h2>
             <p
               className={
                 "max-tablet:max-w-[282px] max-tablet:tracking-[0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] text-[24px] leading-[130%] tracking-[-0.015em] max-w-[462px] font-display mt-6"
               }
             >
-              Мы подготовили для вас набор персонализированных визуалов
-              и&nbsp;текстов для Ваших социальных сетей
+              {language ? (
+                <>
+                  Мы подготовили для вас набор персонализированных визуалов
+                  и&nbsp;текстов для Ваших социальных сетей
+                </>
+              ) : (
+                <>
+                  Жекелендірілген ашықхаттар мен дайын мәтіндерді пайдаланыңыз.
+                </>
+              )}
             </p>
           </div>
           <Link
@@ -48,12 +63,12 @@ export const ViewMaterials = () => {
             style={{ border: "1px solid white" }}
           >
             <span className={"text-base leading-6 tracking-[-0.018em]"}>
-              Смотреть материалы
+              {language ? <>Смотреть материалы</> : <>Материалдарды қарау</>}
             </span>
           </Link>
         </div>
         <Image
-          src={`${IMAGES_PATH}/awardWinner.webp`}
+          src={`${IMAGES_PATH}/${language ? "awardWinner.webp" : "awardWinner_KZ.webp"}`}
           alt={"Победитель Премии"}
           width={568}
           height={537}

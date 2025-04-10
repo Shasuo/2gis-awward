@@ -1,6 +1,9 @@
 import { SuccessTellCards } from "@/components/reused/successTellCards/successTellCards";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const TellTheAudience = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <section className={"max-tablet:mt-[80] mt-[68]"}>
       <div className={"max-tablet:ml-[39px]"}>
@@ -13,7 +16,7 @@ export const TellTheAudience = () => {
               "max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] text-base leading-6 tracking-[-0.018em]"
             }
           >
-            Шаг 2
+            {language ? <>Шаг 2</> : <>2-қадам</>}
           </span>
         </div>
         <div
@@ -26,14 +29,28 @@ export const TellTheAudience = () => {
               "max-tablet:max-w-[279px] max-tablet:tracking-[0.01em] max-tablet:leading-[100%] max-tablet:leading-[100%] max-tablet:text-[30px] text-[54px] leading-[92%] tracking-[-0.02em] max-w-[654] font-display"
             }
           >
-            Продолжайте рассказывать аудитории о своем успехе
+            {language ? (
+              <>Продолжайте рассказывать аудитории о своем успехе</>
+            ) : (
+              <>
+                Аудиториямен өз жетістігіңіз туралы ақпаратпен бөлісуді
+                жалғастырыңыз
+              </>
+            )}
           </h2>
           <p
             className={
               "max-tablet:ml-0 max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] max-tablet:max-w-[279px] max-tablet:mt-6 text-base leading-6 tracking-[-0.018em] ml-[114px] max-w-[312px]"
             }
           >
-            Продолжайте рассказывать аудитории о своем успехе самостоятельно.
+            {language ? (
+              <>
+                Продолжайте рассказывать аудитории о своем успехе
+                самостоятельно.
+              </>
+            ) : (
+              <>Дайын идеяларды пайдаланыңыз.</>
+            )}
           </p>
         </div>
       </div>

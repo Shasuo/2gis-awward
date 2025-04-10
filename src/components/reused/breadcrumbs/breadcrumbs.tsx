@@ -1,5 +1,7 @@
 import { TextModule } from "@/components/texts/textModule";
 import Link from "next/link";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const Breadcrumbs = ({
   mt,
@@ -8,6 +10,7 @@ export const Breadcrumbs = ({
   mt?: number;
   pageName: string;
 }) => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <div
       className={
@@ -16,7 +19,7 @@ export const Breadcrumbs = ({
       style={{ marginTop: mt }}
     >
       <Link href={"/"} className={"opacity-60"}>
-        Главная
+        {language ? "Главная" : "Басты бет"}
       </Link>
       <div className={"max-tablet:mx-2 mx-[15px]"}>/</div>
       <div>{pageName}</div>

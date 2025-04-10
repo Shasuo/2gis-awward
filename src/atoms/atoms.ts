@@ -42,3 +42,8 @@ export const materialsDataAtom = atom<MaterialsData[]>([]);
 
 export const mainModalAtom = atom<string | null>(null);
 /******* Глобальное модальное состояние ___ END _____ *******/
+
+/******* Глобальное состояние языка ___ START ___ *******/
+
+export const languageRuAtom = atom<boolean>(true);
+/******* Глобальное состояние языка ___ END _____ *******/

@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import React from "react";
 
 import "swiper/css";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 const images = [
   "award-stickers-1.webp",
@@ -15,23 +17,24 @@ const images = [
   "award-stickers-4.webp",
 ];
 export const AwardStickers = () => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <section
-      className={
-        "max-tablet:max-w-[344] max-tablet:block max-tablet:mt-[80] max-tablet:max-h-[unset] max-tablet:mx-auto mt-[141] rounded-[32] bg-[#0C132D] flex max-h-[540]"
-      }
+      className={`max-tablet:max-w-[344] max-tablet:block max-tablet:mt-[80] max-tablet:max-h-[unset] max-tablet:mx-auto mt-[141] rounded-[32] bg-[#0C132D] flex ${language ? "max-h-[540]" : ""}`}
       id={"digital-stickers"}
     >
       <div className={"max-tablet:block hidden ml-6 pt-12"}>
         <h4 className={"text-base leading-6 tracking-[-0.018em]"}>
-          Диджитал-стикеры
+          {language ? "Диджитал-стикеры" : "Диджитал-стикерлер"}
         </h4>
         <h2
           className={
             "max-w-[284] mt-7 font-semibold text-[24px] leading-[130%] tracking-[-0.016em]"
           }
         >
-          Украсьте вашу публикацию стикерами Премии
+          {language
+            ? "Украсьте вашу публикацию стикерами Премии"
+            : "Жарияланымыңызды 2GIS Awards стикерлерімен безендіріңіз"}
         </h2>
       </div>
       <div className={"max-tablet:mt-12 relative"}>
@@ -108,7 +111,7 @@ export const AwardStickers = () => {
       >
         <div className={"max-tablet:hidden"}>
           <TextModule
-            text={"Диджитал-стикеры"}
+            text={language ? "Диджитал-стикеры" : "Диджитал-стикерлер"}
             font_size={16}
             line_height={"24px"}
             letter_spacing={"-0.018em"}
@@ -116,7 +119,11 @@ export const AwardStickers = () => {
           />
 
           <TextModule
-            text={"Украсьте вашу публикацию стикерами Премии"}
+            text={
+              language
+                ? "Украсьте вашу публикацию стикерами Премии"
+                : "Жарияланымыңызды 2GIS Awards стикерлерімен безендіріңіз"
+            }
             font_size={40}
             font_weight={600}
             line_height={"48px"}
@@ -147,7 +154,7 @@ export const AwardStickers = () => {
                   "max-tablet:ml-2 max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] ml-3"
                 }
               >
-                Скачать РУ
+                {language ? "Скачать РУ" : "Жүктеп алу RU"}
               </span>
             </Link>
             <Link
@@ -168,7 +175,7 @@ export const AwardStickers = () => {
                   "max-tablet:ml-2 max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] text-base leading-6 tracking-[-0.018em] ml-3"
                 }
               >
-                Скачать EN
+                {language ? "Скачать EN" : "Жүктеп алу EN"}
               </span>
             </Link>
           </div>
@@ -179,7 +186,7 @@ export const AwardStickers = () => {
             }
           >
             <span className={"text-base leading-6 tracking-[-0.018em] mt-[-2]"}>
-              Инструкция
+              {language ? "Инструкция" : "Нұсқаулық"}
             </span>
           </Link>
         </div>

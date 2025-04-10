@@ -3,6 +3,8 @@ import Image from "next/image";
 import { TextModule } from "@/components/texts/textModule";
 import Link from "next/link";
 import { CardProps } from "@/components/pages/home/sections/tellTheAudience/cards";
+import { useAtom } from "jotai/index";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const Card = ({
   href,
@@ -11,6 +13,7 @@ export const Card = ({
   mobilePlusHeight,
   blank,
 }: CardProps) => {
+  const language = useAtom(languageRuAtom)[0];
   return (
     <Link
       href={href}
@@ -47,7 +50,7 @@ export const Card = ({
               "max-tablet:mt-[.4px] max-tablet:leading-[110%] max-tablet:text-[12px] text-base leading-6 tracking-[-0.018em] mt-[-1]"
             }
           >
-            Соц.сети
+            {language ? <>Соц.сети</> : <>Әлеуметтік желілер</>}
           </div>
         </div>
       </div>

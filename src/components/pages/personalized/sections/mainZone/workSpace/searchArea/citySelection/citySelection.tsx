@@ -1,6 +1,11 @@
 import React from "react";
 import Select, { components, StylesConfig } from "react-select";
-import { cityAtom, OptionType, organizationAtom } from "@/atoms/atoms";
+import {
+  cityAtom,
+  languageRuAtom,
+  OptionType,
+  organizationAtom,
+} from "@/atoms/atoms";
 import { useAtom } from "jotai";
 
 const DropdownIndicator = (props: any) => {
@@ -98,6 +103,7 @@ export const CitySelection = ({
   isActive?: boolean;
   cities: OptionType[];
 }) => {
+  const language = useAtom(languageRuAtom)[0];
   const [selectedOption, setSelectedOption] = useAtom(cityAtom);
   const setOrganization = useAtom(organizationAtom)[1];
 
@@ -110,7 +116,7 @@ export const CitySelection = ({
           "max-tablet:text-[14px] max-tablet:leading-[150%] max-tablet:tracking-[-0.01em] block text-[20px] leading-[130%] tracking-[-0.023em]"
         }
       >
-        Выберите город
+        {language ? "Выберите город" : "Қаланы таңдаңыз "}
       </span>
       <Select
         value={selectedOption}
