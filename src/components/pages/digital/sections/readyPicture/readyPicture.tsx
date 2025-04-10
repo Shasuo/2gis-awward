@@ -3,15 +3,16 @@ import { Control } from "@/components/pages/digital/sections/readyPicture/contro
 import Link from "next/link";
 import Image from "next/image";
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
 import { metrika } from "@/components/scripts/metrika";
 
 export const ReadyPicture = () => {
+  const language = useAtom(languageRuAtom)[0];
   const [activeLanguage, setActiveLanguage] = useState<"RU" | "EN">("RU");
   const [size, setSize] = useState<"PICTURE" | "VIDEO">("PICTURE");
-  const language = useAtom(languageRuAtom)[0];
+
   return (
     <section
       className={
@@ -40,7 +41,11 @@ export const ReadyPicture = () => {
         />
       </div>
       <Image
-        src={`${IMAGES_PATH}/awardWinner_${activeLanguage}_${size}.webp`}
+        src={
+          language
+            ? `${IMAGES_PATH}/awardWinner_${activeLanguage}_${size}.webp`
+            : `${IMAGES_PATH}/KZ_${size}.png`
+        }
         alt={`Победитель премии! ${activeLanguage} ${size}`}
         width={size === "PICTURE" ? 374 : 319}
         height={size === "PICTURE" ? 468 : 569}
@@ -52,7 +57,11 @@ export const ReadyPicture = () => {
         }
       >
         <Link
-          href={`/download/${size}_${activeLanguage}.${size === "VIDEO" ? "mov" : "png"}`}
+          href={
+            language
+              ? `/download/${size}_${activeLanguage}.${size === "VIDEO" ? "mov" : "png"}`
+              : `/download/${size}_KZ.${size === "VIDEO" ? "mov" : "png"}`
+          }
           className={
             "max-tablet:justify-center max-tablet:h-[56] flex items-center py-3 px-4 bg-[#AB844C] rounded-[8] box-border"
           }

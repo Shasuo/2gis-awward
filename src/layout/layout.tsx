@@ -1,13 +1,26 @@
-import { DetailedHTMLProps, HTMLAttributes, JSX } from "react";
+import { DetailedHTMLProps, HTMLAttributes, JSX, useEffect } from "react";
 import { Header } from "@/layout/header/header";
 import { TopPageMobileTgLink } from "@/layout/topPageMobileTgLink/topPageMobileTgLink";
 import { AnyQuestionsModal } from "@/layout/modals/anyQuestionsModal";
 import { MetaHead } from "@/components/reused/metaHead/metaHead";
+import { useAtom } from "jotai";
+import { languageRuAtom } from "@/atoms/atoms";
 
 export const Layout = ({
   children,
   ...props
 }: MainLayoutProps): JSX.Element => {
+  const [language, setLanguage] = useAtom(languageRuAtom);
+  useEffect(() => {
+    const storageLanguage = localStorage.getItem("language_storage");
+    if (storageLanguage) {
+      if (storageLanguage === "RU") {
+        if (!language) setLanguage(true);
+      } else {
+        if (language) setLanguage(false);
+      }
+    }
+  }, []);
   return (
     <div {...props}>
       <MetaHead
