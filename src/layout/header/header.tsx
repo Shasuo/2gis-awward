@@ -28,7 +28,7 @@ export const Header = () => {
     >
       <Link href={"/"}>
         <Image
-          src={`${ICONS_PATH}/${language ? "2gis-header.png" : "2gis-header_KZ.png"}`}
+          src={`${ICONS_PATH}/${language ? "2gis-header.png" : "2gis-header_KZ.svg"}`}
           alt={"2GIS"}
           width={205}
           height={60}
