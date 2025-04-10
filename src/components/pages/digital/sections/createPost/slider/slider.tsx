@@ -23,6 +23,7 @@ export const Slider = () => {
         slidesPerView={1}
         spaceBetween={30}
         grabCursor={true}
+        loop={true}
         navigation={{
           prevEl: ".custom-prev__Digital",
           nextEl: ".custom-next__Digital",

@@ -61,7 +61,7 @@ export const TagUs = () => {
                 "max-tablet:tracking-[-0.018em] max-tablet:leading-[24px] max-tablet:text-[18px] text-[24px] leading-[130%] tracking-[-0.015em] font-display"
               }
             >
-              #award2GIS
+              #2GISAwards
             </span>
           </div>
         </div>

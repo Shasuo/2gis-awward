@@ -31,9 +31,7 @@ export const Footer = () => {
               <Link
                 target={"_blank"}
                 href={"https://law.2gis.ru"}
-                className={
-                  "underline hover:text-[#C5A87E] active:text-[#C5A87E]"
-                }
+                className={"hover:text-[#C5A87E] active:text-[#C5A87E]"}
               >
                 Правовая информация
               </Link>
@@ -45,9 +43,7 @@ export const Footer = () => {
               <Link
                 target={"_blank"}
                 href={"https://law.2gis.ru"}
-                className={
-                  "underline hover:text-[#C5A87E] active:text-[#C5A87E]"
-                }
+                className={"hover:text-[#C5A87E] active:text-[#C5A87E]"}
               >
                 Awards ережелері
               </Link>
@@ -96,9 +92,7 @@ export const Footer = () => {
                 ©2025, 2ГИС.{" "}
                 <Link
                   href={"https://law.2gis.ru"}
-                  className={
-                    "underline hover:text-[#C5A87E] active:text-[#C5A87E]"
-                  }
+                  className={"hover:text-[#C5A87E] active:text-[#C5A87E]"}
                   target={"_blank"}
                 >
                   Правовая информация
@@ -109,9 +103,7 @@ export const Footer = () => {
                 ©2025, 2ГИС.{" "}
                 <Link
                   href={"https://law.2gis.ru"}
-                  className={
-                    "underline hover:text-[#C5A87E] active:text-[#C5A87E]"
-                  }
+                  className={"hover:text-[#C5A87E] active:text-[#C5A87E]"}
                   target={"_blank"}
                 >
                   Құқықтық ақпарат

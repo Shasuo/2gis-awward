@@ -43,14 +43,9 @@ export const TellTheAudience = () => {
               "max-tablet:ml-0 max-tablet:tracking-[-0.01em] max-tablet:leading-[150%] max-tablet:text-[14px] max-tablet:max-w-[279px] max-tablet:mt-6 text-base leading-6 tracking-[-0.018em] ml-[114px] max-w-[312px]"
             }
           >
-            {language ? (
-              <>
-                Продолжайте рассказывать аудитории о своем успехе
-                самостоятельно.
-              </>
-            ) : (
-              <>Дайын идеяларды пайдаланыңыз.</>
-            )}
+            {language
+              ? "Используйте готовые идеи."
+              : "Дайын идеяларды пайдаланыңыз."}
           </p>
         </div>
       </div>

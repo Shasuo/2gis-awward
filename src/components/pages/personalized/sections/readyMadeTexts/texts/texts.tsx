@@ -89,6 +89,7 @@ export const Texts = () => {
         slidesPerView={1}
         spaceBetween={30}
         grabCursor={true}
+        loop={true}
         navigation={{
           prevEl: ".custom-prev",
           nextEl: ".custom-next",

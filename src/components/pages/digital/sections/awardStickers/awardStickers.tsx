@@ -23,6 +23,9 @@ export const AwardStickers = () => {
     <section
       className={`max-tablet:max-w-[344] max-tablet:block max-tablet:mt-[80] max-tablet:max-h-[unset] max-tablet:mx-auto mt-[141] rounded-[32] bg-[#0C132D] flex ${language ? "max-h-[540]" : ""}`}
       id={"digital-stickers"}
+      style={{
+        boxShadow: "0px 0px 90px 10px rgba(255, 255, 255, 0.3)",
+      }}
     >
       <div className={"max-tablet:block hidden ml-6 pt-12"}>
         <h4 className={"text-base leading-6 tracking-[-0.018em]"}>
@@ -183,10 +186,11 @@ export const AwardStickers = () => {
             </Link>
           </div>
           <Link
-            href={"#"}
+            href={language ? "/RU_instruction.pdf" : "KZ_instruction.pdf"}
             className={
               "hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:h-[56] mt-3 w-full py-3 box-border bg-[#2A3653] rounded-[8] flex justify-center items-center"
             }
+            target={"_blank"}
             onClick={() => metrika("download_digital_manual")}
           >
             <span className={"text-base leading-6 tracking-[-0.018em] mt-[-2]"}>

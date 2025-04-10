@@ -5,11 +5,12 @@ import Link from "next/link";
 export const TopPageMobileTgLink = ({ gold }: { gold?: boolean }) => {
   return (
     <Link
-      href={"#"}
+      href={"https://t.me/awards2GIS_bot"}
       className={
         "max-tablet:block hidden rounded-[8px] backdrop-blur-[14px] max-w-[344px] mx-auto box-border p-3 relative"
       }
       style={{ backgroundColor: gold ? "#AB844C" : "rgba(138, 159, 196, 0.2)" }}
+      target={"_blank"}
     >
       <p
         className={"text-[12px] leading-[150%] tracking-[-0.01em] max-w-[219]"}

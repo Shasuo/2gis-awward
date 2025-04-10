@@ -29,7 +29,7 @@ export const ReadyPicture = () => {
           }
         >
           {language
-            ? "Используйте готовую картинку"
+            ? "Используйте готовую картинку или видео"
             : "Используйте готовые картинку или бейне"}
         </h2>
         <Control
@@ -76,11 +76,10 @@ export const ReadyPicture = () => {
           />
         </Link>
         <Link
-          href={"https://awards-winners.2gis.ru"}
+          href={"/materials"}
           className={
             "max-tablet:mt-1 max-tablet:flex max-tablet:justify-center max-tablet:h-[56] block py-3 px-7 bg-[#384761] rounded-[8] box-border"
           }
-          target={"_blank"}
           onClick={() => metrika("more_layouts")}
         >
           <span
