@@ -60,11 +60,7 @@ export const Footer = () => {
         </a>
         <div className={"max-tablet:block flex gap-[28]"}>
           <Link
-            href={
-              language
-                ? "https://law.2gis.ru/2025-awards-rules"
-                : "https://law.2gis.kz"
-            }
+            href={"https://law.2gis.ru/2025-awards-rules"}
             className={"block hover:text-[#C5A87E] active:text-[#C5A87E]"}
             target={"_blank"}
             onClick={() => metrika("bonus_rules")}
