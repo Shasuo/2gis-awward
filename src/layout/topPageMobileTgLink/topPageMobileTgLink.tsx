@@ -16,7 +16,7 @@ export const TopPageMobileTgLink = ({ gold }: { gold?: boolean }) => {
       target={"_blank"}
     >
       <p
-        className={"text-[12px] leading-[150%] tracking-[-0.01em] max-w-[219]"}
+        className={`text-[12px] leading-[150%] tracking-[-0.01em] ${language ? "max-w-[219]" : "max-w-[245px]"}`}
       >
         {language
           ? "Скачивайте материалы в несколько кликов через бота в телеграмм"
