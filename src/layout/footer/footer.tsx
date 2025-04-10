@@ -3,6 +3,7 @@ import { ICONS_PATH } from "@/components/paths/paths";
 import Link from "next/link";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
+import { metrika } from "@/components/scripts/metrika";
 
 export const Footer = () => {
   const language = useAtom(languageRuAtom)[0];
@@ -59,6 +60,7 @@ export const Footer = () => {
             href={"https://law.2gis.ru/2025-awards-rules"}
             className={"block hover:text-[#C5A87E] active:text-[#C5A87E]"}
             target={"_blank"}
+            onClick={() => metrika("bonus_rules")}
           >
             {language ? "Правила Премии" : "Awards ережелері"}
           </Link>
@@ -68,6 +70,7 @@ export const Footer = () => {
               "block max-tablet:mt-6 hover:text-[#C5A87E] active:text-[#C5A87E]"
             }
             target={"_blank"}
+            onClick={() => metrika("for_business")}
           >
             {language ? "Для бизнеса" : "Бизнес үшін"}
           </Link>

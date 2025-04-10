@@ -3,6 +3,7 @@ import { TextModule } from "@/components/texts/textModule";
 import Image from "next/image";
 import { ICONS_PATH } from "@/components/paths/paths";
 import { Dispatch, useState } from "react";
+import { metrika } from "@/components/scripts/metrika";
 
 export const useHandleCopy = (text: string, setState: Dispatch<any>) => {
   navigator.clipboard.writeText(text.trim()).then(() => {
@@ -40,7 +41,10 @@ export const TextContent = ({ text }: { text: TextContentProps }) => {
         className={
           "absolute right-[36px] bottom-[32px] flex items-center cursor-pointer"
         }
-        onClick={() => useHandleCopy(text.content, setIsCopied)}
+        onClick={() => {
+          useHandleCopy(text.content, setIsCopied);
+          metrika("copy");
+        }}
       >
         <Image
           src={`${ICONS_PATH}/copy.svg`}

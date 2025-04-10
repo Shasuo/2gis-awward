@@ -3,13 +3,17 @@ import Image from "next/image";
 import { ICONS_PATH } from "@/components/paths/paths";
 import { useState } from "react";
 import { DropDownProps } from "@/components/pages/digital/sections/createPost/drops/drops";
+import { metrika } from "@/components/scripts/metrika";
 export const DropDown = ({ content }: { content: DropDownProps }) => {
   const [active, setActive] = useState(false);
 
   return (
     <div
       className={`mt-[12] rounded-[16] p-6 box-border relative bg-[#233149] ${active ? "" : "cursor-pointer"}`}
-      onClick={() => (!active ? setActive(true) : undefined)}
+      onClick={() => {
+        !active ? setActive(true) : undefined;
+        metrika("create_post");
+      }}
     >
       <div
         className={"absolute right-6 h-[23] cursor-pointer"}

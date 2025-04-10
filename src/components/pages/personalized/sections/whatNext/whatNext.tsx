@@ -31,7 +31,7 @@ export const WhatNext = () => {
           )}
         </p>
       </div>
-      <SuccessTellCards />
+      <SuccessTellCards materialsPage />
       <Link
         href={"/"}
         className={

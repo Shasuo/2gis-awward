@@ -4,6 +4,7 @@ import Image from "next/image";
 import { IMAGES_PATH } from "@/components/paths/paths";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
+import { metrika } from "@/components/scripts/metrika";
 
 export const ViewMaterials = () => {
   const language = useAtom(languageRuAtom)[0];
@@ -61,6 +62,7 @@ export const ViewMaterials = () => {
               "hover:bg-white active:bg-white hover:text-[#354257] active:text-[#354257] px-[38] py-[18] rounded-[8] box-border w-fit block mt-[46]"
             }
             style={{ border: "1px solid white" }}
+            onClick={() => metrika("view_materials")}
           >
             <span className={"text-base leading-6 tracking-[-0.018em]"}>
               {language ? <>Смотреть материалы</> : <>Материалдарды қарау</>}

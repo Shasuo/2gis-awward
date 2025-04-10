@@ -6,6 +6,7 @@ import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 import { useState } from "react";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
+import { metrika } from "@/components/scripts/metrika";
 
 export const ReadyPicture = () => {
   const [activeLanguage, setActiveLanguage] = useState<"RU" | "EN">("RU");
@@ -55,6 +56,7 @@ export const ReadyPicture = () => {
           className={
             "max-tablet:justify-center max-tablet:h-[56] flex items-center py-3 px-4 bg-[#AB844C] rounded-[8] box-border"
           }
+          onClick={() => metrika("download_picture")}
         >
           <span
             className={
@@ -79,6 +81,7 @@ export const ReadyPicture = () => {
             "max-tablet:mt-1 max-tablet:flex max-tablet:justify-center max-tablet:h-[56] block py-3 px-7 bg-[#384761] rounded-[8] box-border"
           }
           target={"_blank"}
+          onClick={() => metrika("more_layouts")}
         >
           <span
             className={

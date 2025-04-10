@@ -6,6 +6,7 @@ export interface CardProps {
   text: string;
   mobilePlusHeight?: boolean;
   blank?: boolean;
+  metrikaName: string;
 }
 export const Cards = ({ cards }: { cards: CardProps[] }) => {
   return (
@@ -21,6 +22,7 @@ export const Cards = ({ cards }: { cards: CardProps[] }) => {
           text={el.text}
           img={el.img}
           mobilePlusHeight={el.mobilePlusHeight}
+          metrikaName={el.metrikaName}
         />
       ))}
     </div>

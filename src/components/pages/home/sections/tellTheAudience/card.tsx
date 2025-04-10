@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CardProps } from "@/components/pages/home/sections/tellTheAudience/cards";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
+import { metrika } from "@/components/scripts/metrika";
 
 export const Card = ({
   href,
@@ -12,6 +13,7 @@ export const Card = ({
   text,
   mobilePlusHeight,
   blank,
+  metrikaName,
 }: CardProps) => {
   const language = useAtom(languageRuAtom)[0];
   return (
@@ -25,6 +27,7 @@ export const Card = ({
         backgroundSize: "cover",
       }}
       target={blank ? "_blank" : undefined}
+      onClick={() => metrika(metrikaName)}
     >
       <div className={"flex"}>
         <div

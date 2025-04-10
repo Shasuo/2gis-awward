@@ -9,6 +9,7 @@ import React from "react";
 import "swiper/css";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
+import { metrika } from "@/components/scripts/metrika";
 
 const images = [
   "award-stickers-1.webp",
@@ -142,6 +143,7 @@ export const AwardStickers = () => {
                 "hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:h-[56] max-tablet:flex max-tablet:justify-center max-tablet:px-[unset] max-tablet:w-[146px] bg-[#AB844C] flex items-center box-border py-3 px-6 rounded-[8]"
               }
               download
+              onClick={() => metrika("download_digital_stickers")}
             >
               <Image
                 src={`${ICONS_PATH}/download.svg`}
@@ -163,6 +165,7 @@ export const AwardStickers = () => {
                 "hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:h-[56] max-tablet:flex max-tablet:justify-center max-tablet:px-[unset] max-tablet:w-[146px] bg-[#AB844C] flex items-center box-border py-3 px-6 rounded-[8]"
               }
               download
+              onClick={() => metrika("download_digital_stickers")}
             >
               <Image
                 src={`${ICONS_PATH}/download.svg`}
@@ -184,6 +187,7 @@ export const AwardStickers = () => {
             className={
               "hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:h-[56] mt-3 w-full py-3 box-border bg-[#2A3653] rounded-[8] flex justify-center items-center"
             }
+            onClick={() => metrika("download_digital_manual")}
           >
             <span className={"text-base leading-6 tracking-[-0.018em] mt-[-2]"}>
               {language ? "Инструкция" : "Нұсқаулық"}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SliderDownloadMaterials } from "@/components/reused/sliderDownloadMaterials/sliderDownloadMaterials";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
+import { metrika } from "@/components/scripts/metrika";
 
 export const BecomeMoreVisible = () => {
   const language = useAtom(languageRuAtom)[0];
@@ -44,6 +45,7 @@ export const BecomeMoreVisible = () => {
           "arrowImageBlock_HOVER max-tablet:h-[329px] max-tablet:bg-[#AB844C] max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-2 mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block"
         }
         target={"_blank"}
+        onClick={() => metrika("tg_bot")}
       >
         <h3
           className={

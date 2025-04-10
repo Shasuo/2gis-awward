@@ -128,6 +128,7 @@ export const SliderDownloadMaterials = () => {
           text={language ? "Текст на чеке" : "Чектегі мәтін"}
           href={"https://award-2023.2gis.ru/cheque/"}
           blank
+          metrikaName={"manual"}
         />
       </div>
     </div>

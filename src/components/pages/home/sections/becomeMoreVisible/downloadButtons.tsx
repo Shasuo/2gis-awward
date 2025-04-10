@@ -4,6 +4,7 @@ import { ICONS_PATH } from "@/components/paths/paths";
 import { TextModule } from "@/components/texts/textModule";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
+import { metrika } from "@/components/scripts/metrika";
 /*"rgba(55, 68, 99, 0.7)"*/
 export const DownloadButtons = () => {
   const language = useAtom(languageRuAtom)[0];
@@ -20,6 +21,7 @@ export const DownloadButtons = () => {
           "bg-[#374463B2] hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:justify-center flex items-center box-border py-3 px-6 rounded-[8]"
         }
         download
+        onClick={() => metrika("download_stickers")}
       >
         <Image
           src={`${ICONS_PATH}/download.svg`}
@@ -42,6 +44,7 @@ export const DownloadButtons = () => {
           "bg-[#374463B2] hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:justify-center max-tablet:mt-1 max-tablet:ml-0 flex items-center box-border py-3 px-6 rounded-[8] ml-3"
         }
         download
+        onClick={() => metrika("download_stickers")}
       >
         <Image
           src={`${ICONS_PATH}/download.svg`}
