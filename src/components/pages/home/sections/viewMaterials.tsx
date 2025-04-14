@@ -9,12 +9,10 @@ import { metrika } from "@/components/scripts/metrika";
 export const ViewMaterials = () => {
   const language = useAtom(languageRuAtom)[0];
   return (
-    <section
-      className={"max-tablet:overflow-hidden max-tablet:mt-[80px] mt-[140px]"}
-    >
+    <section className={"max-tablet:mt-[80px] mt-[140px] overflow-hidden"}>
       <div
         className={
-          "max-tablet:max-w-[375px] max-tablet:pb-[52] max-tablet:pt-[60] max-tablet:px-[39px] rounded-[16px] bg-[#AB844C] p-12 pb-[77] w-full box-border relative max-w-[1128px] mx-auto"
+          "overflow-hidden max-tablet:h-[890px] max-tablet:max-w-[375px] max-tablet:pb-[52] max-tablet:pt-[60] max-tablet:px-[39px] rounded-[16px] bg-[#AB844C] p-12 pb-[77] w-full box-border relative max-w-[1128px] mx-auto"
         }
       >
         <div>
@@ -45,7 +43,10 @@ export const ViewMaterials = () => {
               }
             >
               {language ? (
-                <>Используйте персонализированные открытки и готовые тексты.</>
+                <>
+                  Мы подготовили для вас набор персонализированных визуалов
+                  и&nbsp;текстов для Ваших социальных сетей
+                </>
               ) : (
                 <>
                   Жекелендірілген ашықхаттар мен дайын мәтіндерді пайдаланыңыз.
@@ -67,12 +68,12 @@ export const ViewMaterials = () => {
           </Link>
         </div>
         <Image
-          src={`${IMAGES_PATH}/${language ? "awardWinner.webp" : "awardWinner_KZ.webp"}`}
+          src={`${IMAGES_PATH}/${language ? "awardWinner.png" : "awardWinner_KZ.png"}`}
           alt={"Победитель Премии"}
-          width={568}
-          height={537}
+          width={672}
+          height={718}
           className={
-            "max-tablet:left-[-90px] max-tablet:right-[unset] max-tablet:top-0 max-tablet:min-w-[489] max-tablet:min-h-[483] max-tablet:relative absolute right-[-56] top-[-31]"
+            "max-tablet:left-[-90px] max-tablet:right-[unset] max-tablet:top-[-45] max-tablet:min-w-[489] max-tablet:min-h-[483] max-tablet:relative absolute right-[-84] top-[-103]"
           }
         />
       </div>
