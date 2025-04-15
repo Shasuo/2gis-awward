@@ -57,7 +57,7 @@ export const ViewMaterials = () => {
           <Link
             href={"/materials"}
             className={
-              "hover:bg-white active:bg-white hover:text-[#354257] active:text-[#354257] px-[38] py-[18] rounded-[8] box-border w-fit block mt-[46]"
+              "hover:bg-white active:bg-white hover:text-[#354257] active:text-[#354257] px-[38] py-[18] rounded-[8] box-border w-fit block mt-[46] relative z-10"
             }
             style={{ border: "1px solid white" }}
             onClick={() => metrika("view_materials")}
