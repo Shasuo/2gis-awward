@@ -32,14 +32,14 @@ export const Sponsor = () => {
           )}
         </h3>
         <p
-          className={`max-tablet:text-[14px] max-tablet:mt-[10px] ${language ? "max-tablet:max-w-[267px]" : "max-tablet:max-w-[285px]"} ${language ? "max-w-[445px]" : "max-w-[509px]"} text-base leading-6 tracking-[-0.018em] mt-12`}
+          className={`max-tablet:text-[14px] max-tablet:mt-[10px] ${language ? "max-tablet:max-w-[285px]" : "max-tablet:max-w-[285px]"} max-w-[509px] text-base leading-6 tracking-[-0.018em] mt-12`}
         >
           {language ? (
             <>
               С 2ГИС строить бизнес проще — мы помогаем вам находить клиентов.
               А если строить нужно буквально — с этим справится наш партнёр.
               YouTool — сервис аренды инструмента и строительного оборудования
-              без залога.
+              без&nbsp;залога.
             </>
           ) : (
             <>
