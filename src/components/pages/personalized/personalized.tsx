@@ -7,6 +7,7 @@ import { Footer } from "@/layout/footer/footer";
 import { AnyQuestions } from "@/components/pages/home/sections/anyQuestions";
 import { languageRuAtom, OptionType } from "@/atoms/atoms";
 import { useAtom } from "jotai/index";
+import { TagUs_text } from "@/components/reused/tagUs_text/tagUs_text";
 
 export const Personalized = ({
   cities,
@@ -39,6 +40,10 @@ export const Personalized = ({
       >
         <main className={"max-tablet:pt-[80] pt-[133]"}>
           <WhatNext />
+          <div className={"max-tablet:mt-[80] mt-[135px]"}>
+            <TagUs_text />
+          </div>
+
           <div className={"mt-[113]"}>
             <AnyQuestions />
           </div>

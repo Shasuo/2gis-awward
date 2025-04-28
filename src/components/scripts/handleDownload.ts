@@ -1,6 +1,9 @@
+import { mainMaterialInterface } from "@/components/pages/personalized/sections/mainZone/materialChoice/materialChoice";
+
 export const handleDownload = async (
   fileUrl: string,
   setIsLoading: (loading: boolean) => void,
+  activeMaterial?: mainMaterialInterface,
 ) => {
   try {
     setIsLoading(true);
@@ -18,10 +21,13 @@ export const handleDownload = async (
     const blob = await response.blob();
     //@ts-ignore
     const url = window.URL.createObjectURL(blob);
+    const fileName = activeMaterial
+      ? `${activeMaterial.type === "IMAGE" ? "Персонализированная картинка" : "Персонализированное видео"} ${activeMaterial.sizes.width}x${activeMaterial.sizes.height}`
+      : "Персонализированные материалы";
 
     const link = document.createElement("a");
     link.href = url;
-    link.download = "Победитель премии";
+    link.download = fileName;
     document.body.appendChild(link);
     link.click();
     link.remove();

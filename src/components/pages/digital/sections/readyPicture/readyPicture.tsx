@@ -1,12 +1,30 @@
-import { TextModule } from "@/components/texts/textModule";
 import { Control } from "@/components/pages/digital/sections/readyPicture/control/control";
 import Link from "next/link";
 import Image from "next/image";
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
 import { metrika } from "@/components/scripts/metrika";
+
+const whatAFileName = (fileUrl: string) => {
+  switch (fileUrl) {
+    case "PICTURE_EN":
+      return "picture_EN_2gis_awards";
+    case "PICTURE_KZ":
+      return "picture_KZ_2gis_awards";
+    case "PICTURE_RU":
+      return "picture_RU_2gis_awards";
+    case "VIDEO_EN":
+      return "video_EN_2gis_awards";
+    case "VIDEO_KZ":
+      return "video_KZ_2gis_awards";
+    case "VIDEO_RU":
+      return "video_RU_2gis_awards";
+    default:
+      return "Победитель премии";
+  }
+};
 
 export const ReadyPicture = () => {
   const language = useAtom(languageRuAtom)[0];
@@ -63,7 +81,9 @@ export const ReadyPicture = () => {
           className={
             "max-tablet:justify-center max-tablet:h-[56] flex items-center py-3 px-4 bg-[#AB844C] rounded-[8] box-border"
           }
-          download={true}
+          download={whatAFileName(
+            language ? `${size}_${activeLanguage}` : `${size}_KZ`,
+          )}
           target={"_blank"}
           onClick={() => metrika("download_picture")}
         >

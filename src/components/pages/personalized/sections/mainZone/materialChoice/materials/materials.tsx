@@ -61,14 +61,17 @@ export const Materials = () => {
     }
   }, [materialsData, activeMaterial]);
 
+  const flexChang =
+    activeMaterial.sizes.width === 1920 && activeMaterial.sizes.height === 1080;
+
   return (
     <div
-      className={
-        "max-tablet:block max-tablet:mt-[24] max-tablet:pt-[48] max-tablet:ml-6 mt-[59] ml-[71] flex items-start"
-      }
+      className={`max-tablet:block max-tablet:mt-[24] max-tablet:pt-[48] max-tablet:ml-6 mt-[59] ml-[71] ${flexChang ? "block" : "flex"} items-start`}
     >
       <MobileChoice />
-      <div className={"max-tablet:mt-8 max-tablet:ml-0 ml-12 order-2"}>
+      <div
+        className={`max-tablet:mt-8 max-tablet:ml-0 ${flexChang ? "" : "ml-12"}  order-2`}
+      >
         <h3
           className={
             "max-tablet:text-[24px] max-tablet:leading-[130%] text-white font-bold text-[32px] leading-10 tracking-[-0.016em]"
@@ -81,7 +84,8 @@ export const Materials = () => {
             : language
               ? "Видео-открытка"
               : "Бейне ашықхат "}
-          <br /> {activeMaterial.sizes.width}х{activeMaterial.sizes.height}
+          {flexChang ? "" : <br />} {activeMaterial.sizes.width}х
+          {activeMaterial.sizes.height}
         </h3>
         <p
           className={"mt-4 max-w-[288] text-base leading-6 tracking-[-0.018em]"}
@@ -116,9 +120,7 @@ export const Materials = () => {
         </div>
       </div>
       <div
-        className={
-          "max-tablet:mt-8 max-tablet:w-full max-tablet:max-w-[323] w-[264px] order-0"
-        }
+        className={`max-tablet:mt-8 max-tablet:w-full max-tablet:max-w-[323] ${flexChang ? "w-[480px]" : "w-[264px]"} ${flexChang ? "mt-[42px]" : ""} order-0 relative`}
       >
         {activeMaterial.type === "IMAGE" ? (
           <img
@@ -136,9 +138,7 @@ export const Materials = () => {
         )}
 
         <div
-          className={
-            "max-tablet:mt-3 max-tablet:ml-auto max-tablet:mr-0 flex mt-6 w-fit mx-auto gap-3"
-          }
+          className={`max-tablet:mt-3 max-tablet:ml-auto max-tablet:mr-0 max-tablet:relative max-tablet:right-0 max-tablet:w-fit ${flexChang ? "absolute top-0 -right-18 w-12" : "mt-6 w-fit mx-auto"} flex-wrap flex gap-3`}
         >
           <ControlButton
             left

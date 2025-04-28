@@ -9,6 +9,7 @@ import { AnyQuestions } from "@/components/pages/home/sections/anyQuestions";
 import { WhatNext } from "@/components/pages/digital/sections/whatNext/whatNext";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
+import { TagUs_text } from "@/components/reused/tagUs_text/tagUs_text";
 
 export const Digital = () => {
   const language = useAtom(languageRuAtom)[0];
@@ -24,6 +25,9 @@ export const Digital = () => {
       <ReadyPicture />
 
       <WhatNext />
+      <div className={"max-tablet:mt-[80] mt-[135px]"}>
+        <TagUs_text />
+      </div>
       <div className={"mt-[113]"}>
         <AnyQuestions />
       </div>

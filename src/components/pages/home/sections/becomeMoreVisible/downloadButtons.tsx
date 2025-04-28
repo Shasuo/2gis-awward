@@ -16,7 +16,7 @@ export const DownloadButtons = () => {
       }
     >
       <Link
-        href={"/download/RU_stikers_print.zip"}
+        href={"/download/stickers_print_RU_2gis_awards.zip"}
         className={
           "bg-[#374463B2] hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:justify-center flex items-center box-border py-3 px-6 rounded-[8]"
         }
@@ -39,7 +39,7 @@ export const DownloadButtons = () => {
         </div>
       </Link>
       <Link
-        href={"/download/EN_stikers_print.zip"}
+        href={"/download/stickers_print_EN_2gis_awards.zip"}
         className={
           "bg-[#374463B2] hover:bg-[#666D7D] active:bg-[#666D7D] max-tablet:justify-center max-tablet:mt-1 max-tablet:ml-0 flex items-center box-border py-3 px-6 rounded-[8] ml-3"
         }

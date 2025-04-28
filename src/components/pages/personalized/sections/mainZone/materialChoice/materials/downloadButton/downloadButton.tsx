@@ -19,7 +19,7 @@ export const DownloadButton = ({
   return (
     <div
       onClick={() => {
-        handleDownload(activeImage, setIsLoading);
+        handleDownload(activeImage, setIsLoading, activeMaterial);
         metrika("download_of_victory");
       }}
       className={

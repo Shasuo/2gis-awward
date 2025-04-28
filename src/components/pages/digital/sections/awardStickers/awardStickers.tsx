@@ -143,7 +143,7 @@ export const AwardStickers = () => {
         >
           <div className={"flex gap-3"}>
             <Link
-              href={"/download/RU_stikers.zip"}
+              href={"/download/stickers_RU_2gis_awards.zip"}
               className={
                 "hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:h-[56] max-tablet:flex max-tablet:justify-center max-tablet:px-[unset] max-tablet:w-[146px] bg-[#AB844C] flex items-center box-border py-3 px-6 rounded-[8]"
               }
@@ -165,7 +165,7 @@ export const AwardStickers = () => {
               </span>
             </Link>
             <Link
-              href={"/download/EN__stikers.zip"}
+              href={"/download/stickers_EN_2gis_awards.zip"}
               className={
                 "hover:bg-[#C5A87E] active:bg-[#C5A87E] max-tablet:h-[56] max-tablet:flex max-tablet:justify-center max-tablet:px-[unset] max-tablet:w-[146px] bg-[#AB844C] flex items-center box-border py-3 px-6 rounded-[8]"
               }
