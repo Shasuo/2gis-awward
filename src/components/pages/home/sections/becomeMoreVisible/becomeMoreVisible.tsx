@@ -42,7 +42,7 @@ export const BecomeMoreVisible = () => {
       <Link
         href={"https://t.me/awards2GIS_bot"}
         className={
-          "arrowImageBlock_HOVER max-tablet:h-[329px] max-tablet:bg-[#AB844C] max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-2 mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block"
+          "hover:bg-[#3D4862] active:bg-[#3D4862] arrowImageBlock_HOVER max-tablet:h-[329px] max-tablet:bg-[#AB844C] max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-2 mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block"
         }
         target={"_blank"}
         onClick={() => metrika("tg_bot")}

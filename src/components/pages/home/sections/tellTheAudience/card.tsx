@@ -1,11 +1,10 @@
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
-import Image from "next/image";
-import { TextModule } from "@/components/texts/textModule";
 import Link from "next/link";
 import { CardProps } from "@/components/pages/home/sections/tellTheAudience/cards";
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
 import { metrika } from "@/components/scripts/metrika";
+import styles from "./card.module.css";
 
 export const Card = ({
   href,
@@ -14,21 +13,29 @@ export const Card = ({
   mobilePlusHeight,
   blank,
   metrikaName,
+  hover,
 }: CardProps) => {
   const language = useAtom(languageRuAtom)[0];
   return (
     <Link
       href={href}
-      className={`${mobilePlusHeight ? "max-tablet:h-[345]" : "max-tablet:h-[286]"} max-tablet:p-[24] max-tablet:w-full p-[36] box-border w-[360] h-[408]  rounded-[16] flex arrowImageBlock_HOVER`}
+      className={
+        styles.wrapper +
+        ` ${mobilePlusHeight ? "max-tablet:h-[345]" : "max-tablet:h-[286]"} max-tablet:p-[24] max-tablet:w-full p-[36] box-border w-[360] h-[408]  rounded-[16] flex arrowImageBlock_HOVER overflow-hidden relative`
+      }
       style={{
         flexDirection: "column",
-        backgroundImage: `url(${IMAGES_PATH}/${img})`,
-        backgroundPosition: "center center",
-        backgroundSize: "cover",
       }}
       target={blank ? "_blank" : undefined}
       onClick={() => metrika(metrikaName)}
     >
+      <img
+        className={
+          styles.image +
+          ` ${hover === "bg" ? styles.hoverImg__bg : styles.hoverImg}`
+        }
+        src={`${IMAGES_PATH}/${img}`}
+      />
       <div className={"flex"}>
         <div
           className={

@@ -19,12 +19,14 @@ export const SuccessTellCards = ({
                 text: "Темы публикаций",
                 img: "digstickers-0.png",
                 metrikaName: materialsPage ? "publication_topics" : metrikaName,
+                hover: "bg",
               },
               {
                 href: "/digital-mockups#digital-stickers",
                 text: "Диджитал-стикеры",
                 img: "digstickers.webp",
                 metrikaName: materialsPage ? "digital_stickers" : metrikaName,
+                hover: "zoom",
               },
               {
                 href: "/digital-mockups#winner-card",
@@ -32,6 +34,7 @@ export const SuccessTellCards = ({
                 img: "digstickers-2.png",
                 mobilePlusHeight: true,
                 metrikaName: materialsPage ? "winner_postcard" : metrikaName,
+                hover: "bg",
               },
             ]
           : [
@@ -40,12 +43,14 @@ export const SuccessTellCards = ({
                 text: "Жарияланымдар  тақырыптары",
                 img: "digstickers-0.png",
                 metrikaName: materialsPage ? "publication_topics" : metrikaName,
+                hover: "bg",
               },
               {
                 href: "/digital-mockups#digital-stickers",
                 text: "Диджитал-стикерлер",
                 img: "digstickers.webp",
                 metrikaName: materialsPage ? "digital_stickers" : metrikaName,
+                hover: "zoom",
               },
               {
                 href: "/digital-mockups#winner-card",
@@ -53,6 +58,7 @@ export const SuccessTellCards = ({
                 img: "digstickers-2.png",
                 mobilePlusHeight: true,
                 metrikaName: materialsPage ? "winner_postcard" : metrikaName,
+                hover: "bg",
               },
             ]
       }

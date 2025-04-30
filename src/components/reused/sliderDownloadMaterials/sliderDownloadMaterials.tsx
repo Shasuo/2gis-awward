@@ -129,6 +129,7 @@ export const SliderDownloadMaterials = () => {
           href={"https://award-2023.2gis.ru/cheque/"}
           blank
           metrikaName={"manual"}
+          hover={"zoom"}
         />
       </div>
     </div>

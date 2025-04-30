@@ -7,6 +7,7 @@ export interface CardProps {
   mobilePlusHeight?: boolean;
   blank?: boolean;
   metrikaName: string;
+  hover: "zoom" | "bg";
 }
 export const Cards = ({ cards }: { cards: CardProps[] }) => {
   return (
@@ -23,6 +24,7 @@ export const Cards = ({ cards }: { cards: CardProps[] }) => {
           img={el.img}
           mobilePlusHeight={el.mobilePlusHeight}
           metrikaName={el.metrikaName}
+          hover={el.hover}
         />
       ))}
     </div>
