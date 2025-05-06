@@ -17,6 +17,7 @@
 
   .wrapper:hover .hoverImg__bg {
     background: #171c2d;
+    transform: scale(1.04);
   }
 }
 
@@ -27,5 +28,6 @@
 
   .wrapper:active .hoverImg__bg {
     background: #171c2d;
+    transform: scale(1.04);
   }
 }
