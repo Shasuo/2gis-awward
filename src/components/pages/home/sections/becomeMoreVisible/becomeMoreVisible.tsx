@@ -1,4 +1,3 @@
-import { TextModule } from "@/components/texts/textModule";
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +5,7 @@ import { SliderDownloadMaterials } from "@/components/reused/sliderDownloadMater
 import { useAtom } from "jotai/index";
 import { languageRuAtom } from "@/atoms/atoms";
 import { metrika } from "@/components/scripts/metrika";
+import styles from "./becomeMoreVisibile.module.css";
 
 export const BecomeMoreVisible = () => {
   const language = useAtom(languageRuAtom)[0];
@@ -41,9 +41,7 @@ export const BecomeMoreVisible = () => {
 
       <Link
         href={"https://t.me/awards2GIS_bot"}
-        className={
-          "hover:bg-[#3D4862] active:bg-[#3D4862] arrowImageBlock_HOVER max-tablet:h-[329px] max-tablet:bg-[#AB844C] max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-2 mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block"
-        }
+        className={`hover:bg-[#3D4862] active:bg-[#3D4862] arrowImageBlock_HOVER max-tablet:h-[329px] max-tablet:bg-[#AB844C] max-tablet:mx-auto max-tablet:max-w-[344px] max-tablet:mt-2 mt-[27] rounded-[16] p-12 pb-[101] box-border bg-[#364464] relative overflow-hidden block ${styles.tgHover}`}
         target={"_blank"}
         onClick={() => metrika("tg_bot")}
       >
@@ -86,9 +84,7 @@ export const BecomeMoreVisible = () => {
           alt={"Telegram"}
           width={495}
           height={237}
-          className={
-            "max-tablet:max-w-[344px] max-tablet:w-full max-tablet:left-0 max-tablet:right-[unset] absolute right-[90] bottom-0"
-          }
+          className={`max-tablet:max-w-[344px] max-tablet:w-full max-tablet:left-0 max-tablet:right-[unset] absolute right-[90] bottom-0 ${styles.image}`}
         />
       </Link>
     </section>

@@ -1,0 +1,8 @@
+.image {
+  transition: 0.2s;
+}
+@media (hover: hover) {
+  .tgHover:hover .image {
+    transform: scale(1.07);
+  }
+}
