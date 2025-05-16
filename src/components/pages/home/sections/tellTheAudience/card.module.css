@@ -1,0 +1,33 @@
+.image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-position: center center;
+  background-size: cover;
+  transition: 0.2s ease-in-out;
+  z-index: -1;
+}
+
+@media (hover: hover) {
+  .wrapper:hover .hoverImg {
+    transform: scale(1.2);
+  }
+
+  .wrapper:hover .hoverImg__bg {
+    background: #171c2d;
+    transform: scale(1.04);
+  }
+}
+
+@media (hover: none) {
+  .wrapper:active .hoverImg {
+    transform: scale(1.2);
+  }
+
+  .wrapper:active .hoverImg__bg {
+    background: #171c2d;
+    transform: scale(1.04);
+  }
+}

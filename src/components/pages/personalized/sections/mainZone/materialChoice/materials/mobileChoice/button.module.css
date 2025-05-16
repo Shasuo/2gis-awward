@@ -1,0 +1,9 @@
+.active {
+  background: #ab844c !important;
+  color: white !important;
+}
+
+.active__type {
+  background: white !important;
+  color: #0c132d !important;
+}
