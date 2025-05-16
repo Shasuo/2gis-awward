@@ -1,58 +1,50 @@
 import styles from "./step.module.css";
 
 export const Steps = () => {
+  const steps = [
+    { 
+      style_dark: true,
+      number: "Шаг 1",
+      name: "Открываем картинку",
+      text: "Заходим в любой удобный редактор (Canva, Figma или даже мобильное приложение Bazaart/Snapseed) и\xa0загружаем фото."
+    },
+    {
+      style_dark: false,
+      number: "Шаг 2",
+      name: "Добавляем<br/>диджитал-шильдик",
+      text: "Вставляем файл поверх вашего изображения."
+    },
+    { 
+      style_dark: false,
+      number: "Шаг 3",
+      name: "Перемещаем и\xa0настраиваем размер",
+      text: "Двигаем шильдик в нужное место и\xa0увеличиваем/уменьшаем, если это необходимо."
+    },
+    {
+      style_dark: true,
+      number: "Шаг 4",
+      name: "Сохраняем готовый результат",
+      text: "Нажимаем «Сохранить» или «Экспорт» и получаем картинку с\xa0шильдиком, готовую к публикации."
+    },
+  ];
   return (
     <section className={styles.container}>
-      <div className={styles.row}>
-        <div className={styles.item_dark}>
-          <div className={styles.step_number}>Шаг 1</div>
-          <div>
-            <h3 className={styles.step1_name}>Открываем картинку</h3>
-            <p className={styles.step1_text}>
-              Заходим в любой удобный редактор (Canva, Figma или даже мобильное
-              приложение Bazaart/Snapseed) и&nbsp;загружаем фото.
-            </p>
-          </div>
-        </div>
-        <div className={styles.item_light}>
-          <div className={styles.step_number}>Шаг 2</div>
-          <div>
-            <h3 className={styles.step2_name}>
-              Добавляем
-              <br />
-              диджитал-шильдик
-            </h3>
-            <p className={styles.step2_text}>
-              Вставляем файл поверх вашего изображения.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.row}>
-        <div className={styles.item_light}>
-          <div className={styles.step_number}>Шаг 3</div>
-          <div>
-            <h3 className={styles.step3_name}>
-              Перемещаем и&nbsp;настраиваем размер
-            </h3>
-            <p className={styles.step3_text}>
-              Двигаем шильдик в нужное место и&nbsp;увеличиваем/уменьшаем, если
-              это необходимо.
-            </p>
-          </div>
-        </div>
-        <div className={styles.item_dark}>
-          <div className={styles.step_number}>Шаг 4</div>
-          <div>
-            <h3 className={styles.step4_name}>Сохраняем готовый результат</h3>
-            <p className={styles.step4_text}>
-              Нажимаем «Сохранить» или «Экспорт» и получаем картинку с
-              шильдиком, готовую к публикации.
-            </p>
-          </div>
-        </div>
-      </div>
+      <div className={styles.step_container}>
+    {
+      
+      steps.map((step, index) => (
+        
+          <div key={index} className={step.style_dark ? styles.item_dark + ' '+ styles.item_light: styles.item_light}>
+            <div  className={styles.step_number}>{step.number}</div>
+              <div>
+                <h3 className={styles.step_name} dangerouslySetInnerHTML={{__html:step.name}}/>
+                <p className={styles.step_text}>{step.text}</p>
+              </div>
+            </div>
+          
+      ))
+    }
+    </div>
 
       <div className={styles.finish}>
         <p className={styles.finish_text}>

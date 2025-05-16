@@ -10,16 +10,16 @@ export const Offers = () => {
       <div className={styles.inner_conteiner}>
         <div className={styles.item}>
           <div>
-            <h4 className={styles.item1_header}>На аватарку в&nbsp;соцсетях</h4>
-            <p className={styles.item1_text}>
+            <h4 className={styles.item_header}>На аватарку в&nbsp;соцсетях</h4>
+            <p className={styles.item_text}>
               Обновите фото профиля добавив шильдик, чтобы увидели клиенты.
             </p>
           </div>
-          <img src={`${IMAGES_PATH}/shields.png`} alt={""} />
+          <img className={styles.image1} src={`${IMAGES_PATH}/post-stories-with-shiels.png`} alt={""} />
         </div>
         <div className={styles.item}>
           <img
-            src={`${IMAGES_PATH}/site_phone.png`}
+            src={`${IMAGES_PATH}/site-phone.png`}
             className={styles.image}
             alt={""}
           />
@@ -39,7 +39,7 @@ export const Offers = () => {
               о премии или благодарите клиентов.
             </p>
           </div>
-          <img src={`${IMAGES_PATH}/posts_stories_sale.png`} alt={""} />
+          <img src={`${IMAGES_PATH}/posts-stories-sale.png`} alt={""} />
         </div>
       </div>
       <div

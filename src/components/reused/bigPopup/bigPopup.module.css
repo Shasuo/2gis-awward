@@ -1,0 +1,20 @@
+.x_close_icon {
+    position: absolute;
+    right: -47px;
+    top:9px;
+
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.x_close_icon img {
+    width: 100%;
+}
+
+@media (max-width: 1168px) {
+    .x_close_icon {
+        top: 32.5px;
+        right: 35px;
+    }
+}
