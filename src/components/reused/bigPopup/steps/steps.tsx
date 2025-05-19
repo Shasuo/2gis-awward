@@ -24,7 +24,7 @@ export const Steps = () => {
       style_dark: true,
       number: "Шаг 4",
       name: "Сохраняем готовый результат",
-      text: "Нажимаем «Сохранить» или «Экспорт» и получаем картинку с\xa0шильдиком, готовую к публикации."
+      text: "Нажимаем «Сохранить» или\xa0«Экспорт» и получаем картинку с\xa0шильдиком, готовую к публикации."
     },
   ];
   return (
@@ -34,7 +34,7 @@ export const Steps = () => {
       
       steps.map((step, index) => (
         
-          <div key={index} className={step.style_dark ? styles.item_dark + ' '+ styles.item_light: styles.item_light}>
+          <div key={index} className={step.style_dark ? styles.item_dark + ' '+ styles.item: styles.item_light + ' ' + styles.item}>
             <div  className={styles.step_number}>{step.number}</div>
               <div>
                 <h3 className={styles.step_name} dangerouslySetInnerHTML={{__html:step.name}}/>
