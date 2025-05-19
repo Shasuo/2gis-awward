@@ -22,7 +22,7 @@
   object-fit: cover;
 }
 
-.offers_conteiner {
+.offers_container {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
