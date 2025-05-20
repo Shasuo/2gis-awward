@@ -1,25 +1,26 @@
 import { IMAGES_PATH } from "@/components/paths/paths";
 import styles from "./offer.module.css";
 import { useAtom } from "jotai/index";
-import { mainModalAtom } from "@/atoms/atoms";
+import { languageRuAtom, mainModalAtom } from "@/atoms/atoms";
 export const Offers = () => {
   const setMainModal = useAtom(mainModalAtom)[1];
+  const language = useAtom(languageRuAtom)[0];
   const offers = [
     {
-      header: "На аватарку в\xa0соцсетях",
-      text: "Обновите фото профиля добавив шильдик, чтобы увидели клиенты.",
+      header: `${language ? "На аватарку в\xa0соцсетях" : "Әлеуметтік желілердегі аватарға"}`,
+      text: `${language ? "Обновите фото профиля добавив шильдик, чтобы увидели клиенты." : "Клиенттердің көруі үшін шильдті қосу арқылы профиль фотосуретін жаңартыңыз."}`,
       src: `${IMAGES_PATH}/post-stories-with-shiels.png`,
       className: "normal"
     },
     {
-      header: "На сайт",
-      text: "Добавьте шильдик в раздел «О\xa0нас», на главную страницу или\xa0в карточки товаров/услуг, чтобы подчеркнуть доверие клиентов.",
+      header: `${language ? "На сайт" : "Посттар мен стористерге"}`,
+      text: `${language ? "Добавьте шильдик в раздел «О\xa0нас», на главную страницу или\xa0в карточки товаров/услуг, чтобы подчеркнуть доверие клиентов." : "Шильдті 2GIS Awards туралы ақпаратпен бөліскенде немесе клиенттерге алғыс айтқан кезде әлеуметтік желілерге арналған суреттерге орналастырыңыз."}`,
       src: `${IMAGES_PATH}/site-phone.png`,
       className: "order"
     },
     {
-      header: "В посты и сторис",
-      text: "Размещайте шильдик на картинках для соцсетей, когда рассказываете о премии или благодарите клиентов.",
+      header: `${language ? "В посты и сторис" : "Сайтқа"}`,
+      text: `${language ? "Размещайте шильдик на картинках для соцсетей, когда рассказываете о премии или благодарите клиентов." : "Клиенттердің сеніміне ерекше көңіл аудару үшін шильдті «Біз туралы» бөліміне, басты бетке немесе тауарлар/қызметтер карточкаларына қосыңыз."}`,
       src: `${IMAGES_PATH}/posts-stories-sale.png`
     }
   ]
