@@ -84,7 +84,7 @@
   order: -1;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1168px) {
   .header {
     width: 324px;
     height: 62px;
