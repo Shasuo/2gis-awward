@@ -54,12 +54,16 @@
 }
 
 .item_text {
-    width: 281px;
+    width: 288px;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.018em;
     margin-top: 12px;
+}
+
+.item_textKZ {
+    width: 280px;
 }
 
 .back_button {
@@ -89,10 +93,14 @@
 
 @media (max-width: 1168px) {
   .header {
-    width: 324px;
+    width: 320px;
     height: 62px;
     font-size: 24px;
     line-height: 130%;
+  }
+
+  .headerKZ {
+    width: 290px;
   }
 
   .image1 {
@@ -126,6 +134,11 @@
   }
 
   .item_text {
+    width: 288px;
+  }
+
+  .item_textKZ {
+    width: 270px;
   }
 
   .image {
@@ -133,7 +146,6 @@
   }
 
   .back_button {
-    
     max-width: 327px;
   }
 }
