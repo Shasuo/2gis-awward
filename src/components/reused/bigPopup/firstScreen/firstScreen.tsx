@@ -6,12 +6,12 @@ export const FirstScreen = () => {
   return (
     <section>
       <div className={styles.instruction}>
-        {language ? "Инструкция" : "Нұсқаулар"}
+        {language ? "Инструкция" : "Нұсқаулық"}
       </div>
       <h2
-        className={styles.header}
+        className={language ? styles.header : styles.headerKZ + ' ' + styles.header}
       >
-        {language ? "Как добавить диджитал-шильдик на картинку" : "Суретке диджитал-шильдті қалай қосуға болады"}
+        {language ? "Как добавить диджитал-шильдик на картинку" : `Суретке диджитал-шильдті қалай қосуға болады`}
       </h2>
     </section>
   );
