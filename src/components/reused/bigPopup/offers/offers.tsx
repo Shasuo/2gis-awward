@@ -49,7 +49,7 @@ export const Offers = () => {
         className={`hover:bg-[#666D7D] active:bg-[#666D7D] bg-[#374463b2] ${styles.back_button} cursor-pointer`}
         onClick={() => setMainModal(null)}
       >
-        <p>Назад</p>
+        <p>{language ? "Назад" : "Артқа"}</p>
       </div>
     </section>
   );
