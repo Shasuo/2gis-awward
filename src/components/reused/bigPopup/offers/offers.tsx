@@ -14,7 +14,7 @@ export const Offers = () => {
     },
     {
       header: `${language ? "В посты и сторис" : "Посттар мен стористерге"}`,
-      text: `${language ? "Размещайте шильдик на картинках для соцсетей, когда рассказываете о премии или благодарите клиентов." : "Шильдті 2GIS Awards туралы ақпаратпен бөліскенде немесе клиенттерге алғыс айтқан кезде әлеуметтік желілерге арналған суреттерге орналастырыңыз."}`,
+      text: `${language ? "Размещайте шильдик на\xa0картинках для соцсетей, когда рассказываете о премии или\xa0благодарите клиентов." : "Шильдті 2GIS Awards туралы ақпаратпен бөліскенде немесе клиенттерге алғыс айтқан кезде әлеуметтік желілерге арналған суреттерге орналастырыңыз."}`,
       src: `${IMAGES_PATH}/posts-stories-sale.png`,
       className: "order",
       itemHeight: "kz"
@@ -33,7 +33,7 @@ export const Offers = () => {
           (<div key={index} className={!language && offer.itemHeight ? styles.item2 + ' ' + styles.item : styles.item}>
           <div>
             <h4 className={language ? styles.item_header : styles.item_headerKZ + ' ' + styles.item_header}>{offer.header}</h4>
-            <p className={language ? styles.item_text : styles.item_textKZ + ' ' + styles.item_text}>
+            <p className={language ? index === 1 ? styles.item_text2 + " " + styles.item_text : styles.item_text : styles.item_textKZ + ' ' + styles.item_text}>
               {offer.text}
             </p>
           </div>

@@ -18,7 +18,7 @@
   height: 425px;
   position: relative;
   bottom: -10px;
-  left: -100px;
+  left: -110px;
   object-fit: cover;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .item_header {
-    width: 291px;
+    width: 310px;
     font-weight: 600;
     font-size: 24px;
     line-height: 130%;
@@ -93,7 +93,7 @@
 
 @media (max-width: 1168px) {
   .header {
-    width: 320px;
+    width: 290px;
     height: 62px;
     font-size: 24px;
     line-height: 130%;
@@ -135,6 +135,10 @@
 
   .item_text {
     width: 288px;
+  }
+
+  .item_text2 {
+    width: 270px;
   }
 
   .item_textKZ {
