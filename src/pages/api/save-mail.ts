@@ -1,34 +1,48 @@
-import fs from "fs";
-import path from "path";
-
 export default async function handler(req: any, res: any) {
   if (req.method === "POST") {
     try {
       const formData = req.body;
 
-      const filePath = path.join(process.cwd(), "mails", `${Date.now()}.txt`);
+      const messageText = `
+Имя и фамилия: ${formData.name}
+Электронная почта: ${formData.email}
+Город: ${formData.city}
+Вопрос: ${formData.question}
+      `.trim();
 
-      const formattedData = `
-        Имя и фамилия: ${formData.name}
-        Электронная почта: ${formData.email}
-        Город: ${formData.city}
-        Вопрос: ${formData.question}
-      `;
+      const webhookUrl = process.env.WEB_HOOK_URL;
+      if (webhookUrl) {
+        const response = await fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: messageText, username: "winners_2025" }),
+        });
 
-      const dataDir = path.join(process.cwd(), "mails");
-      if (!fs.existsSync(dataDir)) {
-        fs.mkdirSync(dataDir, { recursive: true });
+        if (!response.ok) {
+          console.error("Не удалось отправить данные:", {
+            timestamp: new Date().toISOString(),
+            data: formData,
+          });
+
+          throw new Error(
+            `Ошибка при отправке на вебхук: ${response.statusText}`
+          );
+        }
+        res.status(200).json({ message: "Сообщение успешно отправлено" });
+      } else {
+        console.error("Не удалось отправить данные, нет веб хука:", {
+          timestamp: new Date().toISOString(),
+          data: formData,
+        });
       }
-
-      fs.writeFileSync(filePath, formattedData);
-
-      res.status(200).json({ message: "Данные успешно сохранены" });
     } catch (error: any) {
-      console.error("Ошибка при сохранении данных:", error);
-      res.status(500).json({ error: "Произошла ошибка при сохранении данных" });
+      console.error("Критическая ошибка при обработке запроса:", error.message);
+      res.status(500).json({ error: "Не удалось отправить сообщение" });
     }
   } else {
     res.setHeader("Allow", ["POST"]);
-    res.status(405).end("Метод не поддерживается");
+    res.status(405).json({ error: "Метод не поддерживается" });
   }
 }
