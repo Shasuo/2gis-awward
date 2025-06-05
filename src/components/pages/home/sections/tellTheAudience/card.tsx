@@ -36,7 +36,7 @@ export const Card = ({
         }
         src={`${IMAGES_PATH}/${img}`}
       />
-      <div className={"flex"}>
+      <div className={"flex relative z-[2]"}>
         <div
           className={
             "max-tablet:rounded-[8] max-tablet:w-[24] max-tablet:h-[24] w-10 h-10 flex items-center justify-center rounded-[12px] box-border arrowImageBlock"
@@ -66,7 +66,7 @@ export const Card = ({
       </div>
       <h4
         className={
-          "max-tablet:text-[18px] max-tablet:tracking-[-0.018em] max-tablet:leading-[24px] text-[24px] leading-[130%] tracking-[-0.015em] font-display mt-auto"
+          "max-tablet:text-[18px] max-tablet:tracking-[-0.018em] max-tablet:leading-[24px] text-[24px] leading-[130%] tracking-[-0.015em] font-display mt-auto relative z-[2]"
         }
       >
         {text}
