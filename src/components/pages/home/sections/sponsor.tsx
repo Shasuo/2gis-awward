@@ -5,6 +5,17 @@ import Link from "next/link";
 
 export const Sponsor = () => {
   const language = useAtom(languageRuAtom)[0];
+
+  const Erid = () => (
+    <p className="max-tablet:mt-3 max-tablet:text-[10px] mt-[23px] text-[12px] leading-[150%] tracking-[-0.018em] opacity-60">
+      {language ? (
+        <>Реклама: АО "АрендаЭкспресс", 7707463937, erid:&nbsp;2RanykzQBvH</>
+      ) : (
+        <>Жарнама: "АрендаЭкспресс" АҚ, 7707463937, erid:&nbsp;2RanykqWGED</>
+      )}
+    </p>
+  );
+
   return (
     <section
       className={
@@ -50,6 +61,9 @@ export const Sponsor = () => {
             </>
           )}
         </p>
+        <div className="max-tablet:hidden">
+          <Erid />
+        </div>
       </div>
 
       <div
@@ -89,6 +103,9 @@ export const Sponsor = () => {
               {language ? "Узнать больше" : "Кобірек білу"}
             </div>
           </Link>
+        </div>
+        <div className={"max-tablet:block hidden"}>
+          <Erid />
         </div>
       </div>
     </section>

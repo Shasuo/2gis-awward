@@ -2,17 +2,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { ICONS_PATH } from "@/components/paths/paths";
 import { useAtom } from "jotai";
-import { languageRuAtom } from "@/atoms/atoms";
+import { languageRuAtom, materialSizesAtom } from "@/atoms/atoms";
 import React, { useRef, useState } from "react";
 import useClickOutside from "@/components/scripts/useClickOutside";
 export const Header = () => {
   const [language, setLanguage] = useAtom(languageRuAtom);
   const [active, setActive] = useState(false);
+  const [activeMaterial, setActiveMaterial] = useAtom(materialSizesAtom);
 
   const setLanguageHandle = () => {
-    setLanguage(!language);
+    const lang = !language;
+    setLanguage(lang);
     setActive(false);
-    localStorage.setItem("language_storage", !language ? "RU" : "KZ");
+    setActiveMaterial({ ...activeMaterial, ru: lang });
+    localStorage.setItem("language_storage", lang ? "RU" : "KZ");
   };
 
   //@ts-ignore

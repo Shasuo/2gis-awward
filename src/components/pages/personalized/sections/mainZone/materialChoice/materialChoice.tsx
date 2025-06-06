@@ -8,6 +8,7 @@ export interface mainSizesInterface {
 
 export interface mainMaterialTypeInterface {
   type: "IMAGE" | "VIDEO";
+  ru: boolean
 }
 
 export interface mainMaterialInterface extends mainMaterialTypeInterface {

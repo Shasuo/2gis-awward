@@ -16,6 +16,7 @@ interface MaterialsData {
   video: boolean;
   archive: boolean;
   link: string;
+  ln?: "ru" | "kz";
 }
 
 /******* Глобальные состояния городов и списков победителей ___ START ___ *******/
@@ -30,6 +31,7 @@ export const cityAtom = atom<OptionType | null>();
 export const materialSizesAtom = atom<mainMaterialInterface>({
   type: "IMAGE",
   sizes: { width: 1080, height: 1080 },
+  ru: true,
 });
 /******* Глобальное состояние выбранного размера персонализированных материалов ___ END _____ *******/
 

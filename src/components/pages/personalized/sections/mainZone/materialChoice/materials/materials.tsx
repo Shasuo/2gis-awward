@@ -1,7 +1,6 @@
 import { ICONS_PATH, IMAGES_PATH } from "@/components/paths/paths";
 import { ControlButton } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/controlButtons/controlButton";
 import Image from "next/image";
-import Link from "next/link";
 import { useAtom } from "jotai/index";
 import {
   languageRuAtom,
@@ -12,35 +11,40 @@ import { MobileChoice } from "@/components/pages/personalized/sections/mainZone/
 import { useEffect, useState } from "react";
 import { DownloadButton } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/downloadButton/downloadButton";
 import { DownloadAll } from "@/components/pages/personalized/sections/mainZone/materialChoice/materials/downloadButton/downloadAll";
+import { LanguageChange } from "./languageChange";
+
+const handleShare = async (imageUrl: string) => {
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title: "Поделиться изображением",
+        text: "Посмотрите это изображение!",
+        url: imageUrl,
+      });
+    } else {
+      const link = document.createElement("a");
+      link.href = imageUrl;
+      link.download = imageUrl.split("/").pop() || "image.jpg";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  } catch (err) {
+    console.error("Ошибка при попытке поделиться:", err);
+  }
+};
 
 export const Materials = () => {
   const language = useAtom(languageRuAtom)[0];
   const [activeMaterial, setActiveMaterial] = useAtom(materialSizesAtom);
   const [activeImage, setActiveImage] = useState(
-    `${IMAGES_PATH}/${activeMaterial.sizes.width}x${activeMaterial.sizes.height}.png`,
+    `${IMAGES_PATH}/${activeMaterial.sizes.width}x${activeMaterial.sizes.height}.png`
   );
   const materialsData = useAtom(materialsDataAtom)[0];
 
-  const handleShare = async (imageUrl: string) => {
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: "Поделиться изображением",
-          text: "Посмотрите это изображение!",
-          url: imageUrl,
-        });
-      } else {
-        const link = document.createElement("a");
-        link.href = imageUrl;
-        link.download = imageUrl.split("/").pop() || "image.jpg";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
-    } catch (err) {
-      console.error("Ошибка при попытке поделиться:", err);
-    }
-  };
+  useEffect(() => setActiveMaterial({ ...activeMaterial, ru: language }), []);
+
+  const kzStatus = materialsData.some((e) => e.ln === "kz");
 
   useEffect(() => {
     if (materialsData) {
@@ -52,7 +56,13 @@ export const Materials = () => {
         const typeMatch =
           activeMaterial.type === "IMAGE" ? !item.video : item.video;
 
-        return sizeMatch && typeMatch;
+        if (kzStatus) {
+          const searchLang = activeMaterial.ru ? "ru" : "kz";
+          const langMatch = item.ln === searchLang;
+          return sizeMatch && typeMatch && langMatch;
+        } else {
+          return sizeMatch && typeMatch;
+        }
       })?.link;
 
       if (filePath) {
@@ -99,7 +109,10 @@ export const Materials = () => {
             "Бейне көптеген әлеуметтік желілерде жариялауға қолайлы"
           )}
         </p>
-        <div className={"max-tablet:mt-6 mt-9 flex gap-2"}>
+        {kzStatus && <LanguageChange />}
+        <div
+          className={`${kzStatus ? "mt-6" : "max-tablet:mt-6 mt-9"} flex gap-2`}
+        >
           <DownloadButton
             activeMaterial={activeMaterial}
             activeImage={activeImage}
