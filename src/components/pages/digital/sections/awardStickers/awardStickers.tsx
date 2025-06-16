@@ -113,7 +113,7 @@ export const AwardStickers = () => {
 
       <div
         className={
-          "max-tablet:max-w-[297] max-tablet:ml-auto max-tablet:pt-6 max-tablet:mr-auto max-tablet:ml-0 ml-12 pt-12 pb-12 box-border"
+          "max-tablet:max-w-[297] max-tablet:ml-auto max-tablet:pt-6 max-tablet:mr-auto ml-12 pt-12 pb-12 box-border"
         }
       >
         <div className={"max-tablet:hidden"}>

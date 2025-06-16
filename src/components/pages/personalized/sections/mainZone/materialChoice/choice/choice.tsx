@@ -24,6 +24,7 @@ export const MaterialChoiceButtons: MaterialChoiceButtonsProps[] = [
       { width: 1920, height: 1080 },
       { width: 1080, height: 1920 },
     ],
+    ru: true,
   },
   {
     title: "Видеооткрытка",
@@ -32,6 +33,7 @@ export const MaterialChoiceButtons: MaterialChoiceButtonsProps[] = [
       { width: 1080, height: 1920 },
       { width: 1920, height: 1080 },
     ],
+    ru: true,
   },
 ];
 
@@ -45,6 +47,7 @@ export const MaterialChoiceButtons__KZ: MaterialChoiceButtonsProps[] = [
       { width: 1920, height: 1080 },
       { width: 1080, height: 1920 },
     ],
+    ru: false,
   },
   {
     title: "Бейне ашықхат",
@@ -53,6 +56,7 @@ export const MaterialChoiceButtons__KZ: MaterialChoiceButtonsProps[] = [
       { width: 1080, height: 1920 },
       { width: 1920, height: 1080 },
     ],
+    ru: false,
   },
 ];
 

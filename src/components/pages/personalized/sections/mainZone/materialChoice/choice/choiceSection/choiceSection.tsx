@@ -64,6 +64,7 @@ export const ChoiceSection = ({
               }}
               onClick={() =>
                 setActiveMaterial({
+                  ...activeMaterial,
                   type: block.type,
                   sizes: { width: size.width, height: size.height },
                 })
@@ -71,7 +72,7 @@ export const ChoiceSection = ({
             >
               {size.width + "x" + size.height}
             </span>
-          ),
+          )
         )}
       </div>
     </div>

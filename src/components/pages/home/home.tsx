@@ -5,7 +5,6 @@ import { BecomeMoreVisible } from "./sections/becomeMoreVisible/becomeMoreVisibl
 import { TagUs } from "./sections/tagUs/tagUs";
 import { AnyQuestions } from "@/components/pages/home/sections/anyQuestions";
 import { Footer } from "@/layout/footer/footer";
-import { Sponsor } from "@/components/pages/home/sections/sponsor";
 
 export const HomePage = () => {
   return (
@@ -17,7 +16,8 @@ export const HomePage = () => {
       <main>
         <TellTheAudience />
         <BecomeMoreVisible />
-        <Sponsor />
+
+        {/*<Sponsor />*/}
       </main>
       <TagUs />
       <main>

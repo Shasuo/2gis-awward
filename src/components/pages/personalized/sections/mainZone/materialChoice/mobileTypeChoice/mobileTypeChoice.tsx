@@ -22,6 +22,7 @@ export const MobileTypeChoice = () => {
           setActiveMaterial={setActiveMaterial}
           type={size.type}
           title={size.title}
+          ru={language}
         />
       ))}
     </div>
